@@ -54,55 +54,63 @@
     }
   },
   "services": {
-    "title": "Our Medical Services",
-    "subtitle": "Comprehensive healthcare services provided by our experienced medical professionals.",
+    "title": "Our Dental Services",
+    "subtitle": "Comprehensive dental care provided by our experienced dental professionals in Makati, Philippines.",
     "viewAll": "View All Services",
     "learnMore": "Learn More",
-    "cardiology": {
-      "title": "Cardiology",
-      "description": "Comprehensive heart care with advanced diagnostics and treatment options for all cardiac conditions."
+    "crowns": {
+      "title": "Crowns",
+      "description": "We offer restoration and enhancement to misshapen, chipped, and damaged teeth. Select from metal, porcelain-infused metal, porcelain, ceramic, and resin crowns, depending on your needs and preferences."
     },
-    "neurology": {
-      "title": "Neurology",
-      "description": "Expert care for neurological disorders with the latest diagnostic technology and treatment protocols."
+    "veneers": {
+      "title": "Veneers",
+      "description": "In need of a thin new layer to improve or restore the appearance of your tooth? Set an appointment with us and get a consultation, fitting, and installment of veneers for your desired pearly-whites."
     },
-    "orthopedics": {
-      "title": "Orthopedics",
-      "description": "Specialized care for bone and joint conditions, from diagnosis to rehabilitation and surgical interventions."
+    "rootcanal": {
+      "title": "Endodontics (Root Canal)",
+      "description": "Arevalo Clinic also specializes in endodontic procedures, from non-surgical root canals to endodontic treatments. See a specialist at our clinic and we'll see what we can do to save your tooth."
     },
-    "internal": {
-      "title": "Internal Medicine",
-      "description": "Comprehensive care for adults, including preventive medicine, diagnosis, and treatment of various conditions."
+    "bonding": {
+      "title": "Bonds",
+      "description": "Arrange a single-session dental bonding procedure with us and have gaps between teeth filled out, repair a chipped tooth, and generally improve the condition of a tooth in one sitting."
     },
-    "ophthalmology": {
-      "title": "Ophthalmology",
-      "description": "Complete eye care services, from routine exams to specialized treatments for various eye conditions."
+    "bridges": {
+      "title": "Bridges",
+      "description": "Replace missing teeth and ease biting difficulty with dental bridges. Call the clinic for a consultation and scheduling for the smile restoring procedure."
     },
-    "pediatrics": {
-      "title": "Pediatrics",
-      "description": "Specialized healthcare for children from birth through adolescence, focusing on growth and development."
+    "whitening": {
+      "title": "Teeth Whitening",
+      "description": "Get back the confidence to flash your biggest smile with our tooth whitening services, from brushing and natural bleaching, to bleaching gel and laser bleaching."
     },
-    "pulmonology": {
-      "title": "Pulmonology",
-      "description": "Comprehensive care for respiratory disorders, from asthma to complex lung diseases."
+    "orthodontic": {
+      "title": "Orthodontic Treatment",
+      "description": "For those with concerns of malocclusion (overbites and underbites), and the proper positioning and alignment of their teeth and jaws, we offer orthodontic services to help eliminate discomfort and difficulty as well as to improve one's overall facial appearance."
     },
-    "nephrology": {
-      "title": "Nephrology",
-      "description": "Expert treatment for kidney diseases and disorders with cutting-edge therapeutic approaches."
+    "implants": {
+      "title": "Implants",
+      "description": "Bridges and dentures are not the only solutions to missing teeth. Dental implants are very much possible today, too, and Arevalo Dental Clinic is here to offer you tooth root replacements."
     },
-    "ent": {
-      "title": "Ear, Nose & Throat",
-      "description": "Complete care for ear, nose, and throat conditions with specialized diagnostic and treatment procedures."
+    "overlay": {
+      "title": "Inlay/Onlay",
+      "description": "Is your tooth suffering from decay, but does not necessarily need a crown? Perhaps all you need are indirect fillings, such as inlays and onlays. Schedule an appointment with us and we'll see how we could treat your tooth."
     },
-    "laboratory": {
-      "title": "Laboratory Services",
-      "description": "State-of-the-art diagnostic laboratory with comprehensive testing capabilities for precise diagnostics."
+    "periodontics": {
+      "title": "Periodontics",
+      "description": "For those with more serious dental conditions such as gum bleeding and gingivitis, our experienced professionals are here to help you. Schedule an appointment with one of our dentists and we'll see the best way we could address your problem."
+    },
+    "oralsurgery": {
+      "title": "Oral Surgery",
+      "description": "From tooth extraction to jaw surgery, Arevalo Clinic offers you the best of our dental surgical facilities and services."
+    },
+    "dentures": {
+      "title": "Dentures",
+      "description": "Has a tooth been lost, or your teeth been removed? Visit us and we'll customize dentures for you."
     }
   },
   "doctors": {
-    "title": "Meet Our Specialists",
-    "subtitle": "Our team of experienced doctors is dedicated to providing you with the highest quality of care.",
-    "viewAll": "View All Doctors",
+    "title": "Meet Our Team",
+    "subtitle": "Our team of experienced dentists is dedicated to providing you with the highest quality of dental care in Makati.",
+    "viewAll": "View All Dentists",
     "bookAppointment": "Book Appointment",
     "callNow": "Call Now",
     "available": "Available Today",
@@ -111,94 +119,55 @@
     "specializations": "Specializations",
     "languages": "Languages Spoken",
     "doctor1": {
-      "name": "Dr. Sarah Johnson",
-      "specialty": "Cardiologist",
-      "bio": "Specialized in interventional cardiology with over 15 years of experience, Dr. Johnson has performed more than 1,000 successful cardiac procedures. She takes a patient-centered approach, focusing on preventative care and lifestyle modifications for heart health management.",
-      "experience": "15+ Years",
-      "location": "Dubai",
-      "reviewCount": "145",
-      "phone": "+97123456789",
-      "spec1": "Interventional Cardiology",
-      "spec2": "Echocardiography",
-      "spec3": "Preventive Cardiology",
+      "name": "Dr. Daisy Miranda-Arevalo",
+      "specialty": "Cosmetic Dentist",
+      "position": "Head Dentist",
+      "credentials": "DMD, Fellow in Cosmetic Dentistry",
+      "bio": "Dr. Daisy Miranda-Arevalo has had over 30 years of dental practice. Dr. Arevalo stands at the forefront in offering quality dental services from the heart of Makati's Central Business District.",
+      "experience": "30+ Years",
+      "location": "Makati",
+      "reviewCount": "198",
+      "phone": "+639123456789",
+      "spec1": "Cosmetic Dentistry",
+      "spec2": "Implantology",
+      "spec3": "Orthodontics",
       "lang1": "English",
-      "lang2": "Arabic",
-      "lang3": "French"
+      "lang2": "Filipino",
+      "lang3": "Spanish"
     },
     "doctor2": {
-      "name": "Dr. Mohammed Al-Farsi",
-      "specialty": "Neurologist",
-      "bio": "Board-certified neurologist specializing in stroke treatment and prevention, Dr. Al-Farsi has extensive training in neurorehabilitation and headache management. His research on stroke recovery is published in several international medical journals.",
-      "experience": "12+ Years",
-      "location": "Abu Dhabi",
-      "reviewCount": "127",
-      "phone": "+97123456790",
-      "spec1": "Stroke Treatment",
-      "spec2": "Headache Management",
-      "spec3": "Neurorehabilitation",
-      "lang1": "Arabic",
-      "lang2": "English",
-      "lang3": "Urdu"
+      "name": "Dr. Caroline Verceles-Arevalo",
+      "specialty": "Orthodontist",
+      "position": "Associate Dentist",
+      "credentials": "DMD, MS Orthodontics",
+      "bio": "Dr. Caroline specializes in orthodontics and aesthetic dentistry, providing patients with expert care for teeth alignment and cosmetic procedures. With her gentle approach and attention to detail, she ensures each patient achieves their ideal smile.",
+      "experience": "15+ Years",
+      "location": "Makati",
+      "reviewCount": "157",
+      "phone": "+639234567890",
+      "spec1": "Orthodontics",
+      "spec2": "Aesthetic Dentistry",
+      "spec3": "Pediatric Dentistry",
+      "lang1": "English",
+      "lang2": "Filipino",
+      "lang3": "Chinese"
     },
     "doctor3": {
-      "name": "Dr. Aisha Rahman",
-      "specialty": "Pediatrician",
-      "bio": "Specialized in pediatric care with a focus on childhood development and preventive medicine, Dr. Rahman has a gentle approach that puts children at ease. She has additional training in pediatric allergy and immunology to help children with complex conditions.",
-      "experience": "10+ Years",
-      "location": "Dubai",
-      "reviewCount": "203",
-      "phone": "+97123456791",
-      "spec1": "Child Development",
-      "spec2": "Pediatric Allergies",
-      "spec3": "Preventive Medicine",
-      "lang1": "Arabic",
-      "lang2": "English",
-      "lang3": "Hindi"
-    },
-    "doctor4": {
-      "name": "Dr. James Wilson",
-      "specialty": "Orthopedic Surgeon",
-      "bio": "Expert in joint replacements and sports medicine with advanced surgical techniques. Dr. Wilson has worked with professional athletes and specializes in minimally invasive procedures that reduce recovery time.",
-      "experience": "18+ Years",
-      "location": "Sharjah",
-      "reviewCount": "176",
-      "phone": "+97123456792",
-      "spec1": "Joint Replacement",
-      "spec2": "Sports Medicine",
-      "spec3": "Minimally Invasive Surgery",
+      "name": "Dr. Eloisa Tiongson",
+      "specialty": "Endodontist",
+      "position": "Associate Dentist",
+      "credentials": "DMD, Specialist in Endodontics",
+      "bio": "Dr. Eloisa is an expert in root canal therapy and endodontic procedures. Her precision and care in treating dental pulp issues have earned her a reputation for pain-free treatments and successful outcomes for even the most complex cases.",
+      "experience": "12+ Years",
+      "location": "Makati",
+      "reviewCount": "143",
+      "phone": "+639345678901",
+      "spec1": "Root Canal Therapy",
+      "spec2": "Endodontic Surgery",
+      "spec3": "Dental Trauma Management",
       "lang1": "English",
-      "lang2": "Spanish",
-      "lang3": "Portuguese"
-    },
-    "doctor5": {
-      "name": "Dr. Fatima Al-Zahra",
-      "specialty": "Ophthalmologist",
-      "bio": "Specialized in treating complex eye conditions using the latest technologies and procedures. Dr. Al-Zahra has pioneered several innovative techniques for cataract surgery and is an expert in LASIK vision correction.",
-      "experience": "14+ Years",
-      "location": "Dubai",
-      "reviewCount": "158",
-      "phone": "+97123456793",
-      "spec1": "Cataract Surgery",
-      "spec2": "LASIK",
-      "spec3": "Pediatric Ophthalmology",
-      "lang1": "Arabic",
-      "lang2": "English",
-      "lang3": "French"
-    },
-    "doctor6": {
-      "name": "Dr. Ahmad Khalil",
-      "specialty": "Internal Medicine",
-      "bio": "Comprehensive approach to adult healthcare with expertise in chronic disease management. Dr. Khalil focuses on holistic treatment plans that address both physical and mental wellbeing for optimal health outcomes.",
-      "experience": "20+ Years",
-      "location": "Abu Dhabi",
-      "reviewCount": "231",
-      "phone": "+97123456794",
-      "spec1": "Diabetes Management",
-      "spec2": "Hypertension Treatment",
-      "spec3": "Geriatric Medicine",
-      "lang1": "Arabic",
-      "lang2": "English",
-      "lang3": "Turkish"
+      "lang2": "Filipino",
+      "lang3": "Japanese"
     }
   },
   "testimonials": {
