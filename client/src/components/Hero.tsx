@@ -21,12 +21,79 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-r from-primary/10 via-accent to-white">
-      {/* Background pattern with dental symbols */}
-      <div className="absolute inset-0 opacity-5 z-0">
+      {/* Floating dental particles */}
+      <div className="dental-particle text-3xl text-primary/30"><FaTooth /></div>
+      <div className="dental-particle text-2xl text-secondary/30"><FaTeeth /></div>
+      <div className="dental-particle text-4xl text-primary/20"><FaTooth /></div>
+      <div className="dental-particle text-3xl text-secondary/20"><FaTeeth /></div>
+      <div className="dental-particle text-2xl text-primary/30"><FaTooth /></div>
+      <div className="dental-particle text-4xl text-secondary/30"><FaTeeth /></div>
+      <div className="dental-particle text-3xl text-primary/20"><FaTooth /></div>
+      <div className="dental-particle text-2xl text-secondary/20"><FaTeeth /></div>
+      <div className="dental-particle text-4xl text-primary/30"><FaTooth /></div>
+      {/* Background pattern with dental symbols and animated elements */}
+      <div className="absolute inset-0 opacity-5 z-0 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:20px_20px]"></div>
-        <div className="absolute top-20 left-20 text-6xl text-primary/20"><FaTooth /></div>
-        <div className="absolute bottom-40 right-40 text-6xl text-secondary/20"><FaTeeth /></div>
-        <div className="absolute top-60 right-60 text-5xl text-primary/10"><GiMedicines /></div>
+        
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 0.2, scale: 1 }}
+          transition={{ duration: 1.5 }}
+          className="absolute top-20 left-20 text-6xl text-primary"
+        >
+          <FaTooth />
+        </motion.div>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 0.2, y: 0 }}
+          transition={{ duration: 1.5, delay: 0.3 }}
+          className="absolute bottom-40 right-40 text-6xl text-secondary"
+        >
+          <FaTeeth />
+        </motion.div>
+        
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 0.1, x: 0 }}
+          transition={{ duration: 1.5, delay: 0.6 }}
+          className="absolute top-60 right-60 text-5xl text-primary"
+        >
+          <GiMedicines />
+        </motion.div>
+        
+        {/* Additional floating elements */}
+        <motion.div 
+          animate={{ 
+            y: [0, -15, 0],
+            opacity: [0.1, 0.2, 0.1],
+          }}
+          transition={{ 
+            repeat: Infinity, 
+            duration: 8,
+            ease: "easeInOut" 
+          }}
+          className="absolute top-1/3 left-1/4 text-7xl text-secondary/20"
+        >
+          <FaTooth />
+        </motion.div>
+        
+        <motion.div 
+          animate={{ 
+            y: [0, 15, 0],
+            opacity: [0.1, 0.2, 0.1],
+            rotate: [0, 10, 0]
+          }}
+          transition={{ 
+            repeat: Infinity, 
+            duration: 10,
+            ease: "easeInOut",
+            delay: 2
+          }}
+          className="absolute bottom-1/4 left-1/3 text-8xl text-primary/20"
+        >
+          <FaTeeth />
+        </motion.div>
       </div>
       
       {/* Main content */}
@@ -47,11 +114,22 @@ const Hero: React.FC = () => {
             </div>
             
             <h1 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight ${isRtl ? 'font-arabic rtl-toggle' : 'font-heading-en'}`}>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+              <motion.span 
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="block bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
+              >
                 Transforming Smiles
-              </span>
-              <br />
-              <span className="text-gray-800">In the Heart of Saudi Arabia</span>
+              </motion.span>
+              <motion.span 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="block text-gray-800 mt-2"
+              >
+                In the Heart of Saudi Arabia
+              </motion.span>
             </h1>
             
             <p className={`text-lg text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0 ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
@@ -88,7 +166,7 @@ const Hero: React.FC = () => {
             {/* Dental specific trust badges */}
             <div className="mt-12 flex flex-wrap items-center justify-center lg:justify-start gap-6">
               <div className="flex flex-col items-center lg:items-start space-y-1">
-                <div className="bg-accent rounded-full p-3 mb-1">
+                <div className="bg-accent rounded-full p-3 mb-1" style={{ animation: 'dental-glow 3s infinite' }}>
                   <FaTooth className="h-5 w-5 text-primary" />
                 </div>
                 <span className={`text-sm font-medium text-gray-800 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>Modern Equipment</span>
@@ -96,7 +174,7 @@ const Hero: React.FC = () => {
               </div>
               
               <div className="flex flex-col items-center lg:items-start space-y-1">
-                <div className="bg-accent rounded-full p-3 mb-1">
+                <div className="bg-accent rounded-full p-3 mb-1" style={{ animation: 'dental-glow 3s infinite 0.5s' }}>
                   <FaTeeth className="h-5 w-5 text-primary" />
                 </div>
                 <span className={`text-sm font-medium text-gray-800 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>Expert Dentists</span>
@@ -104,7 +182,7 @@ const Hero: React.FC = () => {
               </div>
               
               <div className="flex flex-col items-center lg:items-start space-y-1">
-                <div className="bg-accent rounded-full p-3 mb-1">
+                <div className="bg-accent rounded-full p-3 mb-1" style={{ animation: 'dental-glow 3s infinite 1s' }}>
                   <GiMedicines className="h-5 w-5 text-primary" />
                 </div>
                 <span className={`text-sm font-medium text-gray-800 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>International Standards</span>
@@ -158,7 +236,7 @@ const Hero: React.FC = () => {
                 className="absolute -left-8 bottom-32 bg-white rounded-lg shadow-xl p-4 max-w-[200px]"
               >
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="bg-accent rounded-full p-2">
+                  <div className="bg-accent rounded-full p-2" style={{ animation: 'dental-glow 3s infinite 1.2s' }}>
                     <FaTooth className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className={`font-medium text-gray-900 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>Dental Implants</h3>
@@ -178,7 +256,7 @@ const Hero: React.FC = () => {
                 className="absolute -right-8 top-20 bg-white rounded-lg shadow-xl p-4 max-w-[200px]"
               >
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="bg-accent rounded-full p-2">
+                  <div className="bg-accent rounded-full p-2" style={{ animation: 'dental-glow 3s infinite 1.5s' }}>
                     <FaTeeth className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className={`font-medium text-gray-900 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>Teeth Whitening</h3>

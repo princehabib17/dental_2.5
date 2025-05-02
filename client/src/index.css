@@ -128,3 +128,52 @@ html {
 .rotateY-180 {
   transform: rotateY(180deg);
 }
+
+/* Dental Particles Animation */
+@keyframes float-particle {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.2;
+    filter: drop-shadow(0 0 5px rgba(56, 189, 248, 0.3));
+  }
+  50% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.7));
+  }
+  100% {
+    transform: translateY(-30vh) rotate(360deg);
+    opacity: 0;
+    filter: drop-shadow(0 0 5px rgba(56, 189, 248, 0.3));
+  }
+}
+
+/* Glow effect for dental elements */
+@keyframes dental-glow {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(56, 189, 248, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.7));
+  }
+  100% {
+    filter: drop-shadow(0 0 5px rgba(56, 189, 248, 0.3));
+  }
+}
+
+.dental-particle {
+  position: absolute;
+  bottom: -10px;
+  background-color: transparent;
+  animation: float-particle 15s infinite;
+  z-index: 1;
+}
+
+.dental-particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
+.dental-particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 17s; }
+.dental-particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 13s; }
+.dental-particle:nth-child(4) { left: 40%; animation-delay: 6s; animation-duration: 15s; }
+.dental-particle:nth-child(5) { left: 50%; animation-delay: 8s; animation-duration: 14s; }
+.dental-particle:nth-child(6) { left: 60%; animation-delay: 10s; animation-duration: 16s; }
+.dental-particle:nth-child(7) { left: 70%; animation-delay: 12s; animation-duration: 18s; }
+.dental-particle:nth-child(8) { left: 80%; animation-delay: 14s; animation-duration: 12s; }
+.dental-particle:nth-child(9) { left: 90%; animation-delay: 16s; animation-duration: 15s; }
