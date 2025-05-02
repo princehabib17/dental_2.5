@@ -271,6 +271,10 @@
   "faq": {
     "title": "Frequently Asked Questions",
     "subtitle": "Find answers to common questions about our services and facilities.",
+    "helpSection": "Help Center",
+    "searchPlaceholder": "Search for answers...",
+    "noResults": "No matching questions found",
+    "tryDifferentSearch": "Please try a different search term or browse all questions below.",
     "appointment": {
       "question": "How do I schedule an appointment?",
       "answer": "You can schedule an appointment through our online booking system, by calling our reception at +971 4 123 4567, or by visiting our medical center in person. For new patients, we recommend calling to ensure we have all the necessary information to provide you with the best care."
