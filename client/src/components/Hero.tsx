@@ -128,12 +128,12 @@ const Hero: React.FC = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="block text-gray-800 mt-2"
               >
-                In the Heart of Saudi Arabia
+                In the Heart of Makati, Philippines
               </motion.span>
             </h1>
             
             <p className={`text-lg text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0 ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
-              With a clientele composed of Saudis, Bahrainis, and Qataris, we've established ourselves as a dental clinic of international standards, proudly providing quality general and cosmetic dental care.
+              With a diverse clientele from across the Philippines, we've established ourselves as a premier dental clinic in Makati, proudly providing quality general and cosmetic dental care with international standards.
             </p>
             
             <div className={`flex flex-col sm:flex-row gap-4 justify-center lg:justify-start ${isRtl ? 'rtl-toggle' : ''}`}>
@@ -149,7 +149,7 @@ const Hero: React.FC = () => {
                 </motion.div>
               </Link>
               
-              <a href="tel:+97141234567">
+              <a href="tel:+639123456789">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                   <Button 
                     variant="outline"
@@ -186,7 +186,7 @@ const Hero: React.FC = () => {
                   <GiMedicines className="h-5 w-5 text-primary" />
                 </div>
                 <span className={`text-sm font-medium text-gray-800 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>International Standards</span>
-                <span className={`text-xs text-gray-500 ${isRtl ? 'font-arabic' : 'font-body-en'}`}>Philippine-Arabian quality</span>
+                <span className={`text-xs text-gray-500 ${isRtl ? 'font-arabic' : 'font-body-en'}`}>Filipino excellence</span>
               </div>
             </div>
           </motion.div>
