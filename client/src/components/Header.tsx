@@ -58,11 +58,9 @@ const Header: React.FC = () => {
             </div>
             <div className="flex items-center space-x-4 rtl:space-x-reverse">
               <LanguageToggle />
-              <Link href="/favorites">
-                <a className="flex items-center text-sm text-gray-600 hover:text-primary transition-colors">
-                  <Heart className="h-4 w-4" />
-                </a>
-              </Link>
+              <Link href="/favorites" className="flex items-center text-sm text-gray-600 hover:text-primary transition-colors">
+              <Heart className="h-4 w-4" />
+            </Link>
             </div>
           </div>
         </div>
@@ -76,22 +74,20 @@ const Header: React.FC = () => {
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/">
-              <a className="flex items-center">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  className="flex items-center"
-                >
-                  <svg className="text-primary h-8 w-8 mr-2 rtl:ml-2 rtl:mr-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"></path>
-                    <path d="M9 12h6"></path>
-                    <path d="M12 9v6"></path>
-                  </svg>
-                  <span className={`font-bold text-primary text-xl ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>
-                    {t('site.name')}
-                  </span>
-                </motion.div>
-              </a>
+            <Link href="/" className="flex items-center">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center"
+              >
+                <svg className="text-primary h-8 w-8 mr-2 rtl:ml-2 rtl:mr-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"></path>
+                  <path d="M9 12h6"></path>
+                  <path d="M12 9v6"></path>
+                </svg>
+                <span className={`font-bold text-primary text-xl ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>
+                  {t('site.name')}
+                </span>
+              </motion.div>
             </Link>
 
             {/* Search bar (desktop) */}
@@ -109,13 +105,15 @@ const Header: React.FC = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
               {navigationLinks.map((link) => (
-                <Link key={link.href} href={link.href}>
-                  <a className="relative group">
-                    <span className={`${isRtl ? 'font-arabic' : 'font-heading-en'} font-semibold hover:text-primary transition-colors ${location === link.href ? 'text-primary' : 'text-gray-800'}`}>
-                      {link.label}
-                    </span>
-                    <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full ${location === link.href ? 'w-full' : ''}`}></span>
-                  </a>
+                <Link 
+                  key={link.href} 
+                  href={link.href}
+                  className="relative group"
+                >
+                  <span className={`${isRtl ? 'font-arabic' : 'font-heading-en'} font-semibold hover:text-primary transition-colors ${location === link.href ? 'text-primary' : 'text-gray-800'}`}>
+                    {link.label}
+                  </span>
+                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full ${location === link.href ? 'w-full' : ''}`}></span>
                 </Link>
               ))}
             </nav>

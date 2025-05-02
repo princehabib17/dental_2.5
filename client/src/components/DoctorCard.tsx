@@ -155,21 +155,17 @@ const DoctorCard: React.FC<DoctorCardProps> = ({ id, image }) => {
             
             {/* CTA Buttons */}
             <div className="grid grid-cols-2 gap-3 mt-auto">
-              <Link href={`tel:${t(`doctors.${id}.phone`)}`}>
-                <a className="w-full">
-                  <Button variant="outline" className="w-full" size="sm">
-                    <Phone className="mr-2 h-3 w-3" />
-                    {t('doctors.callNow')}
-                  </Button>
-                </a>
-              </Link>
-              <Link href="/contact#appointment">
-                <a className="w-full">
-                  <Button className="w-full" size="sm">
-                    <Calendar className="mr-2 h-3 w-3" />
-                    {t('doctors.bookAppointment')}
-                  </Button>
-                </a>
+              <a href={`tel:${t(`doctors.${id}.phone`)}`} className="w-full">
+                <Button variant="outline" className="w-full" size="sm">
+                  <Phone className="mr-2 h-3 w-3" />
+                  {t('doctors.callNow')}
+                </Button>
+              </a>
+              <Link href="/contact#appointment" className="w-full">
+                <Button className="w-full" size="sm">
+                  <Calendar className="mr-2 h-3 w-3" />
+                  {t('doctors.bookAppointment')}
+                </Button>
               </Link>
             </div>
           </div>
