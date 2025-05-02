@@ -7,7 +7,8 @@
     "services": "Services",
     "doctors": "Doctors",
     "contact": "Contact",
-    "bookAppointment": "Book Appointment"
+    "bookAppointment": "Book Appointment",
+    "searchPlaceholder": "Search for services or doctors..."
   },
   "hero": {
     "title": "Your Health, Our Priority",
