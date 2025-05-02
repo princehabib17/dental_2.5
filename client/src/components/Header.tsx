@@ -5,6 +5,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import LanguageToggle from './LanguageToggle';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone, Calendar, Search, Heart } from 'lucide-react';
+import { FaTooth } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -79,14 +80,15 @@ const Header: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center"
               >
-                <svg className="text-primary h-8 w-8 mr-2 rtl:ml-2 rtl:mr-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"></path>
-                  <path d="M9 12h6"></path>
-                  <path d="M12 9v6"></path>
-                </svg>
-                <span className={`font-bold text-primary text-xl ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>
-                  {t('site.name')}
-                </span>
+                <FaTooth className="text-primary h-8 w-8 mr-2 rtl:ml-2 rtl:mr-0" />
+                <div className="flex flex-col">
+                  <span className={`font-bold text-primary text-xl leading-tight ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>
+                    AREVALO
+                  </span>
+                  <span className={`text-sm text-gray-600 leading-tight ${isRtl ? 'font-arabic' : 'font-body-en'}`}>
+                    DENTAL CLINIC
+                  </span>
+                </div>
               </motion.div>
             </Link>
 
@@ -103,17 +105,16 @@ const Header: React.FC = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
+            <nav className="hidden md:flex items-center space-x-10 rtl:space-x-reverse">
               {navigationLinks.map((link) => (
                 <Link 
                   key={link.href} 
                   href={link.href}
                   className="relative group"
                 >
-                  <span className={`${isRtl ? 'font-arabic' : 'font-heading-en'} font-semibold hover:text-primary transition-colors ${location === link.href ? 'text-primary' : 'text-gray-800'}`}>
+                  <span className={`${isRtl ? 'font-arabic' : 'font-heading-en'} text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors ${location === link.href ? 'text-primary' : 'text-gray-600'}`}>
                     {link.label}
                   </span>
-                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full ${location === link.href ? 'w-full' : ''}`}></span>
                 </Link>
               ))}
             </nav>

@@ -59,20 +59,18 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ id, icon }) => {
         </div>
         
         <Link href={`/services#${id}`}>
-          <a>
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className={`group/button relative rounded-full hover:bg-primary/10 p-2 ${
-                isRtl ? 'font-arabic rtl-toggle' : 'font-heading-en'
-              }`}
-            >
-              <ArrowUpRight 
-                className={`h-5 w-5 text-primary transition-transform group-hover/button:rotate-45`} 
-              />
-              <span className="sr-only">{t('services.learnMore')}</span>
-            </Button>
-          </a>
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className={`group/button relative rounded-full hover:bg-primary/10 p-2 ${
+              isRtl ? 'font-arabic rtl-toggle' : 'font-heading-en'
+            }`}
+          >
+            <ArrowUpRight 
+              className={`h-5 w-5 text-primary transition-transform group-hover/button:rotate-45`} 
+            />
+            <span className="sr-only">{t('services.learnMore')}</span>
+          </Button>
         </Link>
       </div>
       
