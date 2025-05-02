@@ -120,8 +120,8 @@ const Header: React.FC = () => {
 
             <div className="flex items-center space-x-4 rtl:space-x-reverse">
               {/* Appointment Button (Desktop) */}
-              <Link href="/contact#appointment">
-                <a className="hidden md:block">
+              <div className="hidden md:block">
+                <Link href="/contact#appointment">
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Button 
                       className={`bg-primary hover:bg-primary/90 text-white shadow-md hover:shadow-lg transition-all ${isRtl ? 'font-arabic' : 'font-heading-en'}`}
@@ -130,8 +130,8 @@ const Header: React.FC = () => {
                       {t('nav.bookAppointment')}
                     </Button>
                   </motion.div>
-                </a>
-              </Link>
+                </Link>
+              </div>
 
               {/* Mobile language toggle */}
               <div className="md:hidden">
@@ -175,25 +175,28 @@ const Header: React.FC = () => {
                   </div>
                   
                   {navigationLinks.map((link) => (
-                    <Link key={link.href} href={link.href}>
-                      <a 
-                        className={`block py-2 border-b border-gray-100 ${isRtl ? 'font-arabic text-right' : 'font-heading-en text-left'} font-semibold hover:text-primary transition-colors ${location === link.href ? 'text-primary' : 'text-gray-800'}`}
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {link.label}
-                      </a>
+                    <Link 
+                      key={link.href} 
+                      href={link.href}
+                      className={`block py-2 border-b border-gray-100 ${isRtl ? 'font-arabic text-right' : 'font-heading-en text-left'} font-semibold hover:text-primary transition-colors ${location === link.href ? 'text-primary' : 'text-gray-800'}`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {link.label}
                     </Link>
                   ))}
-                  <Link href="/contact#appointment">
-                    <a className="block pt-2" onClick={() => setIsMenuOpen(false)}>
+                  <div className="block pt-2">
+                    <Link 
+                      href="/contact#appointment" 
+                      onClick={() => setIsMenuOpen(false)}
+                    >
                       <Button 
                         className={`w-full bg-primary hover:bg-primary/90 text-white ${isRtl ? 'font-arabic' : 'font-heading-en'}`}
                       >
                         <Calendar className="mr-2 h-4 w-4 rtl:ml-2 rtl:mr-0" />
                         {t('nav.bookAppointment')}
                       </Button>
-                    </a>
-                  </Link>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </motion.div>
