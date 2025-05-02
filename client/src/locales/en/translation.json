@@ -305,17 +305,18 @@
     "sitemap": "Sitemap"
   },
   "servicesPage": {
-    "title": "Our Medical Services",
-    "subtitle": "Comprehensive, specialized care for all your healthcare needs",
+    "title": "Our Dental Services",
+    "subtitle": "Comprehensive, specialized care for all your dental needs in Makati",
     "technology": {
-      "title": "Advanced Medical Technology",
-      "description1": "At Al Shifa Medical Center, we invest in the latest medical technologies to ensure accurate diagnostics and effective treatments for our patients.",
-      "description2": "Our state-of-the-art equipment allows our specialists to provide the highest standard of care in all medical specialties.",
-      "imageAlt": "Advanced medical equipment in a modern facility",
-      "equipment1": "Latest 3T MRI for detailed imaging",
-      "equipment2": "Advanced 256-slice CT scanner",
-      "equipment3": "Digital X-ray systems with reduced radiation exposure",
-      "equipment4": "High-precision ultrasound technology"
+      "title": "Cutting-Edge Dental Technology",
+      "description1": "At Arevalo Dental Clinic, we invest in the latest dental technologies to ensure precise diagnoses and effective treatments for our patients.",
+      "description2": "Our state-of-the-art equipment allows our dental specialists to provide the highest standard of care in all dental specialties, ensuring your comfort and optimal results.",
+      "imageAlt": "Advanced dental equipment in Arevalo Dental Clinic",
+      "equipment1": "Digital intraoral scanner for impression-free procedures",
+      "equipment2": "Advanced digital panoramic X-ray system",
+      "equipment3": "Dental CAD/CAM technology for same-day restorations",
+      "equipment4": "Laser dentistry equipment for painless procedures",
+      "equipment5": "Composite LED light curing system for aesthetic restorations"
     }
   },
   "doctorsPage": {
