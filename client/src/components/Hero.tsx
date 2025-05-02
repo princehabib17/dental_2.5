@@ -54,17 +54,15 @@ const Hero: React.FC = () => {
             
             <div className={`flex flex-col sm:flex-row gap-4 justify-center lg:justify-start ${isRtl ? 'rtl-toggle' : ''}`}>
               <Link href="/contact#appointment">
-                <a>
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                    <Button 
-                      size="lg"
-                      className={`bg-primary hover:bg-primary/90 text-white px-6 py-6 rounded-xl shadow-lg transition-all hover:shadow-xl ${isRtl ? 'font-arabic' : 'font-heading-en'}`}
-                    >
-                      <CalendarCheck className="mr-2 h-5 w-5 rtl:ml-2 rtl:mr-0" />
-                      {t('hero.bookAppointment')}
-                    </Button>
-                  </motion.div>
-                </a>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                  <Button 
+                    size="lg"
+                    className={`bg-primary hover:bg-primary/90 text-white px-6 py-6 rounded-xl shadow-lg transition-all hover:shadow-xl ${isRtl ? 'font-arabic' : 'font-heading-en'}`}
+                  >
+                    <CalendarCheck className="mr-2 h-5 w-5 rtl:ml-2 rtl:mr-0" />
+                    {t('hero.bookAppointment')}
+                  </Button>
+                </motion.div>
               </Link>
               
               <a href="tel:+97141234567">
