@@ -98,35 +98,101 @@
     "subtitle": "Our team of experienced doctors is dedicated to providing you with the highest quality of care.",
     "viewAll": "View All Doctors",
     "bookAppointment": "Book Appointment",
+    "callNow": "Call Now",
+    "available": "Available Today",
+    "topRated": "Top Rated",
+    "tapForMore": "Tap for more information",
+    "specializations": "Specializations",
+    "languages": "Languages Spoken",
     "doctor1": {
       "name": "Dr. Sarah Johnson",
       "specialty": "Cardiologist",
-      "bio": "Specialized in interventional cardiology with over 15 years of experience."
+      "bio": "Specialized in interventional cardiology with over 15 years of experience, Dr. Johnson has performed more than 1,000 successful cardiac procedures. She takes a patient-centered approach, focusing on preventative care and lifestyle modifications for heart health management.",
+      "experience": "15+ Years",
+      "location": "Dubai",
+      "reviewCount": "145",
+      "phone": "+97123456789",
+      "spec1": "Interventional Cardiology",
+      "spec2": "Echocardiography",
+      "spec3": "Preventive Cardiology",
+      "lang1": "English",
+      "lang2": "Arabic",
+      "lang3": "French"
     },
     "doctor2": {
       "name": "Dr. Mohammed Al-Farsi",
       "specialty": "Neurologist",
-      "bio": "Board-certified neurologist specializing in stroke treatment and prevention."
+      "bio": "Board-certified neurologist specializing in stroke treatment and prevention, Dr. Al-Farsi has extensive training in neurorehabilitation and headache management. His research on stroke recovery is published in several international medical journals.",
+      "experience": "12+ Years",
+      "location": "Abu Dhabi",
+      "reviewCount": "127",
+      "phone": "+97123456790",
+      "spec1": "Stroke Treatment",
+      "spec2": "Headache Management",
+      "spec3": "Neurorehabilitation",
+      "lang1": "Arabic",
+      "lang2": "English",
+      "lang3": "Urdu"
     },
     "doctor3": {
       "name": "Dr. Aisha Rahman",
       "specialty": "Pediatrician",
-      "bio": "Specialized in pediatric care with a focus on childhood development and preventive medicine."
+      "bio": "Specialized in pediatric care with a focus on childhood development and preventive medicine, Dr. Rahman has a gentle approach that puts children at ease. She has additional training in pediatric allergy and immunology to help children with complex conditions.",
+      "experience": "10+ Years",
+      "location": "Dubai",
+      "reviewCount": "203",
+      "phone": "+97123456791",
+      "spec1": "Child Development",
+      "spec2": "Pediatric Allergies",
+      "spec3": "Preventive Medicine",
+      "lang1": "Arabic",
+      "lang2": "English",
+      "lang3": "Hindi"
     },
     "doctor4": {
       "name": "Dr. James Wilson",
       "specialty": "Orthopedic Surgeon",
-      "bio": "Expert in joint replacements and sports medicine with advanced surgical techniques."
+      "bio": "Expert in joint replacements and sports medicine with advanced surgical techniques. Dr. Wilson has worked with professional athletes and specializes in minimally invasive procedures that reduce recovery time.",
+      "experience": "18+ Years",
+      "location": "Sharjah",
+      "reviewCount": "176",
+      "phone": "+97123456792",
+      "spec1": "Joint Replacement",
+      "spec2": "Sports Medicine",
+      "spec3": "Minimally Invasive Surgery",
+      "lang1": "English",
+      "lang2": "Spanish",
+      "lang3": "Portuguese"
     },
     "doctor5": {
       "name": "Dr. Fatima Al-Zahra",
       "specialty": "Ophthalmologist",
-      "bio": "Specialized in treating complex eye conditions using the latest technologies and procedures."
+      "bio": "Specialized in treating complex eye conditions using the latest technologies and procedures. Dr. Al-Zahra has pioneered several innovative techniques for cataract surgery and is an expert in LASIK vision correction.",
+      "experience": "14+ Years",
+      "location": "Dubai",
+      "reviewCount": "158",
+      "phone": "+97123456793",
+      "spec1": "Cataract Surgery",
+      "spec2": "LASIK",
+      "spec3": "Pediatric Ophthalmology",
+      "lang1": "Arabic",
+      "lang2": "English",
+      "lang3": "French"
     },
     "doctor6": {
       "name": "Dr. Ahmad Khalil",
       "specialty": "Internal Medicine",
-      "bio": "Comprehensive approach to adult healthcare with expertise in chronic disease management."
+      "bio": "Comprehensive approach to adult healthcare with expertise in chronic disease management. Dr. Khalil focuses on holistic treatment plans that address both physical and mental wellbeing for optimal health outcomes.",
+      "experience": "20+ Years",
+      "location": "Abu Dhabi",
+      "reviewCount": "231",
+      "phone": "+97123456794",
+      "spec1": "Diabetes Management",
+      "spec2": "Hypertension Treatment",
+      "spec3": "Geriatric Medicine",
+      "lang1": "Arabic",
+      "lang2": "English",
+      "lang3": "Turkish"
     }
   },
   "testimonials": {
