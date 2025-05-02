@@ -12,9 +12,21 @@
   },
   "hero": {
     "title": "Your Health, Our Priority",
-    "subtitle": "Experience world-class healthcare with compassionate medical professionals dedicated to your wellbeing.",
+    "titleHighlight": "Advanced Healthcare",
+    "titleRest": "For Your Family",
+    "subtitle": "Experience world-class healthcare with compassionate medical professionals dedicated to your wellbeing using the latest medical technology.",
+    "tagline": "Leading Medical Center in UAE",
     "bookAppointment": "Book Appointment",
+    "callUs": "Call Us Now",
     "ourServices": "Our Services",
+    "scrollDown": "Explore Our Services",
+    "certified": "Certified Specialists",
+    "experienced": "25+ Years Experience",
+    "modern": "State-of-art Technology",
+    "card1Title": "Easy Booking",
+    "card1Text": "Schedule appointments instantly with our online booking system.",
+    "card2Title": "Telemedicine",
+    "card2Text": "Connect with our doctors remotely for consultations.",
     "imageAlt": "Medical professionals in a modern facility"
   },
   "trust": {
