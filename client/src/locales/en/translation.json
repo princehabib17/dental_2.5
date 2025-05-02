@@ -1,0 +1,291 @@
+{
+  "site": {
+    "name": "Al Shifa Medical Center"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "doctors": "Doctors",
+    "contact": "Contact",
+    "bookAppointment": "Book Appointment"
+  },
+  "hero": {
+    "title": "Your Health, Our Priority",
+    "subtitle": "Experience world-class healthcare with compassionate medical professionals dedicated to your wellbeing.",
+    "bookAppointment": "Book Appointment",
+    "ourServices": "Our Services",
+    "imageAlt": "Medical professionals in a modern facility"
+  },
+  "trust": {
+    "experts": {
+      "title": "Expert Doctors",
+      "description": "25+ specialists"
+    },
+    "booking": {
+      "title": "Easy Booking",
+      "description": "Online appointments"
+    },
+    "facilities": {
+      "title": "Modern Facilities",
+      "description": "State-of-art equipment"
+    },
+    "support": {
+      "title": "24/7 Support",
+      "description": "Always available"
+    }
+  },
+  "services": {
+    "title": "Our Medical Services",
+    "subtitle": "Comprehensive healthcare services provided by our experienced medical professionals.",
+    "viewAll": "View All Services",
+    "learnMore": "Learn More",
+    "cardiology": {
+      "title": "Cardiology",
+      "description": "Comprehensive heart care with advanced diagnostics and treatment options for all cardiac conditions."
+    },
+    "neurology": {
+      "title": "Neurology",
+      "description": "Expert care for neurological disorders with the latest diagnostic technology and treatment protocols."
+    },
+    "orthopedics": {
+      "title": "Orthopedics",
+      "description": "Specialized care for bone and joint conditions, from diagnosis to rehabilitation and surgical interventions."
+    },
+    "internal": {
+      "title": "Internal Medicine",
+      "description": "Comprehensive care for adults, including preventive medicine, diagnosis, and treatment of various conditions."
+    },
+    "ophthalmology": {
+      "title": "Ophthalmology",
+      "description": "Complete eye care services, from routine exams to specialized treatments for various eye conditions."
+    },
+    "pediatrics": {
+      "title": "Pediatrics",
+      "description": "Specialized healthcare for children from birth through adolescence, focusing on growth and development."
+    },
+    "pulmonology": {
+      "title": "Pulmonology",
+      "description": "Comprehensive care for respiratory disorders, from asthma to complex lung diseases."
+    },
+    "nephrology": {
+      "title": "Nephrology",
+      "description": "Expert treatment for kidney diseases and disorders with cutting-edge therapeutic approaches."
+    },
+    "ent": {
+      "title": "Ear, Nose & Throat",
+      "description": "Complete care for ear, nose, and throat conditions with specialized diagnostic and treatment procedures."
+    },
+    "laboratory": {
+      "title": "Laboratory Services",
+      "description": "State-of-the-art diagnostic laboratory with comprehensive testing capabilities for precise diagnostics."
+    }
+  },
+  "doctors": {
+    "title": "Meet Our Specialists",
+    "subtitle": "Our team of experienced doctors is dedicated to providing you with the highest quality of care.",
+    "viewAll": "View All Doctors",
+    "bookAppointment": "Book Appointment",
+    "doctor1": {
+      "name": "Dr. Sarah Johnson",
+      "specialty": "Cardiologist",
+      "bio": "Specialized in interventional cardiology with over 15 years of experience."
+    },
+    "doctor2": {
+      "name": "Dr. Mohammed Al-Farsi",
+      "specialty": "Neurologist",
+      "bio": "Board-certified neurologist specializing in stroke treatment and prevention."
+    },
+    "doctor3": {
+      "name": "Dr. Aisha Rahman",
+      "specialty": "Pediatrician",
+      "bio": "Specialized in pediatric care with a focus on childhood development and preventive medicine."
+    },
+    "doctor4": {
+      "name": "Dr. James Wilson",
+      "specialty": "Orthopedic Surgeon",
+      "bio": "Expert in joint replacements and sports medicine with advanced surgical techniques."
+    },
+    "doctor5": {
+      "name": "Dr. Fatima Al-Zahra",
+      "specialty": "Ophthalmologist",
+      "bio": "Specialized in treating complex eye conditions using the latest technologies and procedures."
+    },
+    "doctor6": {
+      "name": "Dr. Ahmad Khalil",
+      "specialty": "Internal Medicine",
+      "bio": "Comprehensive approach to adult healthcare with expertise in chronic disease management."
+    }
+  },
+  "testimonials": {
+    "title": "Patient Testimonials",
+    "subtitle": "What our patients say about their experience with Al Shifa Medical Center.",
+    "previous": "Previous testimonial",
+    "next": "Next testimonial",
+    "goToSlide": "Go to testimonial {number}",
+    "testimonial1": {
+      "quote": "The doctors at Al Shifa Medical Center are exceptional. They took the time to listen to my concerns and provided personalized care that made all the difference. The facilities are modern and clean, and the staff is friendly and professional.",
+      "name": "Ahmad Khalid",
+      "position": "Cardiology Patient",
+      "avatar": "https://randomuser.me/api/portraits/men/32.jpg"
+    },
+    "testimonial2": {
+      "quote": "I've been bringing my children to Dr. Aisha for years, and she's always provided exceptional care. The online appointment booking makes scheduling easy, and the waiting times are minimal. I highly recommend Al Shifa Medical Center to all parents.",
+      "name": "Fatima Al-Sayed",
+      "position": "Parent of Pediatric Patients",
+      "avatar": "https://randomuser.me/api/portraits/women/65.jpg"
+    },
+    "testimonial3": {
+      "quote": "After my stroke, Dr. Mohammed's expertise was crucial to my recovery. The rehabilitation programs at Al Shifa are excellent, and the staff truly cares about patient outcomes. I'm grateful for the comprehensive care I received during a difficult time.",
+      "name": "Rashid Al-Balushi",
+      "position": "Neurology Patient",
+      "avatar": "https://randomuser.me/api/portraits/men/75.jpg"
+    }
+  },
+  "appointment": {
+    "title": "Book Your Appointment",
+    "subtitle": "Schedule a visit with our specialists. Our team will confirm your appointment within 24 hours.",
+    "callUs": "Call Us Directly",
+    "callInfo": "Available 24/7 for emergencies and from 8 AM to 8 PM for appointments.",
+    "visitUs": "Visit Us",
+    "locationInfo": "Conveniently located with ample parking and public transportation access.",
+    "formTitle": "Request an Appointment"
+  },
+  "form": {
+    "name": "Full Name",
+    "namePlaceholder": "Enter your full name",
+    "phone": "Phone Number",
+    "phonePlaceholder": "Enter your phone number",
+    "email": "Email Address",
+    "emailPlaceholder": "Enter your email address",
+    "date": "Preferred Date",
+    "department": "Department",
+    "departmentPlaceholder": "Select department",
+    "time": "Preferred Time",
+    "timePlaceholder": "Select time",
+    "timeOptions": {
+      "morning": "Morning (8AM - 12PM)",
+      "afternoon": "Afternoon (12PM - 4PM)",
+      "evening": "Evening (4PM - 8PM)"
+    },
+    "reason": "Reason for Visit",
+    "reasonPlaceholder": "Briefly describe your symptoms or reason for appointment",
+    "submit": "Submit Request",
+    "submitting": "Submitting...",
+    "validation": {
+      "nameRequired": "Full name is required",
+      "phoneRequired": "Valid phone number is required",
+      "emailValid": "Valid email address is required",
+      "dateRequired": "Please select a preferred date",
+      "departmentRequired": "Please select a department",
+      "timeRequired": "Please select a preferred time",
+      "reasonRequired": "Please provide a reason for your visit (min 10 characters)"
+    },
+    "success": {
+      "title": "Appointment Requested",
+      "message": "Your appointment request has been submitted successfully. We will contact you shortly to confirm."
+    },
+    "error": {
+      "title": "Submission Failed",
+      "message": "There was an error submitting your request. Please try again or contact us directly."
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about our services and facilities.",
+    "appointment": {
+      "question": "How do I schedule an appointment?",
+      "answer": "You can schedule an appointment through our online booking system, by calling our reception at +971 4 123 4567, or by visiting our medical center in person. For new patients, we recommend calling to ensure we have all the necessary information to provide you with the best care."
+    },
+    "insurance": {
+      "question": "What insurance plans do you accept?",
+      "answer": "We accept most major insurance plans, including Daman, Aetna, Cigna, and many others. Please contact our billing department or check our website for a complete list of accepted insurance providers. We recommend verifying your coverage before your appointment."
+    },
+    "firstVisit": {
+      "question": "What should I bring to my first appointment?",
+      "answer": "For your first visit, please bring your identification (Emirates ID or passport), insurance card, a list of any medications you're currently taking, and any relevant previous medical records or test results. Arriving 15 minutes early to complete registration forms is also recommended."
+    },
+    "emergency": {
+      "question": "Do you offer emergency services?",
+      "answer": "Yes, we have an emergency department that operates 24/7. For life-threatening emergencies, always call 999 first. Our emergency team is equipped to handle a wide range of urgent medical situations and can coordinate with specialists as needed."
+    },
+    "prescription": {
+      "question": "Can I get my prescription refilled without an appointment?",
+      "answer": "For most routine prescription refills, you can request a refill through our patient portal or by calling our pharmacy directly. However, some medications may require a check-up before a refill can be authorized. Your doctor will inform you if regular appointments are necessary for your specific medication."
+    }
+  },
+  "contact": {
+    "addressTitle": "Visit Us",
+    "address": "123 Healthcare Avenue, Dubai, UAE",
+    "phoneTitle": "Call Us",
+    "phone": "+971 4 123 4567",
+    "emailTitle": "Email Us",
+    "email": "info@alshifamedical.com",
+    "hoursTitle": "Working Hours",
+    "hours": "Mon-Sat: 8AM - 8PM"
+  },
+  "footer": {
+    "about": {
+      "title": "About Al Shifa",
+      "description": "Al Shifa Medical Center is dedicated to providing exceptional healthcare services with compassion and expertise."
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "home": "Home",
+      "services": "Services",
+      "doctors": "Doctors",
+      "contact": "Contact"
+    },
+    "services": {
+      "title": "Our Services"
+    },
+    "contact": {
+      "title": "Contact Us"
+    },
+    "copyright": "© {year} Al Shifa Medical Center. All Rights Reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "sitemap": "Sitemap"
+  },
+  "servicesPage": {
+    "title": "Our Medical Services",
+    "subtitle": "Comprehensive, specialized care for all your healthcare needs",
+    "technology": {
+      "title": "Advanced Medical Technology",
+      "description1": "At Al Shifa Medical Center, we invest in the latest medical technologies to ensure accurate diagnostics and effective treatments for our patients.",
+      "description2": "Our state-of-the-art equipment allows our specialists to provide the highest standard of care in all medical specialties.",
+      "imageAlt": "Advanced medical equipment in a modern facility",
+      "equipment1": "Latest 3T MRI for detailed imaging",
+      "equipment2": "Advanced 256-slice CT scanner",
+      "equipment3": "Digital X-ray systems with reduced radiation exposure",
+      "equipment4": "High-precision ultrasound technology"
+    }
+  },
+  "doctorsPage": {
+    "title": "Our Medical Specialists",
+    "subtitle": "Meet our internationally trained doctors committed to your care",
+    "joinTeam": {
+      "title": "Join Our Medical Team",
+      "description": "We're always looking for talented and compassionate healthcare professionals to join our growing team at Al Shifa Medical Center.",
+      "benefits": {
+        "title": "Why Join Us",
+        "benefit1": "State-of-the-art medical facilities",
+        "benefit2": "Collaborative work environment",
+        "benefit3": "Continuous professional development",
+        "benefit4": "Competitive compensation package"
+      },
+      "opportunities": {
+        "title": "Current Opportunities",
+        "opportunity1": "Specialist Physicians (multiple specialties)",
+        "opportunity2": "Registered Nurses",
+        "opportunity3": "Technicians and Lab Specialists",
+        "opportunity4": "Healthcare Administration"
+      },
+      "contactUs": "Contact Our HR Department"
+    }
+  },
+  "contactPage": {
+    "title": "Contact Us",
+    "subtitle": "We're here to help with all your healthcare needs",
+    "mapTitle": "Al Shifa Medical Center Location"
+  }
+}
