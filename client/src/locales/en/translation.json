@@ -245,30 +245,30 @@
   },
   "faq": {
     "title": "Frequently Asked Questions",
-    "subtitle": "Find answers to common questions about our services and facilities.",
+    "subtitle": "Find answers to common questions about our dental services and facilities.",
     "helpSection": "Help Center",
     "searchPlaceholder": "Search for answers...",
     "noResults": "No matching questions found",
     "tryDifferentSearch": "Please try a different search term or browse all questions below.",
     "appointment": {
-      "question": "How do I schedule an appointment?",
-      "answer": "You can schedule an appointment through our online booking system, by calling our reception at +971 4 123 4567, or by visiting our medical center in person. For new patients, we recommend calling to ensure we have all the necessary information to provide you with the best care."
+      "question": "How do I schedule a dental appointment?",
+      "answer": "You can schedule an appointment through our online booking system, by calling our clinic at +63 2 8123 4567, or by visiting Arevalo Dental Clinic in person. For new patients, we recommend calling to ensure we have all the necessary information to provide you with the best dental care."
     },
     "insurance": {
-      "question": "What insurance plans do you accept?",
-      "answer": "We accept most major insurance plans, including Daman, Aetna, Cigna, and many others. Please contact our billing department or check our website for a complete list of accepted insurance providers. We recommend verifying your coverage before your appointment."
+      "question": "What dental insurance plans do you accept?",
+      "answer": "We accept most major dental insurance plans, both local and international. For our Arab Gulf patients, we work with multiple international insurers. Please contact our billing department or check our website for a complete list of accepted insurance providers. We recommend verifying your coverage before your appointment."
     },
     "firstVisit": {
-      "question": "What should I bring to my first appointment?",
-      "answer": "For your first visit, please bring your identification (Emirates ID or passport), insurance card, a list of any medications you're currently taking, and any relevant previous medical records or test results. Arriving 15 minutes early to complete registration forms is also recommended."
+      "question": "What should I bring to my first dental appointment?",
+      "answer": "For your first visit, please bring your identification (passport for international patients), insurance information, a list of any medications you're currently taking, and any relevant previous dental records or X-rays. Arriving 15 minutes early to complete registration forms is also recommended."
     },
     "emergency": {
-      "question": "Do you offer emergency services?",
-      "answer": "Yes, we have an emergency department that operates 24/7. For life-threatening emergencies, always call 999 first. Our emergency team is equipped to handle a wide range of urgent medical situations and can coordinate with specialists as needed."
+      "question": "Do you offer emergency dental services?",
+      "answer": "Yes, we provide emergency dental care during our business hours. If you're experiencing severe dental pain, broken teeth, or other dental emergencies, please call us immediately at +63 2 8123 4567. We reserve time slots each day for emergency appointments."
     },
     "prescription": {
-      "question": "Can I get my prescription refilled without an appointment?",
-      "answer": "For most routine prescription refills, you can request a refill through our patient portal or by calling our pharmacy directly. However, some medications may require a check-up before a refill can be authorized. Your doctor will inform you if regular appointments are necessary for your specific medication."
+      "question": "Can international patients get follow-up care in their home country?",
+      "answer": "Yes, we coordinate with dental professionals in Saudi Arabia and other Gulf countries to ensure continuity of care for our international patients. We provide detailed treatment records and can communicate directly with your local dentist to ensure proper follow-up care."
     }
   },
   "contact": {
