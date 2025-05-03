@@ -1,15 +1,18 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/context/LanguageContext';
 import * as THREE from 'three';
 import { useInView } from 'react-intersection-observer';
 import gsap from 'gsap';
+import { cn } from '@/lib/utils';
 
 const Interactive3DGlobe: React.FC = () => {
   const { t } = useTranslation();
   const { isRtl } = useLanguage();
+  const [isLoading, setIsLoading] = useState(true);
+  const [isTexturesLoaded, setIsTexturesLoaded] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
@@ -29,7 +32,7 @@ const Interactive3DGlobe: React.FC = () => {
     sceneRef.current = scene;
 
     // Create camera
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / (window.innerHeight * 0.7), 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 5;
     cameraRef.current = camera;
 
@@ -39,13 +42,13 @@ const Interactive3DGlobe: React.FC = () => {
       antialias: true,
       alpha: true
     });
-    renderer.setSize(window.innerWidth, window.innerHeight * 0.7);
+    renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     rendererRef.current = renderer;
 
     // Create globe
     const textureLoader = new THREE.TextureLoader();
-    const globeGeometry = new THREE.SphereGeometry(2, 64, 64);
+    const globeGeometry = new THREE.SphereGeometry(3, 64, 64);
     
     // Earth texture with visible countries and oceans
     const globeMaterial = new THREE.MeshPhongMaterial({
@@ -78,9 +81,9 @@ const Interactive3DGlobe: React.FC = () => {
     const saudiLat = 25 * (Math.PI / 180);
     const saudiLon = 45 * (Math.PI / 180);
     saudiMarker.position.set(
-      2 * Math.cos(saudiLat) * Math.sin(saudiLon),
-      2 * Math.sin(saudiLat),
-      2 * Math.cos(saudiLat) * Math.cos(saudiLon)
+      3 * Math.cos(saudiLat) * Math.sin(saudiLon),
+      3 * Math.sin(saudiLat),
+      3 * Math.cos(saudiLat) * Math.cos(saudiLon)
     );
     scene.add(saudiMarker);
     markersRef.current.saudi = saudiMarker;
@@ -94,9 +97,9 @@ const Interactive3DGlobe: React.FC = () => {
     const philLat = 13 * (Math.PI / 180);
     const philLon = 122 * (Math.PI / 180);
     philMarker.position.set(
-      2 * Math.cos(philLat) * Math.sin(philLon),
-      2 * Math.sin(philLat),
-      2 * Math.cos(philLat) * Math.cos(philLon)
+      3 * Math.cos(philLat) * Math.sin(philLon),
+      3 * Math.sin(philLat),
+      3 * Math.cos(philLat) * Math.cos(philLon)
     );
     scene.add(philMarker);
     markersRef.current.philippines = philMarker;
@@ -112,9 +115,9 @@ const Interactive3DGlobe: React.FC = () => {
       const arcHeight = Math.sin(t * Math.PI) * 0.5;
       
       curvePath.push(new THREE.Vector3(
-        (2 + arcHeight) * Math.cos(lat) * Math.sin(lon),
-        (2 + arcHeight) * Math.sin(lat),
-        (2 + arcHeight) * Math.cos(lat) * Math.cos(lon)
+        (3 + arcHeight) * Math.cos(lat) * Math.sin(lon),
+        (3 + arcHeight) * Math.sin(lat),
+        (3 + arcHeight) * Math.cos(lat) * Math.cos(lon)
       ));
     }
 
@@ -138,9 +141,9 @@ const Interactive3DGlobe: React.FC = () => {
     const handleResize = () => {
       if (!cameraRef.current || !rendererRef.current) return;
       
-      cameraRef.current.aspect = window.innerWidth / (window.innerHeight * 0.7);
+      cameraRef.current.aspect = window.innerWidth / window.innerHeight;
       cameraRef.current.updateProjectionMatrix();
-      rendererRef.current.setSize(window.innerWidth, window.innerHeight * 0.7);
+      rendererRef.current.setSize(window.innerWidth, window.innerHeight);
     };
 
     window.addEventListener('resize', handleResize);
@@ -239,17 +242,18 @@ const Interactive3DGlobe: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [inView]);
 
+  // Handle refs separately to avoid TypeScript errors
+  const setRefs = (el: HTMLDivElement | null) => {
+    containerRef.current = el;
+    inViewRef(el);
+  };
+
   return (
     <div 
-      ref={(el) => {
-        if (el) {
-          containerRef.current = el;
-          inViewRef(el);
-        }
-      }}
-      className="relative h-screen overflow-hidden bg-gradient-to-b from-gray-900 to-blue-900"
+      ref={setRefs}
+      className="relative h-[100vh] w-full overflow-hidden bg-gradient-to-b from-gray-900 to-blue-900"
     >
-      <div className="absolute inset-0 z-0 opacity-30">
+      <div className="absolute inset-0 z-0">
         <canvas ref={canvasRef} className="w-full h-full" />
       </div>
 
