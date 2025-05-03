@@ -8,6 +8,7 @@ import { Menu, X, Phone, Calendar, Search, Heart } from 'lucide-react';
 import { FaTooth } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
+import ArevoloLogo from '@/assets/images/arevalo-logo.png';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -80,15 +81,11 @@ const Header: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center"
               >
-                <FaTooth className="text-primary h-8 w-8 mr-2 rtl:ml-2 rtl:mr-0" />
-                <div className="flex flex-col">
-                  <span className={`font-bold text-primary text-xl leading-tight ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>
-                    AREVALO
-                  </span>
-                  <span className={`text-sm text-gray-600 leading-tight ${isRtl ? 'font-arabic' : 'font-body-en'}`}>
-                    DENTAL CLINIC
-                  </span>
-                </div>
+                <img 
+                  src={ArevoloLogo} 
+                  alt="Arevalo Dental Clinic Logo" 
+                  className="h-11 mr-2 rtl:ml-2 rtl:mr-0" 
+                />
               </motion.div>
             </Link>
 

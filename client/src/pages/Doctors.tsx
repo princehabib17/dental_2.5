@@ -2,37 +2,28 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/context/LanguageContext';
 import DoctorCard from '@/components/DoctorCard';
+import DrDaisyImage from '@/assets/images/dr-daisy.png';
+import DrCarolineImage from '@/assets/images/dr-caroline.png';
+import DrEloisaImage from '@/assets/images/dr-eloisa.png';
 
 const Doctors: React.FC = () => {
   const { t } = useTranslation();
   const { isRtl } = useLanguage();
 
-  // All doctors data
+  // Dentist data with real photos
   const doctors = [
     { 
-      id: 'doctor1', 
-      image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80' 
+      id: 'doctor1', // Dr. Daisy Miranda-Arevalo (Head Dentist)
+      image: DrDaisyImage 
     },
     { 
-      id: 'doctor2', 
-      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80' 
+      id: 'doctor2', // Dr. Caroline Verceles-Arevalo (Associate Dentist)
+      image: DrCarolineImage 
     },
     { 
-      id: 'doctor3', 
-      image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80' 
-    },
-    { 
-      id: 'doctor4', 
-      image: 'https://images.unsplash.com/photo-1651008376811-b90baee60c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80' 
-    },
-    { 
-      id: 'doctor5', 
-      image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80' 
-    },
-    { 
-      id: 'doctor6', 
-      image: 'https://images.unsplash.com/photo-1618498082410-b4aa22193b38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80' 
-    },
+      id: 'doctor3', // Dr. Eloisa Tiongson (Associate Dentist)
+      image: DrEloisaImage 
+    }
   ];
 
   return (
