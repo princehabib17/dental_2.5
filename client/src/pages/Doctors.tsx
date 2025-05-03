@@ -136,7 +136,7 @@ const Doctors: React.FC = () => {
               </div>
               <div className="mt-8">
                 <a 
-                  href="mailto:careers@alshifaclinic.com" 
+                  href="mailto:careers@arevalodental.com" 
                   className={`inline-block bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg shadow-md transition-colors ${
                     isRtl ? 'font-arabic' : 'font-heading-en'
                   }`}

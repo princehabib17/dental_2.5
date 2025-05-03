@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": "Al Shifa Medical Center"
+    "name": "Arevalo Dental Clinic"
   },
   "nav": {
     "home": "Home",
@@ -172,26 +172,26 @@
   },
   "testimonials": {
     "title": "Patient Testimonials",
-    "subtitle": "What our patients say about their experience with Al Shifa Medical Center.",
+    "subtitle": "What our patients say about their experience with Arevalo Dental Clinic.",
     "previous": "Previous testimonial",
     "next": "Next testimonial",
     "goToSlide": "Go to testimonial {number}",
     "testimonial1": {
-      "quote": "The doctors at Al Shifa Medical Center are exceptional. They took the time to listen to my concerns and provided personalized care that made all the difference. The facilities are modern and clean, and the staff is friendly and professional.",
-      "name": "Ahmad Khalid",
-      "position": "Cardiology Patient",
+      "quote": "Dr. Miranda-Arevalo transformed my smile with veneers that look completely natural. Her skill and attention to detail were impressive, and the entire team made me feel comfortable throughout the process. I travel from Saudi Arabia specifically for her dental care!",
+      "name": "Mohammed Al-Qassim",
+      "position": "Cosmetic Dentistry Patient",
       "avatar": "https://randomuser.me/api/portraits/men/32.jpg"
     },
     "testimonial2": {
-      "quote": "I've been bringing my children to Dr. Aisha for years, and she's always provided exceptional care. The online appointment booking makes scheduling easy, and the waiting times are minimal. I highly recommend Al Shifa Medical Center to all parents.",
-      "name": "Fatima Al-Sayed",
-      "position": "Parent of Pediatric Patients",
+      "quote": "I was nervous about getting dental implants, but Dr. Caroline made the experience comfortable and painless. The clinic's modern equipment and professional staff exceeded my expectations. The implants feel just like my natural teeth!",
+      "name": "Fatima Al-Saud",
+      "position": "Dental Implant Patient",
       "avatar": "https://randomuser.me/api/portraits/women/65.jpg"
     },
     "testimonial3": {
-      "quote": "After my stroke, Dr. Mohammed's expertise was crucial to my recovery. The rehabilitation programs at Al Shifa are excellent, and the staff truly cares about patient outcomes. I'm grateful for the comprehensive care I received during a difficult time.",
-      "name": "Rashid Al-Balushi",
-      "position": "Neurology Patient",
+      "quote": "After experiencing severe tooth pain, Dr. Eloisa performed a root canal that was remarkably comfortable. The care I received was excellent, and the staff was attentive to my needs. I now recommend Arevalo Dental Clinic to all my colleagues back in Jeddah.",
+      "name": "Abdullah Al-Otaibi",
+      "position": "Endodontic Patient",
       "avatar": "https://randomuser.me/api/portraits/men/75.jpg"
     }
   },
@@ -273,18 +273,18 @@
   },
   "contact": {
     "addressTitle": "Visit Us",
-    "address": "123 Healthcare Avenue, Dubai, UAE",
+    "address": "6750 Ayala Avenue, Makati City, Philippines",
     "phoneTitle": "Call Us",
-    "phone": "+971 4 123 4567",
+    "phone": "+63 2 8123 4567",
     "emailTitle": "Email Us",
-    "email": "info@alshifamedical.com",
+    "email": "info@arevalodental.com",
     "hoursTitle": "Working Hours",
-    "hours": "Mon-Sat: 8AM - 8PM"
+    "hours": "Mon-Sat: 9AM - 6PM"
   },
   "footer": {
     "about": {
-      "title": "About Al Shifa",
-      "description": "Al Shifa Medical Center is dedicated to providing exceptional healthcare services with compassion and expertise."
+      "title": "About Arevalo Dental Clinic",
+      "description": "Arevalo Dental Clinic is dedicated to providing exceptional dental care with compassion and expertise for both local and international patients."
     },
     "quickLinks": {
       "title": "Quick Links",
@@ -299,7 +299,7 @@
     "contact": {
       "title": "Contact Us"
     },
-    "copyright": "© {year} Al Shifa Medical Center. All Rights Reserved.",
+    "copyright": "© {year} Arevalo Dental Clinic. All Rights Reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "sitemap": "Sitemap"
@@ -320,31 +320,31 @@
     }
   },
   "doctorsPage": {
-    "title": "Our Medical Specialists",
-    "subtitle": "Meet our internationally trained doctors committed to your care",
+    "title": "Our Dental Specialists",
+    "subtitle": "Meet our internationally trained dentists committed to your perfect smile",
     "joinTeam": {
-      "title": "Join Our Medical Team",
-      "description": "We're always looking for talented and compassionate healthcare professionals to join our growing team at Al Shifa Medical Center.",
+      "title": "Join Our Dental Team",
+      "description": "We're always looking for talented and compassionate dental professionals to join our growing team at Arevalo Dental Clinic.",
       "benefits": {
         "title": "Why Join Us",
-        "benefit1": "State-of-the-art medical facilities",
+        "benefit1": "State-of-the-art dental facilities",
         "benefit2": "Collaborative work environment",
         "benefit3": "Continuous professional development",
         "benefit4": "Competitive compensation package"
       },
       "opportunities": {
         "title": "Current Opportunities",
-        "opportunity1": "Specialist Physicians (multiple specialties)",
-        "opportunity2": "Registered Nurses",
-        "opportunity3": "Technicians and Lab Specialists",
-        "opportunity4": "Healthcare Administration"
+        "opportunity1": "Dental Specialists (multiple areas)",
+        "opportunity2": "Dental Hygienists",
+        "opportunity3": "Dental Assistants",
+        "opportunity4": "Clinic Administration"
       },
       "contactUs": "Contact Our HR Department"
     }
   },
   "contactPage": {
     "title": "Contact Us",
-    "subtitle": "We're here to help with all your healthcare needs",
-    "mapTitle": "Al Shifa Medical Center Location"
+    "subtitle": "We're here to help with all your dental care needs",
+    "mapTitle": "Arevalo Dental Clinic Location"
   }
 }
