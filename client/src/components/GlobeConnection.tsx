@@ -89,12 +89,13 @@ const GlobeConnection: React.FC<GlobeConnectionProps> = ({
               <motion.div
                 className="absolute left-[40%] top-[30%] z-10"
                 initial={{ x: 0, y: 0, scale: 1, opacity: 0 }}
-                animate={[
-                  { x: 0, y: 0, scale: 1, opacity: 1, transition: { duration: 0.5 } },
-                  { x: 70, y: 50, scale: 0.8, opacity: 1, transition: { duration: 2, delay: 1 } },
-                  { x: 70, y: 50, scale: 0.8, opacity: 0, transition: { duration: 0.5, delay: 3 } }
-                ]}
-                transition={{ repeat: Infinity, duration: 5, repeatDelay: 2 }}
+                animate={{ x: 70, y: 50, scale: 0.8, opacity: [0, 1, 1, 0] }}
+                transition={{ 
+                  repeat: Infinity, 
+                  duration: 5, 
+                  repeatDelay: 2,
+                  times: [0, 0.1, 0.8, 1] 
+                }}
               >
                 <Plane className="text-primary rotate-45" size={20} />
               </motion.div>

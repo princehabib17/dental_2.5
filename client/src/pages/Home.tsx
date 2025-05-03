@@ -8,6 +8,7 @@ import DoctorCard from '@/components/DoctorCard';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import AppointmentForm from '@/components/AppointmentForm';
 import FAQ from '@/components/FAQ';
+import GlobeConnection from '@/components/GlobeConnection';
 import { Heart, Brain, Bone, Stethoscope, Eye, Baby } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
@@ -141,6 +142,12 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+      
+      {/* Global Connection Section */}
+      <GlobeConnection 
+        title="Connecting Saudi Arabia to the Philippines"
+        subtitle="Quality dental care for our international patients from the Arab Gulf region"
+      />
       
       {/* Testimonials */}
       <TestimonialCarousel />
