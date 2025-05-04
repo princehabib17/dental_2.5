@@ -53,31 +53,23 @@ const Footer: React.FC = () => {
             </h3>
             <ul className={`space-y-2 ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
               <li>
-                <Link href="/">
-                  <a className="text-gray-300 hover:text-white transition-colors">
-                    {t('footer.quickLinks.home')}
-                  </a>
+                <Link href="/" className="text-gray-300 hover:text-white transition-colors">
+                  {t('footer.quickLinks.home')}
                 </Link>
               </li>
               <li>
-                <Link href="/services">
-                  <a className="text-gray-300 hover:text-white transition-colors">
-                    {t('footer.quickLinks.services')}
-                  </a>
+                <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
+                  {t('footer.quickLinks.services')}
                 </Link>
               </li>
               <li>
-                <Link href="/doctors">
-                  <a className="text-gray-300 hover:text-white transition-colors">
-                    {t('footer.quickLinks.doctors')}
-                  </a>
+                <Link href="/doctors" className="text-gray-300 hover:text-white transition-colors">
+                  {t('footer.quickLinks.doctors')}
                 </Link>
               </li>
               <li>
-                <Link href="/contact">
-                  <a className="text-gray-300 hover:text-white transition-colors">
-                    {t('footer.quickLinks.contact')}
-                  </a>
+                <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">
+                  {t('footer.quickLinks.contact')}
                 </Link>
               </li>
             </ul>
@@ -91,10 +83,8 @@ const Footer: React.FC = () => {
             <ul className={`space-y-2 ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
               {['cardiology', 'neurology', 'orthopedics', 'pediatrics', 'ophthalmology'].map(service => (
                 <li key={service}>
-                  <Link href={`/services#${service}`}>
-                    <a className="text-gray-300 hover:text-white transition-colors">
-                      {t(`services.${service}.title`)}
-                    </a>
+                  <Link href={`/services#${service}`} className="text-gray-300 hover:text-white transition-colors">
+                    {t(`services.${service}.title`)}
                   </Link>
                 </li>
               ))}

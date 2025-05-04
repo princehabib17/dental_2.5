@@ -1,267 +1,46 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/context/LanguageContext';
-import * as THREE from 'three';
 import { useInView } from 'react-intersection-observer';
-import gsap from 'gsap';
-import { cn } from '@/lib/utils';
+import { motion, useAnimation } from 'framer-motion';
 
 const Interactive3DGlobe: React.FC = () => {
   const { t } = useTranslation();
   const { isRtl } = useLanguage();
-  const [isLoading, setIsLoading] = useState(true);
-  const [isTexturesLoaded, setIsTexturesLoaded] = useState(false);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const sceneRef = useRef<THREE.Scene | null>(null);
-  const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
-  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
-  const globeRef = useRef<THREE.Mesh | null>(null);
-  const markersRef = useRef<{ saudi: THREE.Mesh | null; philippines: THREE.Mesh | null; }>({ saudi: null, philippines: null });
-  const flightPathRef = useRef<THREE.Line | null>(null);
-  const planeRef = useRef<THREE.Mesh | null>(null);
-  const animationFrameRef = useRef<number | null>(null);
+  const globeRef = useRef<HTMLDivElement | null>(null);
+  const controls = useAnimation();
   const { ref: inViewRef, inView } = useInView({ threshold: 0.2, triggerOnce: false });
 
-  // Set up the scene
+  // Animation for flight path when scrolled into view
   useEffect(() => {
-    if (!canvasRef.current || sceneRef.current) return;
-
-    // Create scene
-    const scene = new THREE.Scene();
-    sceneRef.current = scene;
-
-    // Create camera
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 5;
-    cameraRef.current = camera;
-
-    // Create renderer
-    const renderer = new THREE.WebGLRenderer({ 
-      canvas: canvasRef.current,
-      antialias: true,
-      alpha: true
-    });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    rendererRef.current = renderer;
-
-    // Create globe
-    const textureLoader = new THREE.TextureLoader();
-    const globeGeometry = new THREE.SphereGeometry(3, 64, 64);
-    
-    // Earth texture with visible countries and oceans
-    const globeMaterial = new THREE.MeshPhongMaterial({
-      map: textureLoader.load('/earth_texture.jpg'),
-      bumpMap: textureLoader.load('/earth_bump.jpg'),
-      bumpScale: 0.05,
-      specularMap: textureLoader.load('/earth_specular.jpg'),
-      shininess: 5
-    });
-    
-    const globe = new THREE.Mesh(globeGeometry, globeMaterial);
-    scene.add(globe);
-    globeRef.current = globe;
-
-    // Add lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add(ambientLight);
-
-    const pointLight = new THREE.PointLight(0xffffff, 1);
-    pointLight.position.set(5, 3, 5);
-    scene.add(pointLight);
-
-    // Create Saudi Arabia marker (red)
-    const saudiGeometry = new THREE.SphereGeometry(0.08, 32, 32);
-    const saudiMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-    const saudiMarker = new THREE.Mesh(saudiGeometry, saudiMaterial);
-    
-    // Position based on latitude/longitude (rough approximation)
-    // Saudi Arabia: ~25°N, 45°E
-    const saudiLat = 25 * (Math.PI / 180);
-    const saudiLon = 45 * (Math.PI / 180);
-    saudiMarker.position.set(
-      3 * Math.cos(saudiLat) * Math.sin(saudiLon),
-      3 * Math.sin(saudiLat),
-      3 * Math.cos(saudiLat) * Math.cos(saudiLon)
-    );
-    scene.add(saudiMarker);
-    markersRef.current.saudi = saudiMarker;
-
-    // Create Philippines marker (green)
-    const philGeometry = new THREE.SphereGeometry(0.08, 32, 32);
-    const philMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const philMarker = new THREE.Mesh(philGeometry, philMaterial);
-    
-    // Philippines: ~13°N, 122°E
-    const philLat = 13 * (Math.PI / 180);
-    const philLon = 122 * (Math.PI / 180);
-    philMarker.position.set(
-      3 * Math.cos(philLat) * Math.sin(philLon),
-      3 * Math.sin(philLat),
-      3 * Math.cos(philLat) * Math.cos(philLon)
-    );
-    scene.add(philMarker);
-    markersRef.current.philippines = philMarker;
-
-    // Create flight path curve
-    const curvePath = [];
-    for (let i = 0; i <= 50; i++) {
-      const t = i / 50;
-      // Interpolate between Saudi Arabia and Philippines with a slight arc
-      const lat = saudiLat * (1 - t) + philLat * t;
-      const lon = saudiLon * (1 - t) + philLon * t;
-      // Add height to the arc for curvature
-      const arcHeight = Math.sin(t * Math.PI) * 0.5;
-      
-      curvePath.push(new THREE.Vector3(
-        (3 + arcHeight) * Math.cos(lat) * Math.sin(lon),
-        (3 + arcHeight) * Math.sin(lat),
-        (3 + arcHeight) * Math.cos(lat) * Math.cos(lon)
-      ));
+    if (inView) {
+      controls.start({
+        pathLength: 1,
+        transition: { duration: 2, ease: "easeInOut" }
+      });
+    } else {
+      controls.start({
+        pathLength: 0,
+        transition: { duration: 1 }
+      });
     }
+  }, [inView, controls]);
 
-    const flightCurve = new THREE.CatmullRomCurve3(curvePath);
-    const flightGeometry = new THREE.BufferGeometry().setFromPoints(flightCurve.getPoints(100));
-    const flightMaterial = new THREE.LineBasicMaterial({ color: 0x00ffff, linewidth: 2 });
-    const flightPath = new THREE.Line(flightGeometry, flightMaterial);
-    scene.add(flightPath);
-    flightPathRef.current = flightPath;
-
-    // Create airplane (simplified as small cone)
-    const planeGeometry = new THREE.ConeGeometry(0.05, 0.2, 8);
-    const planeMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00 });
-    const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-    // Start at Saudi Arabia position
-    plane.position.copy(saudiMarker.position);
-    scene.add(plane);
-    planeRef.current = plane;
-
-    // Handle resize
-    const handleResize = () => {
-      if (!cameraRef.current || !rendererRef.current) return;
-      
-      cameraRef.current.aspect = window.innerWidth / window.innerHeight;
-      cameraRef.current.updateProjectionMatrix();
-      rendererRef.current.setSize(window.innerWidth, window.innerHeight);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    // Animation loop
-    let rotationSpeed = 0.001;
-    const animate = () => {
-      if (!globeRef.current || !cameraRef.current || !rendererRef.current) return;
-      
-      // Rotate the globe slowly
-      globeRef.current.rotation.y += rotationSpeed;
-      
-      // Render scene
-      rendererRef.current.render(sceneRef.current!, cameraRef.current);
-      
-      // Continue animation loop
-      animationFrameRef.current = requestAnimationFrame(animate);
-    };
-
-    // Start animation
-    animate();
-
-    return () => {
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  // Handle scroll-based animations
-  useEffect(() => {
-    if (!inView || !cameraRef.current || !globeRef.current || !planeRef.current) return;
-    
-    // Create scroll listener
-    const handleScroll = () => {
-      if (!containerRef.current || !cameraRef.current || !globeRef.current) return;
-      
-      const containerRect = containerRef.current.getBoundingClientRect();
-      const scrollProgress = 1 - (containerRect.bottom / window.innerHeight);
-      const cameraZoom = 5 - scrollProgress * 2; // Zoom in as we scroll
-      
-      // Animate the camera position
-      gsap.to(cameraRef.current.position, {
-        z: Math.max(2.5, cameraZoom),
-        duration: 0.5,
-        ease: "power2.out"
-      });
-      
-      // Rotate globe based on scroll
-      gsap.to(globeRef.current.rotation, {
-        y: scrollProgress * Math.PI * 2,
-        duration: 0.8,
-        ease: "power1.out"
-      });
-      
-      // Move the plane along the path based on scroll
-      if (planeRef.current && flightPathRef.current) {
-        // Start animation at 10% and complete at 90% of the scroll
-        const flightProgress = Math.min(1, Math.max(0, (scrollProgress - 0.1) / 0.8));
-        
-        if (flightProgress > 0 && flightProgress < 1) {
-          // Get point along curve - use the original curves points to avoid conversion errors
-          // Create a simplified temp curve with the right points
-          const positions = (flightPathRef.current.geometry as THREE.BufferGeometry).getAttribute('position');
-          // Sample the position along the path based on progress
-          const pointIndex = Math.floor(flightProgress * (positions.count - 1));
-          const point = new THREE.Vector3();
-          point.fromBufferAttribute(positions, pointIndex);
-          
-          // Update plane position
-          planeRef.current.position.copy(point);
-          
-          // Orient the plane along the path
-          if (flightProgress < 0.99) {
-            // Get next point for orientation
-            const nextPointIndex = Math.min(pointIndex + 1, positions.count - 1);
-            const nextPoint = new THREE.Vector3();
-            nextPoint.fromBufferAttribute(positions, nextPointIndex);
-            planeRef.current.lookAt(nextPoint);
-          }
-          
-          // Scale up when in middle of flight
-          const scaleFactor = 1 + Math.sin(flightProgress * Math.PI) * 0.5;
-          planeRef.current.scale.set(scaleFactor, scaleFactor, scaleFactor);
-          
-          // Make plane visible during flight
-          planeRef.current.visible = true;
-        } else {
-          // Hide plane when not in flight
-          planeRef.current.visible = false;
-        }
-      }
-    };
-
-    // Initial call and event setup
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [inView]);
-
-  // Handle refs separately to avoid TypeScript errors
+  // Set refs for both framer motion and intersection observer
   const setRefs = (el: HTMLDivElement | null) => {
-    containerRef.current = el;
+    globeRef.current = el;
     inViewRef(el);
   };
 
   return (
     <div 
       ref={setRefs}
-      className="relative h-[100vh] w-full overflow-hidden bg-gradient-to-b from-gray-900 to-blue-900"
+      className="relative min-h-[100vh] w-full overflow-hidden bg-gradient-to-b from-gray-900 to-blue-900 py-16"
     >
-      <div className="absolute inset-0 z-0">
-        <canvas ref={canvasRef} className="w-full h-full" />
-      </div>
+      {/* Background stars */}
+      <div className="absolute inset-0 bg-[radial-gradient(white,_rgba(255,255,255,0)_2px)] bg-[length:50px_50px] opacity-20"></div>
 
-      <div className="relative z-10 container mx-auto px-4 py-16 h-full flex flex-col justify-center items-center text-white">
+      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-white">
         <h2 
           className={`text-4xl md:text-5xl font-bold mb-6 text-center bg-gradient-to-r from-blue-300 to-teal-200 bg-clip-text text-transparent ${isRtl ? 'font-arabic' : 'font-heading-en'}`}
         >
@@ -274,7 +53,91 @@ const Interactive3DGlobe: React.FC = () => {
           From Saudi Arabia to the Philippines, experience world-class dental care at Arevalo Dental Clinic in Makati
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-4xl w-full">
+        {/* Interactive Globe */}
+        <div className="relative w-full max-w-4xl h-[400px] my-8">
+          {/* Stylized globe */}
+          <motion.div 
+            className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-blue-900 to-blue-600"
+            initial={{ scale: 0.8, opacity: 0.5 }}
+            animate={inView ? { scale: 1, opacity: 0.8, rotate: 360 } : { scale: 0.8, opacity: 0.5 }}
+            transition={{ duration: 20, ease: "linear", repeat: Infinity }}
+          >
+            {/* Longitude/latitude lines */}
+            <div className="absolute inset-0 rounded-full border-2 border-teal-400/20 -rotate-45"></div>
+            <div className="absolute inset-0 rounded-full border-2 border-blue-400/20 rotate-45"></div>
+            <div className="absolute inset-0 rounded-full border-[1px] border-white/10"></div>
+            <div className="absolute inset-4 rounded-full border-[1px] border-white/10"></div>
+            <div className="absolute inset-8 rounded-full border-[1px] border-white/10"></div>
+          </motion.div>
+          
+          {/* Saudi Arabia pin */}
+          <motion.div 
+            className="absolute left-[32%] top-[35%] flex flex-col items-center"
+            initial={{ y: 20, opacity: 0 }}
+            animate={inView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            <div className="relative">
+              <div className="w-4 h-4 bg-blue-400 rounded-full animate-ping absolute -top-2 -left-2 opacity-30"></div>
+              <div className="w-4 h-4 bg-blue-500 rounded-full relative z-10"></div>
+            </div>
+            <div className="mt-1 bg-blue-900/70 backdrop-blur-sm px-3 py-1 rounded-md text-xs text-blue-200 font-semibold">
+              Saudi Arabia
+            </div>
+          </motion.div>
+          
+          {/* Philippines pin */}
+          <motion.div 
+            className="absolute right-[28%] bottom-[32%] flex flex-col items-center"
+            initial={{ y: -20, opacity: 0 }}
+            animate={inView ? { y: 0, opacity: 1 } : { y: -20, opacity: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            <div className="relative">
+              <div className="w-4 h-4 bg-teal-400 rounded-full animate-ping absolute -top-2 -left-2 opacity-30"></div>
+              <div className="w-4 h-4 bg-teal-500 rounded-full relative z-10"></div>
+            </div>
+            <div className="mt-1 bg-teal-900/70 backdrop-blur-sm px-3 py-1 rounded-md text-xs text-teal-200 font-semibold">
+              Philippines
+            </div>
+          </motion.div>
+          
+          {/* Flight path */}
+          <svg className="absolute inset-0 w-full h-full overflow-visible" viewBox="0 0 400 400">
+            <motion.path
+              d="M 140 140 Q 200 50, 280 170"
+              fill="transparent"
+              stroke="url(#gradientPath)"
+              strokeWidth="3"
+              strokeDasharray="0 1"
+              initial={{ pathLength: 0 }}
+              animate={controls}
+            />
+            <defs>
+              <linearGradient id="gradientPath" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#60a5fa" />
+                <stop offset="100%" stopColor="#2dd4bf" />
+              </linearGradient>
+            </defs>
+
+            {/* Animated plane */}
+            <motion.g 
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              <motion.path 
+                d="M0,-5 L10,0 L0,5 L2,0 Z" 
+                fill="white"
+                initial={{ translateX: 140, translateY: 140, rotate: 45 }}
+                animate={inView ? { translateX: 280, translateY: 170, rotate: -45 } : { translateX: 140, translateY: 140, rotate: 45 }}
+                transition={{ duration: 3, ease: "easeInOut", delay: 0.5, repeat: Infinity, repeatDelay: 1 }}
+              />
+            </motion.g>
+          </svg>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6 max-w-4xl w-full">
           <div className="bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-white/20">
             <h3 className={`text-2xl font-bold mb-4 text-blue-300 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>
               Saudi Arabia
@@ -294,9 +157,9 @@ const Interactive3DGlobe: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-20 text-center">
+        <div className="mt-16 text-center">
           <p className={`text-lg animate-pulse text-blue-200 ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
-            Scroll to explore our global connection
+            Scroll to explore our services
           </p>
         </div>
       </div>
