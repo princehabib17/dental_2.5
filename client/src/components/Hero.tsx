@@ -97,7 +97,7 @@ const Hero: React.FC = () => {
       </div>
       
       {/* Main content */}
-      <div className="container mx-auto px-4 pt-20 pb-16 relative z-10">
+      <div className="container mx-auto px-4 pt-32 pb-24 relative z-10">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 min-h-[calc(100vh-200px)]">
           {/* Left side (text content) */}
           <motion.div 
@@ -233,7 +233,7 @@ const Hero: React.FC = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6, duration: 0.5 }}
-                className="absolute -left-8 bottom-32 bg-white rounded-lg shadow-xl p-4 max-w-[200px]"
+                className="absolute -left-3 lg:-left-8 bottom-32 bg-white rounded-lg shadow-xl p-4 max-w-[180px]"
               >
                 <div className="flex items-center gap-3 mb-2">
                   <div className="bg-accent rounded-full p-2" style={{ animation: 'dental-glow 3s infinite 1.2s' }}>
@@ -253,7 +253,7 @@ const Hero: React.FC = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
-                className="absolute -right-8 top-20 bg-white rounded-lg shadow-xl p-4 max-w-[200px]"
+                className="absolute -right-3 lg:-right-8 top-20 bg-white rounded-lg shadow-xl p-4 max-w-[180px]"
               >
                 <div className="flex items-center gap-3 mb-2">
                   <div className="bg-accent rounded-full p-2" style={{ animation: 'dental-glow 3s infinite 1.5s' }}>

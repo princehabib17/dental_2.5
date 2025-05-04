@@ -27,19 +27,19 @@ const Home: React.FC = () => {
     { id: 'whitening', icon: <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 14C14.2091 14 16 12.2091 16 10C16 7.79086 14.2091 6 12 6C9.79086 6 8 7.79086 8 10C8 12.2091 9.79086 14 12 14Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M12 14V20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M8 18H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M4 10H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M16 10H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg> },
   ];
 
-  // Featured doctors data - Using Arevalo dental references
+  // Featured doctors data - Arevalo Dental Clinic team
   const doctors = [
     { 
       id: 'doctor1', 
-      image: 'https://thumbs.dreamstime.com/b/female-dentist-posing-her-workplace-equipment-happy-smiling-office-medical-profession-health-45961772.jpg'
+      image: '/images/dr-daisy-miranda-arevalo.jpg'
     },
     { 
       id: 'doctor2', 
-      image: 'https://thumbs.dreamstime.com/b/professional-female-dentist-dental-office-close-up-young-dentistry-doctor-wearing-medical-face-mask-working-dental-clinic-191657909.jpg'
+      image: '/images/dr-caroline-verceles-arevalo.jpg'
     },
     { 
       id: 'doctor3', 
-      image: 'https://thumbs.dreamstime.com/b/young-asian-dentist-woman-wearing-white-coat-clinic-female-professional-ready-dental-examination-consultation-smiling-255412835.jpg'
+      image: '/images/dr-eloisa-tiongson.jpg'
     },
   ];
 
