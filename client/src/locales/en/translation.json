@@ -105,6 +105,14 @@
     "dentures": {
       "title": "Dentures",
       "description": "Has a tooth been lost, or your teeth been removed? Visit us and we'll customize dentures for you."
+    },
+    "aesthetic": {
+      "title": "Aesthetic Dentistry",
+      "description": "Enhance your smile with our premium aesthetic dentistry services. From smile makeovers to cosmetic contouring, we create natural, beautiful results tailored for our Saudi clients."
+    },
+    "pediatric": {
+      "title": "Pediatric Dentistry",
+      "description": "We provide specialized dental care for children in a comfortable, friendly environment. Our pediatric services are perfect for families traveling together for dental treatment."
     }
   },
   "doctors": {

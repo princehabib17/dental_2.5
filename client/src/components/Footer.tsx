@@ -81,7 +81,7 @@ const Footer: React.FC = () => {
               {t('footer.services.title')}
             </h3>
             <ul className={`space-y-2 ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
-              {['cardiology', 'neurology', 'orthopedics', 'pediatrics', 'ophthalmology'].map(service => (
+              {['crowns', 'veneers', 'implants', 'whitening', 'aesthetic', 'pediatric'].map(service => (
                 <li key={service}>
                   <Link href={`/services#${service}`} className="text-gray-300 hover:text-white transition-colors">
                     {t(`services.${service}.title`)}

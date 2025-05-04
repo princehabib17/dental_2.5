@@ -1,0 +1,110 @@
+<svg width="1000" height="500" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- World map represented as dots -->
+  <g fill="#ffffff" opacity="0.7">
+    <!-- Northern America -->
+    <circle cx="150" cy="120" r="2" />
+    <circle cx="170" cy="110" r="2" />
+    <circle cx="190" cy="120" r="2" />
+    <circle cx="210" cy="130" r="2" />
+    <circle cx="230" cy="125" r="2" />
+    <circle cx="250" cy="110" r="2" />
+    <circle cx="270" cy="125" r="2" />
+    <circle cx="290" cy="145" r="2" />
+    <circle cx="180" cy="140" r="2" />
+    <circle cx="200" cy="150" r="2" />
+    <circle cx="220" cy="160" r="2" />
+    <circle cx="240" cy="170" r="2" />
+    <circle cx="260" cy="180" r="2" />
+    <circle cx="150" cy="160" r="2" />
+    <circle cx="170" cy="170" r="2" />
+
+    <!-- South America -->
+    <circle cx="230" cy="300" r="2" />
+    <circle cx="250" cy="320" r="2" />
+    <circle cx="230" cy="340" r="2" />
+    <circle cx="240" cy="360" r="2" />
+    <circle cx="250" cy="380" r="2" />
+    <circle cx="260" cy="340" r="2" />
+    <circle cx="270" cy="320" r="2" />
+    <circle cx="280" cy="300" r="2" />
+
+    <!-- Europe -->
+    <circle cx="470" cy="130" r="2" />
+    <circle cx="480" cy="120" r="2" />
+    <circle cx="490" cy="110" r="2" />
+    <circle cx="500" cy="120" r="2" />
+    <circle cx="510" cy="130" r="2" />
+    <circle cx="520" cy="120" r="2" />
+    <circle cx="470" cy="140" r="2" />
+    <circle cx="480" cy="150" r="2" />
+    <circle cx="490" cy="160" r="2" />
+    <circle cx="500" cy="150" r="2" />
+    <circle cx="510" cy="140" r="2" />
+    <circle cx="450" cy="125" r="2" />
+    <circle cx="460" cy="115" r="2" />
+    <circle cx="440" cy="140" r="2" />
+
+    <!-- Africa -->
+    <circle cx="470" cy="220" r="2" />
+    <circle cx="480" cy="240" r="2" />
+    <circle cx="490" cy="260" r="2" />
+    <circle cx="500" cy="280" r="2" />
+    <circle cx="510" cy="260" r="2" />
+    <circle cx="520" cy="240" r="2" />
+    <circle cx="530" cy="220" r="2" />
+    <circle cx="480" cy="280" r="2" />
+    <circle cx="470" cy="260" r="2" />
+    <circle cx="460" cy="240" r="2" />
+    <circle cx="450" cy="220" r="2" />
+    <circle cx="490" cy="290" r="2" />
+
+    <!-- Saudi Arabia (highlighted) -->
+    <circle cx="545" cy="210" r="4" fill="#3b82f6" />
+    <circle cx="555" cy="215" r="3" fill="#3b82f6" />
+    <circle cx="565" cy="220" r="3" fill="#3b82f6" />
+    <circle cx="545" cy="220" r="3" fill="#3b82f6" />
+    <circle cx="555" cy="225" r="3" fill="#3b82f6" />
+    <circle cx="535" cy="215" r="3" fill="#3b82f6" />
+
+    <!-- Asia -->
+    <circle cx="580" cy="140" r="2" />
+    <circle cx="600" cy="150" r="2" />
+    <circle cx="620" cy="160" r="2" />
+    <circle cx="640" cy="170" r="2" />
+    <circle cx="660" cy="180" r="2" />
+    <circle cx="680" cy="170" r="2" />
+    <circle cx="700" cy="160" r="2" />
+    <circle cx="720" cy="150" r="2" />
+    <circle cx="740" cy="160" r="2" />
+    <circle cx="760" cy="170" r="2" />
+    <circle cx="780" cy="180" r="2" />
+    <circle cx="680" cy="190" r="2" />
+    <circle cx="700" cy="200" r="2" />
+    <circle cx="720" cy="210" r="2" />
+
+    <!-- Philippines (highlighted) -->
+    <circle cx="775" cy="245" r="4" fill="#14b8a6" />
+    <circle cx="780" cy="250" r="3" fill="#14b8a6" />
+    <circle cx="770" cy="255" r="3" fill="#14b8a6" />
+    <circle cx="775" cy="260" r="3" fill="#14b8a6" />
+
+    <!-- Oceania -->
+    <circle cx="820" cy="340" r="2" />
+    <circle cx="840" cy="350" r="2" />
+    <circle cx="860" cy="330" r="2" />
+    <circle cx="830" cy="320" r="2" />
+    <circle cx="850" cy="310" r="2" />
+    <circle cx="870" cy="320" r="2" />
+  </g>
+
+  <!-- Connection line between Saudi Arabia and Philippines -->
+  <path d="M545,215 C650,150 700,200 775,245" stroke="url(#blueTealGradient)" stroke-width="3" fill="none" opacity="0.6" />
+  
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="blueTealGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#14b8a6" />
+    </linearGradient>
+  </defs>
+</svg>
