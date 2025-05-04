@@ -206,19 +206,23 @@ const Interactive3DGlobe: React.FC = () => {
         const flightProgress = Math.min(1, Math.max(0, (scrollProgress - 0.1) / 0.8));
         
         if (flightProgress > 0 && flightProgress < 1) {
-          // Get point along curve
-          const flightCurve = new THREE.CatmullRomCurve3(
-            (flightPathRef.current.geometry as THREE.BufferGeometry)
-              .getAttribute('position').array as unknown as THREE.Vector3[]
-          );
-          const point = flightCurve.getPoint(flightProgress);
+          // Get point along curve - use the original curves points to avoid conversion errors
+          // Create a simplified temp curve with the right points
+          const positions = (flightPathRef.current.geometry as THREE.BufferGeometry).getAttribute('position');
+          // Sample the position along the path based on progress
+          const pointIndex = Math.floor(flightProgress * (positions.count - 1));
+          const point = new THREE.Vector3();
+          point.fromBufferAttribute(positions, pointIndex);
           
           // Update plane position
           planeRef.current.position.copy(point);
           
           // Orient the plane along the path
           if (flightProgress < 0.99) {
-            const nextPoint = flightCurve.getPoint(flightProgress + 0.01);
+            // Get next point for orientation
+            const nextPointIndex = Math.min(pointIndex + 1, positions.count - 1);
+            const nextPoint = new THREE.Vector3();
+            nextPoint.fromBufferAttribute(positions, nextPointIndex);
             planeRef.current.lookAt(nextPoint);
           }
           

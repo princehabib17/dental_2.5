@@ -83,15 +83,13 @@ const Home: React.FC = () => {
           
           <div className="text-center mt-12">
             <Link href="/services">
-              <a>
-                <Button 
-                  className={`bg-primary hover:bg-primary/90 text-white ${
-                    isRtl ? 'font-arabic' : 'font-heading-en'
-                  }`}
-                >
-                  {t('services.viewAll')}
-                </Button>
-              </a>
+              <Button 
+                className={`bg-primary hover:bg-primary/90 text-white ${
+                  isRtl ? 'font-arabic' : 'font-heading-en'
+                }`}
+              >
+                {t('services.viewAll')}
+              </Button>
             </Link>
           </div>
         </div>
@@ -129,15 +127,13 @@ const Home: React.FC = () => {
           
           <div className="text-center mt-12">
             <Link href="/doctors">
-              <a>
-                <Button 
-                  className={`bg-primary hover:bg-primary/90 text-white ${
-                    isRtl ? 'font-arabic' : 'font-heading-en'
-                  }`}
-                >
-                  {t('doctors.viewAll')}
-                </Button>
-              </a>
+              <Button 
+                className={`bg-primary hover:bg-primary/90 text-white ${
+                  isRtl ? 'font-arabic' : 'font-heading-en'
+                }`}
+              >
+                {t('doctors.viewAll')}
+              </Button>
             </Link>
           </div>
         </div>
