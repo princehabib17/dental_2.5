@@ -177,3 +177,89 @@ html {
 .dental-particle:nth-child(7) { left: 70%; animation-delay: 12s; animation-duration: 18s; }
 .dental-particle:nth-child(8) { left: 80%; animation-delay: 14s; animation-duration: 12s; }
 .dental-particle:nth-child(9) { left: 90%; animation-delay: 16s; animation-duration: 15s; }
+
+/* Modern 2025 Animations */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  33% {
+    transform: translateY(-20px) translateX(10px) scale(1.05);
+  }
+  66% {
+    transform: translateY(10px) translateX(-5px) scale(0.95);
+  }
+}
+
+@keyframes float-slow-delayed {
+  0%, 100% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  33% {
+    transform: translateY(15px) translateX(-10px) scale(1.08);
+  }
+  66% {
+    transform: translateY(-10px) translateX(5px) scale(0.92);
+  }
+}
+
+@keyframes float-slower {
+  0%, 100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-15px) translateX(15px) rotate(90deg);
+  }
+  50% {
+    transform: translateY(-30px) translateX(0) rotate(180deg);
+  }
+  75% {
+    transform: translateY(-15px) translateX(-15px) rotate(270deg);
+  }
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-float-slow-delayed {
+  animation: float-slow-delayed 6s ease-in-out infinite 2s;
+}
+
+.animate-float-slower {
+  animation: float-slower 12s linear infinite;
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 4s ease infinite;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Modern Shadows */
+.shadow-soft {
+  box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-colored {
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 50px rgba(59, 130, 246, 0.4);
+}
