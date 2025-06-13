@@ -8,30 +8,9 @@ import { motion } from 'framer-motion';
 const Hero: React.FC = () => {
   const { t } = useTranslation();
   const { isRtl } = useLanguage();
-  const heroRef = useRef<HTMLElement>(null);
-  const mouseRef = useRef({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const hero = heroRef.current;
-    if (!hero) return;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = hero.getBoundingClientRect();
-      mouseRef.current = {
-        x: (e.clientX - rect.left) / rect.width,
-        y: (e.clientY - rect.top) / rect.height,
-      };
-    };
-
-    hero.addEventListener('mousemove', handleMouseMove);
-    return () => hero.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   return (
-    <section 
-      ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-teal-50/30"
-    >
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-teal-50/30">
       {/* Advanced Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Animated Grid Pattern */}
@@ -79,11 +58,6 @@ const Hero: React.FC = () => {
             ease: "linear"
           }}
         />
-        
-        {/* Noise Texture Overlay */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
-        }}></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -125,18 +99,7 @@ const Hero: React.FC = () => {
                   {t('hero.title1', 'Your Perfect')}
                 </span>
                 <motion.span 
-                  className="block bg-gradient-to-r from-blue-600 via-teal-500 to-blue-700 bg-clip-text text-transparent"
-                  animate={{ 
-                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                  }}
-                  transition={{ 
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                  style={{
-                    backgroundSize: '200% 200%'
-                  }}
+                  className="block bg-gradient-to-r from-blue-600 via-teal-500 to-blue-700 bg-clip-text text-transparent animate-gradient-x"
                 >
                   {t('hero.title2', 'Smile Awaits')}
                 </motion.span>
@@ -182,10 +145,6 @@ const Hero: React.FC = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </motion.svg>
                     </span>
-                    <motion.div 
-                      className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      whileHover={{ scale: 1.1 }}
-                    />
                   </Button>
                 </motion.div>
               </Link>

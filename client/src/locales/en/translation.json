@@ -302,7 +302,13 @@
       "contact": "Contact"
     },
     "services": {
-      "title": "Our Services"
+      "title": "Our Services",
+      "crowns": "Crowns & Caps",
+      "veneers": "Porcelain Veneers", 
+      "rootcanal": "Root Canal",
+      "bonding": "Dental Bonding",
+      "bridges": "Bridges",
+      "whitening": "Teeth Whitening"
     },
     "contact": {
       "title": "Contact Us"
