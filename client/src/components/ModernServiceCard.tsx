@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/context/LanguageContext';
+import { useThemeContext } from '@/context/ThemeContext';
 import { motion } from 'framer-motion';
 
 interface ModernServiceCardProps {
@@ -12,10 +13,15 @@ interface ModernServiceCardProps {
 const ModernServiceCard: React.FC<ModernServiceCardProps> = ({ id, icon, index }) => {
   const { t } = useTranslation();
   const { isRtl } = useLanguage();
+  const { isDark } = useThemeContext();
 
   return (
     <motion.div
-      className="group relative h-80 bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+      className={`group relative h-80 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 ${
+        isDark 
+          ? 'bg-gray-800/50 backdrop-blur-xl border border-gray-700/50' 
+          : 'bg-white'
+      }`}
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -25,10 +31,18 @@ const ModernServiceCard: React.FC<ModernServiceCardProps> = ({ id, icon, index }
       }}
     >
       {/* Gradient Background Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-teal-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
+        isDark 
+          ? 'from-blue-500/10 via-teal-500/10 to-purple-500/10'
+          : 'from-blue-500/5 via-teal-500/5 to-purple-500/5'
+      }`}></div>
       
       {/* Glassmorphism Header */}
-      <div className="relative p-6 bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-md border-b border-white/20">
+      <div className={`relative p-6 backdrop-blur-md border-b transition-colors duration-300 ${
+        isDark 
+          ? 'bg-gradient-to-br from-gray-700/40 to-gray-800/40 border-gray-600/30'
+          : 'bg-gradient-to-br from-white/80 to-white/60 border-white/20'
+      }`}>
         <motion.div
           className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-teal-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300"
           whileHover={{ 
@@ -42,18 +56,18 @@ const ModernServiceCard: React.FC<ModernServiceCardProps> = ({ id, icon, index }
           </div>
         </motion.div>
         
-        <h3 className={`text-xl font-bold text-gray-900 text-center mb-2 ${
-          isRtl ? 'font-arabic' : 'font-heading-en'
-        }`}>
+        <h3 className={`text-xl font-bold text-center mb-2 transition-colors duration-300 ${
+          isDark ? 'text-white' : 'text-gray-900'
+        } ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>
           {t(`services.${id}.title`, t(`footer.services.${id}`, id))}
         </h3>
       </div>
       
       {/* Content Section */}
       <div className="p-6">
-        <p className={`text-gray-600 text-center leading-relaxed mb-6 ${
-          isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'
-        }`}>
+        <p className={`text-center leading-relaxed mb-6 transition-colors duration-300 ${
+          isDark ? 'text-gray-300' : 'text-gray-600'
+        } ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
           {t(`services.${id}.description`, `Professional ${id} services with modern techniques and personalized care.`)}
         </p>
         
@@ -68,9 +82,9 @@ const ModernServiceCard: React.FC<ModernServiceCardProps> = ({ id, icon, index }
               transition={{ duration: 0.4, delay: index * 0.1 + num * 0.1 }}
             >
               <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full"></div>
-              <span className={`text-sm text-gray-600 ${
-                isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'
-              }`}>
+              <span className={`text-sm transition-colors duration-300 ${
+                isDark ? 'text-gray-400' : 'text-gray-600'
+              } ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
                 {t(`services.${id}.feature${num}`, `Advanced ${id} technique`)}
               </span>
             </motion.div>

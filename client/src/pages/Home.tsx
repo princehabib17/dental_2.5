@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/context/LanguageContext';
+import { useThemeContext } from '@/context/ThemeContext';
 import Hero from '@/components/Hero';
 import TrustIndicators from '@/components/TrustIndicators';
 import ServiceCard from '@/components/ServiceCard';
@@ -18,6 +19,7 @@ import { motion } from 'framer-motion';
 const Home: React.FC = () => {
   const { t } = useTranslation();
   const { isRtl } = useLanguage();
+  const { isDark } = useThemeContext();
 
   // Featured dental services data
   const services = [
@@ -54,11 +56,23 @@ const Home: React.FC = () => {
       <TrustIndicators />
       
       {/* Modern Services Section */}
-      <section id="services" className="py-20 relative overflow-hidden">
+      <section id="services" className="py-20 relative overflow-hidden transition-colors duration-300">
         {/* Background with modern effects */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/20 to-teal-50/20"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(20,184,166,0.1),transparent_50%)]"></div>
+        <div className={`absolute inset-0 transition-colors duration-300 ${
+          isDark 
+            ? 'bg-gradient-to-br from-gray-900 via-gray-800/20 to-gray-900' 
+            : 'bg-gradient-to-br from-slate-50 via-blue-50/20 to-teal-50/20'
+        }`}></div>
+        <div className={`absolute inset-0 ${
+          isDark 
+            ? 'bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]'
+            : 'bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]'
+        }`}></div>
+        <div className={`absolute inset-0 ${
+          isDark 
+            ? 'bg-[radial-gradient(circle_at_70%_80%,rgba(20,184,166,0.05),transparent_50%)]'
+            : 'bg-[radial-gradient(circle_at_70%_80%,rgba(20,184,166,0.1),transparent_50%)]'
+        }`}></div>
         
         <div className="container mx-auto px-4 relative z-10">
           <motion.div 
