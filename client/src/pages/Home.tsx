@@ -82,19 +82,23 @@ const Home: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-md border border-white/20 shadow-lg mb-6"
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md border shadow-lg mb-6 transition-colors duration-300 ${
+                isDark 
+                  ? 'bg-gray-800/60 border-gray-600/20 text-gray-300'
+                  : 'bg-white/60 border-white/20 text-gray-700'
+              }`}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-              <span className={`text-sm font-medium text-gray-700 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>
+              <span className={`text-sm font-medium ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>
                 ✨ Premium Dental Services
               </span>
             </motion.div>
             
             <h2 
-              className={`text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 ${
+              className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${
                 isRtl ? 'font-arabic' : 'font-heading-en'
               }`}
             >
@@ -103,9 +107,9 @@ const Home: React.FC = () => {
               </span>
             </h2>
             <p 
-              className={`text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed ${
-                isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'
-              }`}
+              className={`text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed transition-colors duration-300 ${
+                isDark ? 'text-gray-300' : 'text-gray-600'
+              } ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}
             >
               {t('services.subtitle', 'Comprehensive dental care with cutting-edge technology and personalized treatment plans for every patient.')}
             </p>
@@ -130,15 +134,19 @@ const Home: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <div className="bg-white/40 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl p-8 max-w-2xl mx-auto">
-              <h3 className={`text-2xl font-bold text-gray-900 mb-4 ${
-                isRtl ? 'font-arabic' : 'font-heading-en'
-              }`}>
+            <div className={`backdrop-blur-xl rounded-3xl border shadow-2xl p-8 max-w-2xl mx-auto transition-colors duration-300 ${
+              isDark 
+                ? 'bg-gray-800/40 border-gray-600/20'
+                : 'bg-white/40 border-white/20'
+            }`}>
+              <h3 className={`text-2xl font-bold mb-4 transition-colors duration-300 ${
+                isDark ? 'text-white' : 'text-gray-900'
+              } ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>
                 Ready to Transform Your Smile?
               </h3>
-              <p className={`text-gray-600 mb-6 ${
-                isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'
-              }`}>
+              <p className={`mb-6 transition-colors duration-300 ${
+                isDark ? 'text-gray-300' : 'text-gray-600'
+              } ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
                 Book a consultation with our dental specialists and discover the perfect treatment plan for you.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
