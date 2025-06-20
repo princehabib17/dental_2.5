@@ -23,7 +23,7 @@ const DoctorCard: React.FC<DoctorCardProps> = ({ id, image }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       whileHover={{ y: -5 }}
-      className="group bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100"
+      className="group bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 card-hover"
     >
       {/* Professional dental doctor card - Arevalo style */}
       <div className="relative overflow-hidden">

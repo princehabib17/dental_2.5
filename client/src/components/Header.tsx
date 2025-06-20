@@ -84,7 +84,7 @@ const Header: React.FC = () => {
                 <img 
                   src={ArevoloLogo} 
                   alt="Arevalo Dental Clinic Logo" 
-                  className="h-4 mr-2 rtl:ml-2 rtl:mr-0" 
+                  className="logo-size mr-2 rtl:ml-2 rtl:mr-0" 
                 />
               </motion.div>
             </Link>

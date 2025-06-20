@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-r from-primary/10 via-accent to-white">
+    <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-r from-primary/10 via-accent to-white flex items-center">
       {/* Floating dental particles */}
       <div className="dental-particle text-3xl text-primary/30"><FaTooth /></div>
       <div className="dental-particle text-2xl text-secondary/30"><FaTeeth /></div>
@@ -141,7 +141,7 @@ const Hero: React.FC = () => {
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                   <Button 
                     size="lg"
-                    className={`bg-primary hover:bg-primary/90 text-white px-6 py-6 rounded-xl shadow-lg transition-all hover:shadow-xl ${isRtl ? 'font-arabic' : 'font-heading-en'}`}
+                    className={`bg-primary hover:bg-primary/90 text-white px-6 py-6 rounded-xl shadow-lg transition-all hover:shadow-xl btn-primary ${isRtl ? 'font-arabic' : 'font-heading-en'}`}
                   >
                     <CalendarCheck className="mr-2 h-5 w-5 rtl:ml-2 rtl:mr-0" />
                     Make an Appointment
