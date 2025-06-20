@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/context/LanguageContext';
-import { useThemeContext } from '@/context/ThemeContext';
 import LanguageToggle from './LanguageToggle';
-import ThemeToggle from './ThemeToggle';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone, Calendar, Search, Heart } from 'lucide-react';
 import { FaTooth } from 'react-icons/fa';
@@ -17,7 +15,6 @@ const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const { t } = useTranslation();
   const { isRtl } = useLanguage();
-  const { isDark, resolvedTheme } = useThemeContext();
   const [location] = useLocation();
 
   useEffect(() => {
@@ -48,9 +45,7 @@ const Header: React.FC = () => {
   return (
     <>
       {/* Top bar with contact info */}
-      <div className={`py-2 hidden md:block transition-colors duration-300 ${
-        isDark ? 'bg-gray-900/50 backdrop-blur-md' : 'bg-gray-50'
-      }`}>
+      <div className="bg-gray-50 py-2 hidden md:block">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-6 rtl:space-x-reverse">
@@ -76,13 +71,7 @@ const Header: React.FC = () => {
       {/* Main header */}
       <header className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
-        scrolled 
-          ? isDark 
-            ? "bg-gray-900/95 backdrop-blur-md shadow-xl border-b border-gray-700"
-            : "bg-white/95 backdrop-blur-md shadow-md"
-          : isDark
-            ? "bg-gray-900 shadow-xl border-b border-gray-800"
-            : "bg-white shadow-sm"
+        scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-white shadow-sm"
       )}>
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
@@ -107,11 +96,7 @@ const Header: React.FC = () => {
                 <input 
                   type="text" 
                   placeholder={t('nav.searchPlaceholder')} 
-                  className={`w-full pl-10 pr-4 py-2 rounded-full border focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all rtl:pl-4 rtl:pr-10 ${isRtl ? 'font-arabic' : 'font-body-en'} ${
-                    isDark 
-                      ? 'bg-gray-800 border-gray-600 text-white placeholder-gray-400' 
-                      : 'bg-white border-gray-200 text-gray-900 placeholder-gray-500'
-                  }`}
+                  className={`w-full pl-10 pr-4 py-2 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all rtl:pl-4 rtl:pr-10 ${isRtl ? 'font-arabic' : 'font-body-en'}`}
                 />
               </div>
             </div>
@@ -124,7 +109,7 @@ const Header: React.FC = () => {
                   href={link.href}
                   className="relative group"
                 >
-                  <span className={`${isRtl ? 'font-arabic' : 'font-heading-en'} text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors ${location === link.href ? 'text-primary' : isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                  <span className={`${isRtl ? 'font-arabic' : 'font-heading-en'} text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors ${location === link.href ? 'text-primary' : 'text-gray-600'}`}>
                     {link.label}
                   </span>
                 </Link>
@@ -132,12 +117,6 @@ const Header: React.FC = () => {
             </nav>
 
             <div className="flex items-center space-x-4 rtl:space-x-reverse">
-              {/* Theme Toggle */}
-              <ThemeToggle />
-              
-              {/* Language Toggle */}
-              <LanguageToggle />
-
               {/* Appointment Button (Desktop) */}
               <div className="hidden md:block">
                 <Link href="/contact#appointment">
@@ -150,6 +129,11 @@ const Header: React.FC = () => {
                     </Button>
                   </motion.div>
                 </Link>
+              </div>
+
+              {/* Mobile language toggle */}
+              <div className="md:hidden">
+                <LanguageToggle />
               </div>
 
               {/* Mobile Menu Button */}

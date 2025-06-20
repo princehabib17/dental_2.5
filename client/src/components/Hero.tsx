@@ -5,6 +5,8 @@ import { useLanguage } from '@/context/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { CalendarCheck, Phone, ChevronDown, Sparkles } from 'lucide-react';
+import { FaTeeth, FaTooth } from 'react-icons/fa';
+import { GiMedicines } from 'react-icons/gi';
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();
@@ -18,340 +20,294 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden">
-      {/* Advanced 2025 Background System */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-950 to-teal-950">
-        {/* Animated mesh gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-teal-500/10 to-purple-600/20 animate-gradient-x"></div>
+    <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-r from-primary/10 via-accent to-white">
+      {/* Floating dental particles */}
+      <div className="dental-particle text-3xl text-primary/30"><FaTooth /></div>
+      <div className="dental-particle text-2xl text-secondary/30"><FaTeeth /></div>
+      <div className="dental-particle text-4xl text-primary/20"><FaTooth /></div>
+      <div className="dental-particle text-3xl text-secondary/20"><FaTeeth /></div>
+      <div className="dental-particle text-2xl text-primary/30"><FaTooth /></div>
+      <div className="dental-particle text-4xl text-secondary/30"><FaTeeth /></div>
+      <div className="dental-particle text-3xl text-primary/20"><FaTooth /></div>
+      <div className="dental-particle text-2xl text-secondary/20"><FaTeeth /></div>
+      <div className="dental-particle text-4xl text-primary/30"><FaTooth /></div>
+      {/* Background pattern with dental symbols and animated elements */}
+      <div className="absolute inset-0 opacity-5 z-0 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:20px_20px]"></div>
         
-        {/* Dynamic noise overlay */}
-        <div className="absolute inset-0 opacity-30 mix-blend-overlay" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E")`
-        }}></div>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 0.2, scale: 1 }}
+          transition={{ duration: 1.5 }}
+          className="absolute top-20 left-20 text-6xl text-primary"
+        >
+          <FaTooth />
+        </motion.div>
         
-        {/* Floating orbs with advanced animations */}
-        <motion.div
-          className="absolute top-20 left-20 w-96 h-96 rounded-full bg-gradient-to-br from-blue-400/30 to-teal-400/30 backdrop-blur-3xl"
-          animate={{
-            y: [-20, 20, -20],
-            x: [-10, 10, -10],
-            scale: [1, 1.1, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-20 w-80 h-80 rounded-full bg-gradient-to-br from-purple-400/30 to-pink-400/30 backdrop-blur-3xl"
-          animate={{
-            y: [20, -20, 20],
-            x: [10, -10, 10],
-            scale: [1.1, 1, 1.1],
-            rotate: [360, 180, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 0.2, y: 0 }}
+          transition={{ duration: 1.5, delay: 0.3 }}
+          className="absolute bottom-40 right-40 text-6xl text-secondary"
+        >
+          <FaTeeth />
+        </motion.div>
         
-        {/* Geometric patterns */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-32 h-32 border border-white/20 rotate-45 animate-pulse"></div>
-          <div className="absolute top-3/4 right-1/4 w-24 h-24 border border-white/20 rotate-12 animate-pulse delay-1000"></div>
-          <div className="absolute bottom-1/4 left-3/4 w-20 h-20 border border-white/20 -rotate-45 animate-pulse delay-2000"></div>
-        </div>
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 0.1, x: 0 }}
+          transition={{ duration: 1.5, delay: 0.6 }}
+          className="absolute top-60 right-60 text-5xl text-primary"
+        >
+          <GiMedicines />
+        </motion.div>
+        
+        {/* Additional floating elements */}
+        <motion.div 
+          animate={{ 
+            y: [0, -15, 0],
+            opacity: [0.1, 0.2, 0.1],
+          }}
+          transition={{ 
+            repeat: Infinity, 
+            duration: 8,
+            ease: "easeInOut" 
+          }}
+          className="absolute top-1/3 left-1/4 text-7xl text-secondary/20"
+        >
+          <FaTooth />
+        </motion.div>
+        
+        <motion.div 
+          animate={{ 
+            y: [0, 15, 0],
+            opacity: [0.1, 0.2, 0.1],
+            rotate: [0, 10, 0]
+          }}
+          transition={{ 
+            repeat: Infinity, 
+            duration: 10,
+            ease: "easeInOut",
+            delay: 2
+          }}
+          className="absolute bottom-1/4 left-1/3 text-8xl text-primary/20"
+        >
+          <FaTeeth />
+        </motion.div>
       </div>
-
+      
       {/* Main content */}
-      <div className="relative z-10 min-h-screen flex items-center">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto px-4 pt-32 pb-24 relative z-10">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 min-h-[calc(100vh-200px)]">
+          {/* Left side (text content) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="lg:w-1/2 text-center lg:text-left pt-10 lg:pt-0"
+          >
+            <div className="inline-flex items-center bg-accent px-4 py-2 rounded-full mb-5">
+              <Sparkles className="h-4 w-4 text-primary mr-2" />
+              <span className={`text-sm font-medium text-primary ${isRtl ? 'font-arabic' : 'font-body-en'}`}>
+                AREVALO DENTAL CLINIC
+              </span>
+            </div>
             
-            {/* Left Column - Content */}
-            <motion.div 
-              className={`${isRtl ? 'lg:order-2 text-right' : 'lg:order-1 text-left'} space-y-8`}
-              initial={{ opacity: 0, x: isRtl ? 100 : -100 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-            >
-              {/* Status Badge */}
-              <motion.div
-                className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <motion.div
-                  className="w-3 h-3 bg-green-400 rounded-full shadow-lg"
-                  animate={{ scale: [1, 1.3, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-                <span className={`text-white/90 font-medium ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>
-                  Available for Same-Day Appointments
-                </span>
-              </motion.div>
-
-              {/* Main Heading with 2025 Typography */}
-              <div className="space-y-6">
-                <motion.h1 
-                  className={`text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tight ${
-                    isRtl ? 'font-arabic' : 'font-heading-en'
-                  }`}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.4 }}
-                >
-                  <span className="block text-white mb-4">
-                    Your Perfect
-                  </span>
-                  <motion.span 
-                    className="block bg-gradient-to-r from-blue-400 via-teal-300 to-purple-400 bg-clip-text text-transparent"
-                    animate={{
-                      backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                    }}
-                    transition={{
-                      duration: 8,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }}
-                    style={{ backgroundSize: '300% 300%' }}
-                  >
-                    Smile Transformation
-                  </motion.span>
-                </motion.h1>
-
-                <motion.p 
-                  className={`text-xl md:text-2xl text-white/80 max-w-xl leading-relaxed ${
-                    isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'
-                  }`}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.6 }}
-                >
-                  World-class dental care in Makati with cutting-edge technology, 
-                  personalized treatments, and internationally trained specialists.
-                </motion.p>
-              </div>
-
-              {/* CTA Buttons with Advanced Interactions */}
-              <motion.div 
-                className={`flex flex-col sm:flex-row gap-6 ${isRtl ? 'sm:justify-end' : 'sm:justify-start'}`}
-                initial={{ opacity: 0, y: 30 }}
+            <h1 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight ${isRtl ? 'font-arabic rtl-toggle' : 'font-heading-en'}`}>
+              <motion.span 
+                initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.8 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="block bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
               >
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link href="#appointment">
-                    <Button 
-                      size="lg" 
-                      className={`group relative overflow-hidden bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 text-white px-10 py-6 text-xl font-bold rounded-2xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 ${
-                        isRtl ? 'font-arabic' : 'font-heading-en'
-                      }`}
-                    >
-                      <span className="relative z-10 flex items-center gap-3">
-                        <CalendarCheck className="w-6 h-6" />
-                        Book Consultation
-                        <motion.div
-                          className="w-2 h-2 bg-white rounded-full"
-                          animate={{ x: [0, 5, 0] }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
-                        />
-                      </span>
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
-                        initial={{ x: '-100%' }}
-                        whileHover={{ x: '100%' }}
-                        transition={{ duration: 0.6 }}
-                      />
-                    </Button>
-                  </Link>
-                </motion.div>
-
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link href="tel:+6328123456">
-                    <Button 
-                      variant="outline" 
-                      size="lg" 
-                      className={`group bg-white/10 backdrop-blur-xl border-2 border-white/30 text-white hover:bg-white/20 hover:border-white/50 px-10 py-6 text-xl font-bold rounded-2xl shadow-2xl transition-all duration-500 ${
-                        isRtl ? 'font-arabic' : 'font-heading-en'
-                      }`}
-                    >
-                      <span className="flex items-center gap-3">
-                        <Phone className="w-6 h-6" />
-                        Call Now
-                      </span>
-                    </Button>
-                  </Link>
-                </motion.div>
-              </motion.div>
-
-              {/* Trust Indicators */}
-              <motion.div 
-                className="flex items-center gap-8 pt-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 1 }}
+                Transforming Smiles
+              </motion.span>
+              <motion.span 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="block text-gray-800 mt-2"
               >
-                <div className="flex -space-x-3">
-                  {[...Array(4)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-teal-400 border-3 border-white/30 flex items-center justify-center text-white font-bold shadow-xl"
-                      whileHover={{ scale: 1.2, zIndex: 10 }}
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ duration: 0.5, delay: 1.2 + i * 0.1 }}
-                    >
-                      {String.fromCharCode(65 + i)}
-                    </motion.div>
-                  ))}
+                In the Heart of Makati, Philippines
+              </motion.span>
+            </h1>
+            
+            <p className={`text-lg text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0 ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
+              With a diverse clientele from across the Philippines, we've established ourselves as a premier dental clinic in Makati, proudly providing quality general and cosmetic dental care with international standards.
+            </p>
+            
+            <div className={`flex flex-col sm:flex-row gap-4 justify-center lg:justify-start ${isRtl ? 'rtl-toggle' : ''}`}>
+              <Link href="/contact#appointment">
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                  <Button 
+                    size="lg"
+                    className={`bg-primary hover:bg-primary/90 text-white px-6 py-6 rounded-xl shadow-lg transition-all hover:shadow-xl ${isRtl ? 'font-arabic' : 'font-heading-en'}`}
+                  >
+                    <CalendarCheck className="mr-2 h-5 w-5 rtl:ml-2 rtl:mr-0" />
+                    Make an Appointment
+                  </Button>
+                </motion.div>
+              </Link>
+              
+              <a href="tel:+639123456789">
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                  <Button 
+                    variant="outline"
+                    size="lg"
+                    className={`border-primary text-primary hover:bg-primary/5 px-6 py-6 rounded-xl transition-all ${isRtl ? 'font-arabic' : 'font-heading-en'}`}
+                  >
+                    <Phone className="mr-2 h-5 w-5 rtl:ml-2 rtl:mr-0" />
+                    Contact Us
+                  </Button>
+                </motion.div>
+              </a>
+            </div>
+            
+            {/* Dental specific trust badges */}
+            <div className="mt-12 flex flex-wrap items-center justify-center lg:justify-start gap-6">
+              <div className="flex flex-col items-center lg:items-start space-y-1">
+                <div className="bg-accent rounded-full p-3 mb-1" style={{ animation: 'dental-glow 3s infinite' }}>
+                  <FaTooth className="h-5 w-5 text-primary" />
                 </div>
-                <div>
-                  <div className="flex text-yellow-400 mb-2">
-                    {[...Array(5)].map((_, i) => (
-                      <motion.svg
-                        key={i}
-                        className="w-5 h-5 fill-current"
-                        viewBox="0 0 20 20"
-                        initial={{ scale: 0, rotate: -180 }}
-                        animate={{ scale: 1, rotate: 0 }}
-                        transition={{ duration: 0.5, delay: 1.4 + i * 0.1 }}
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </motion.svg>
-                    ))}
-                  </div>
-                  <p className={`text-white/80 font-medium ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
-                    2,500+ Happy Patients
-                  </p>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Right Column - Interactive 3D Elements */}
-            <motion.div 
-              className={`${isRtl ? 'lg:order-1' : 'lg:order-2'} relative h-[700px]`}
-              initial={{ opacity: 0, x: isRtl ? -100 : 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
-            >
-              {/* 3D Card Stack */}
-              <div className="relative h-full w-full perspective-1000">
-                
-                {/* Main Card */}
-                <motion.div
-                  className="absolute top-16 left-8 right-8 h-80 bg-white/10 backdrop-blur-2xl rounded-3xl border border-white/20 shadow-2xl p-8"
-                  animate={{ 
-                    rotateY: [0, 5, 0, -5, 0],
-                    rotateX: [0, 2, 0, -2, 0]
-                  }}
-                  transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                  whileHover={{ 
-                    scale: 1.05,
-                    rotateY: 15,
-                    rotateX: 10,
-                    transition: { duration: 0.3 }
-                  }}
-                >
-                  <div className="h-full flex flex-col justify-between">
-                    <div>
-                      <motion.div
-                        className="w-16 h-16 bg-gradient-to-br from-blue-400 to-teal-400 rounded-2xl flex items-center justify-center mb-6 shadow-xl"
-                        animate={{ rotate: [0, 360] }}
-                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                      >
-                        <Sparkles className="w-8 h-8 text-white" />
-                      </motion.div>
-                      <h3 className={`text-2xl font-bold text-white mb-4 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>
-                        Premium Care Experience
-                      </h3>
-                      <p className={`text-white/80 leading-relaxed ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
-                        State-of-the-art dental technology with personalized treatment plans designed specifically for you.
-                      </p>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <div className="flex text-yellow-400">
-                        {[...Array(5)].map((_, i) => (
-                          <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                          </svg>
-                        ))}
-                      </div>
-                      <span className="text-white/60 text-sm">4.9/5.0</span>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Floating Stats Cards */}
-                <motion.div
-                  className="absolute top-8 right-4 w-48 h-32 bg-gradient-to-br from-teal-500/20 to-blue-500/20 backdrop-blur-xl rounded-2xl border border-white/20 shadow-xl p-6"
-                  animate={{ 
-                    y: [0, -10, 0],
-                    rotate: [0, 2, 0, -2, 0]
-                  }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                >
-                  <div className="text-center">
-                    <motion.div 
-                      className="text-3xl font-black text-white mb-2"
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                    >
-                      15+
-                    </motion.div>
-                    <p className="text-white/80 text-sm font-medium">Years Experience</p>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  className="absolute bottom-16 left-4 w-52 h-36 bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-xl rounded-2xl border border-white/20 shadow-xl p-6"
-                  animate={{ 
-                    y: [0, 10, 0],
-                    rotate: [0, -2, 0, 2, 0]
-                  }}
-                  transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                  whileHover={{ scale: 1.1, rotate: -5 }}
-                >
-                  <div className="flex items-center gap-4">
-                    <motion.div
-                      className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-400 rounded-full flex items-center justify-center"
-                      animate={{ rotate: [0, 360] }}
-                      transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                    >
-                      <CalendarCheck className="w-6 h-6 text-white" />
-                    </motion.div>
-                    <div>
-                      <h4 className="text-white font-bold">Same Day</h4>
-                      <p className="text-white/80 text-sm">Appointments Available</p>
-                    </div>
-                  </div>
-                </motion.div>
+                <span className={`text-sm font-medium text-gray-800 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>Modern Equipment</span>
+                <span className={`text-xs text-gray-500 ${isRtl ? 'font-arabic' : 'font-body-en'}`}>Latest dental technology</span>
               </div>
+              
+              <div className="flex flex-col items-center lg:items-start space-y-1">
+                <div className="bg-accent rounded-full p-3 mb-1" style={{ animation: 'dental-glow 3s infinite 0.5s' }}>
+                  <FaTeeth className="h-5 w-5 text-primary" />
+                </div>
+                <span className={`text-sm font-medium text-gray-800 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>Expert Dentists</span>
+                <span className={`text-xs text-gray-500 ${isRtl ? 'font-arabic' : 'font-body-en'}`}>Over 30 years experience</span>
+              </div>
+              
+              <div className="flex flex-col items-center lg:items-start space-y-1">
+                <div className="bg-accent rounded-full p-3 mb-1" style={{ animation: 'dental-glow 3s infinite 1s' }}>
+                  <GiMedicines className="h-5 w-5 text-primary" />
+                </div>
+                <span className={`text-sm font-medium text-gray-800 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>International Standards</span>
+                <span className={`text-xs text-gray-500 ${isRtl ? 'font-arabic' : 'font-body-en'}`}>Filipino excellence</span>
+              </div>
+            </div>
+          </motion.div>
+          
+          {/* Right side (dental clinic image with floating elements) */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:w-1/2 relative"
+          >
+            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-gray-100 bg-white">
+              {/* Main dental image */}
+              <img 
+                src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+                alt="Modern dental clinic with state-of-the-art equipment" 
+                className="w-full h-auto object-cover rounded-t-2xl"
+              />
+              
+              {/* Dental specialists overlay - similar to Arevalo reference */}
+              <div className="bg-white p-4 rounded-b-2xl">
+                <h3 className={`text-lg font-bold text-gray-800 mb-1 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>Our Dental Specialists</h3>
+                <p className={`text-sm text-gray-600 ${isRtl ? 'font-arabic' : 'font-body-en'}`}>Meet our team of highly qualified dentists with expertise in all fields of dentistry</p>
+                
+                {/* Dentist avatars */}
+                <div className="flex items-center mt-3 space-x-2">
+                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs font-bold">DA</div>
+                  <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary text-xs font-bold">CV</div>
+                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs font-bold">ET</div>
+                  <motion.div 
+                    whileHover={{ scale: 1.1 }}
+                    className="ml-2"
+                  >
+                    <Link href="/doctors" className="text-xs text-primary font-medium flex items-center">
+                      View All
+                      <ChevronDown className="h-3 w-3 ml-1 rotate-270" />
+                    </Link>
+                  </motion.div>
+                </div>
+              </div>
+              
+              {/* Floating cards with dental services*/}
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
+                className="absolute -left-3 lg:-left-8 bottom-32 bg-white rounded-lg shadow-xl p-4 max-w-[180px]"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="bg-accent rounded-full p-2" style={{ animation: 'dental-glow 3s infinite 1.2s' }}>
+                    <FaTooth className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className={`font-medium text-gray-900 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>Dental Implants</h3>
+                </div>
+                <div className="flex items-center mt-2 text-xs text-gray-500">
+                  <div className="flex-1 h-1 rounded-full bg-gray-100">
+                    <div className="h-1 rounded-full bg-primary w-3/4"></div>
+                  </div>
+                  <span className="ml-2">98% Success</span>
+                </div>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.8, duration: 0.5 }}
+                className="absolute -right-3 lg:-right-8 top-20 bg-white rounded-lg shadow-xl p-4 max-w-[180px]"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="bg-accent rounded-full p-2" style={{ animation: 'dental-glow 3s infinite 1.5s' }}>
+                    <FaTeeth className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className={`font-medium text-gray-900 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>Teeth Whitening</h3>
+                </div>
+                <div className="w-full bg-gray-100 h-1 rounded-full mt-2">
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    animate={{ width: '85%' }}
+                    transition={{ delay: 1, duration: 1 }}
+                    className="h-1 rounded-full bg-secondary"
+                  ></motion.div>
+                </div>
+              </motion.div>
+            </div>
+            
+            {/* Animated tooth floating element */}
+            <motion.div
+              animate={{ 
+                y: [0, 10, 0],
+                rotate: [0, 5, 0] 
+              }}
+              transition={{ 
+                repeat: Infinity, 
+                duration: 4,
+                ease: "easeInOut" 
+              }}
+              className="absolute -right-4 -bottom-10 text-8xl text-primary/30 z-0"
+            >
+              <FaTooth />
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
+      
+      {/* Scroll indicator */}
       <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1, duration: 0.5 }}
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 cursor-pointer"
         onClick={scrollToNextSection}
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        whileHover={{ scale: 1.2 }}
       >
-        <div className="flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors">
-          <span className={`text-sm font-medium ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>
-            Explore Services
-          </span>
-          <ChevronDown className="w-6 h-6" />
+        <div className="flex flex-col items-center">
+          <span className={`text-sm text-gray-500 mb-2 ${isRtl ? 'font-arabic' : 'font-body-en'}`}>Our Services</span>
+          <motion.div 
+            animate={{ y: [0, 5, 0] }} 
+            transition={{ repeat: Infinity, duration: 1.5 }}
+            className="bg-white rounded-full p-2 shadow-md"
+          >
+            <ChevronDown className="w-4 h-4 text-primary" />
+          </motion.div>
         </div>
       </motion.div>
     </section>

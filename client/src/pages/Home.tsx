@@ -1,11 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/context/LanguageContext';
-import { useThemeContext } from '@/context/ThemeContext';
 import Hero from '@/components/Hero';
 import TrustIndicators from '@/components/TrustIndicators';
 import ServiceCard from '@/components/ServiceCard';
-import ModernServiceCard from '@/components/ModernServiceCard';
 import DoctorCard from '@/components/DoctorCard';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import AppointmentForm from '@/components/AppointmentForm';
@@ -14,12 +12,10 @@ import Interactive3DGlobe from '@/components/Interactive3DGlobe';
 import { Heart, Brain, Bone, Stethoscope, Eye, Baby } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
-import { motion } from 'framer-motion';
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
   const { isRtl } = useLanguage();
-  const { isDark } = useThemeContext();
 
   // Featured dental services data
   const services = [
@@ -55,129 +51,47 @@ const Home: React.FC = () => {
       {/* Trust Indicators */}
       <TrustIndicators />
       
-      {/* Modern Services Section */}
-      <section id="services" className="py-20 relative overflow-hidden transition-colors duration-300">
-        {/* Background with modern effects */}
-        <div className={`absolute inset-0 transition-colors duration-300 ${
-          isDark 
-            ? 'bg-gradient-to-br from-gray-900 via-gray-800/20 to-gray-900' 
-            : 'bg-gradient-to-br from-slate-50 via-blue-50/20 to-teal-50/20'
-        }`}></div>
-        <div className={`absolute inset-0 ${
-          isDark 
-            ? 'bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]'
-            : 'bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]'
-        }`}></div>
-        <div className={`absolute inset-0 ${
-          isDark 
-            ? 'bg-[radial-gradient(circle_at_70%_80%,rgba(20,184,166,0.05),transparent_50%)]'
-            : 'bg-[radial-gradient(circle_at_70%_80%,rgba(20,184,166,0.1),transparent_50%)]'
-        }`}></div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md border shadow-lg mb-6 transition-colors duration-300 ${
-                isDark 
-                  ? 'bg-gray-800/60 border-gray-600/20 text-gray-300'
-                  : 'bg-white/60 border-white/20 text-gray-700'
-              }`}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-              <span className={`text-sm font-medium ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>
-                ✨ Premium Dental Services
-              </span>
-            </motion.div>
-            
+      {/* Services Section */}
+      <section id="services" className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
             <h2 
-              className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${
+              className={`text-3xl md:text-4xl font-bold text-gray-900 mb-4 ${
                 isRtl ? 'font-arabic' : 'font-heading-en'
               }`}
             >
-              <span className="bg-gradient-to-r from-blue-600 via-teal-500 to-blue-700 bg-clip-text text-transparent">
-                {t('services.title')}
-              </span>
+              {t('services.title')}
             </h2>
             <p 
-              className={`text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed transition-colors duration-300 ${
-                isDark ? 'text-gray-300' : 'text-gray-600'
-              } ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}
+              className={`text-gray-600 max-w-2xl mx-auto ${
+                isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'
+              }`}
             >
-              {t('services.subtitle', 'Comprehensive dental care with cutting-edge technology and personalized treatment plans for every patient.')}
+              {t('services.subtitle')}
             </p>
-          </motion.div>
+          </div>
           
-          {/* Modern Bento Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {services.map((service, index) => (
-              <ModernServiceCard 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service) => (
+              <ServiceCard 
                 key={service.id} 
                 id={service.id} 
-                icon={service.icon}
-                index={index}
+                icon={service.icon} 
               />
             ))}
           </div>
           
-          {/* CTA Section */}
-          <motion.div 
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
-            <div className={`backdrop-blur-xl rounded-3xl border shadow-2xl p-8 max-w-2xl mx-auto transition-colors duration-300 ${
-              isDark 
-                ? 'bg-gray-800/40 border-gray-600/20'
-                : 'bg-white/40 border-white/20'
-            }`}>
-              <h3 className={`text-2xl font-bold mb-4 transition-colors duration-300 ${
-                isDark ? 'text-white' : 'text-gray-900'
-              } ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>
-                Ready to Transform Your Smile?
-              </h3>
-              <p className={`mb-6 transition-colors duration-300 ${
-                isDark ? 'text-gray-300' : 'text-gray-600'
-              } ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
-                Book a consultation with our dental specialists and discover the perfect treatment plan for you.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/services">
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                    <Button 
-                      size="lg"
-                      className={`bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ${
-                        isRtl ? 'font-arabic' : 'font-heading-en'
-                      }`}
-                    >
-                      View All Services
-                    </Button>
-                  </motion.div>
-                </Link>
-                <Link href="#appointment">
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                    <Button 
-                      variant="outline"
-                      size="lg"
-                      className={`bg-white/60 backdrop-blur-md border-2 border-gray-200/50 text-gray-700 hover:bg-white/80 hover:border-blue-300/50 hover:text-blue-700 px-8 py-4 text-lg font-semibold rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 ${
-                        isRtl ? 'font-arabic' : 'font-heading-en'
-                      }`}
-                    >
-                      Book Consultation
-                    </Button>
-                  </motion.div>
-                </Link>
-              </div>
-            </div>
-          </motion.div>
+          <div className="text-center mt-12">
+            <Link href="/services">
+              <Button 
+                className={`bg-primary hover:bg-primary/90 text-white ${
+                  isRtl ? 'font-arabic' : 'font-heading-en'
+                }`}
+              >
+                {t('services.viewAll')}
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
       
