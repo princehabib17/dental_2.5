@@ -11,9 +11,9 @@
   --card-foreground: 222.2 84% 4.9%;
   --popover: 0 0% 100%;
   --popover-foreground: 222.2 84% 4.9%;
-  --primary: 199 85% 45%; /* Updated to dental teal-blue */
+  --primary: 220 85% 55%; /* Bold blue for visibility */
   --primary-foreground: 210 40% 98%;
-  --secondary: 187 85% 43%; /* Updated to minty dental color */
+  --secondary: 285 85% 55%; /* Bold purple for contrast */
   --secondary-foreground: 222.2 47.4% 11.2%;
   --muted: 210 40% 96.1%;
   --muted-foreground: 215.4 16.3% 46.9%;
@@ -67,7 +67,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-gradient-to-br from-white via-blue-50 to-purple-50 text-foreground font-sans antialiased;
   }
 
   /* Direction-specific classes */
@@ -98,6 +98,150 @@
 }
 
 /* Use these classes to apply RTL/LTR specific styling */
+.rtl-toggle {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Responsive logo sizing */
+.logo-size {
+  height: 2rem; /* 32px */
+}
+
+@media (min-width: 768px) {
+  .logo-size {
+    height: 2.5rem; /* 40px */
+  }
+}
+
+/* Enhanced button styling */
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb 0%, #0891b2 50%, #7c3aed 100%);
+  box-shadow: 0 8px 32px rgba(37, 99, 235, 0.5);
+  transform: translateY(0);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid transparent;
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.6);
+  background: linear-gradient(135deg, #1d4ed8 0%, #0e7490 50%, #6d28d9 100%);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: scale(1);
+}
+
+.card-hover:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 35px 80px -15px rgba(59, 130, 246, 0.4);
+}
+
+/* Improved text contrast and readability */
+.text-enhanced {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Arabic text improvements */
+.font-arabic {
+  line-height: 1.8;
+  letter-spacing: 0.025em;
+}
+
+/* Floating dental particles animation */
+@keyframes dental-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.dental-particle {
+  animation: dental-float 4s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.dental-particle:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.dental-particle:nth-child(3) {
+  animation-delay: 2s;
+}
+
+/* Dental glow animation */
+@keyframes dental-glow {
+  0%, 100% { 
+    box-shadow: 0 0 10px rgba(45, 212, 191, 0.3);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 20px rgba(45, 212, 191, 0.6);
+    transform: scale(1.05);
+  }
+}
+
+/* Gradient text effects */
+.gradient-text {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Enhanced scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+
+/* Animated background pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(20, 184, 166, 0.1) 0%, transparent 50%);
+  z-index: -1;
+  animation: float-background 20s ease-in-out infinite;
+}
+
+@keyframes float-background {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(1deg); }
+}
+
+/* Enhanced glow effects */
+.enhanced-glow {
+  animation: enhanced-glow 3s ease-in-out infinite;
+}
+
+@keyframes enhanced-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(168, 85, 247, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6), 0 0 60px rgba(168, 85, 247, 0.5);
+  }
+}
 .rtl-toggle {
   direction: inherit;
 }
