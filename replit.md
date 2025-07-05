@@ -27,6 +27,12 @@ A specialized bilingual medical platform bridging communication between Filipino
 - Improved header with gradient top bar background
 - Added comprehensive CSS classes for better visual consistency
 - Updated background gradients to be more vibrant and noticeable
+- **MAJOR UPDATE**: Converted entire React website to raw HTML/CSS/JavaScript
+  - Created `/html/` folder with complete static website
+  - Generated framework-free HTML with semantic structure
+  - Implemented pure CSS without Tailwind or CSS variables
+  - Added comprehensive vanilla JavaScript for all interactivity
+  - Followed Webflow-compatible standards and requirements
 
 ## User Preferences
 - **Priority**: Focus on innovation to attract Saudi clients

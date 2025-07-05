@@ -1,0 +1,73 @@
+Now convert the entire React website into raw HTML, plain CSS, and vanilla JavaScript.
+Keep the original React version unchanged.
+Create a new folder named html in the project root, and save the following inside it:
+
+HTML files that replicate the full layout and structure of the React site
+
+A styles.css file that includes all styles
+
+A script.js file for all interactivity
+
+HTML Requirements:
+Wrap all content inside the <body> with a parent <div class="htflow-wrapper">
+
+Every styled element must have its own class name
+
+Avoid descendant selectors (e.g., .card h2). Style elements directly with their class names
+
+Do not use IDs for styling or JavaScript targeting
+
+CSS Rules:
+Do not use Tailwind classes or any CSS frameworks
+
+Do not use CSS variables
+
+Do not use shorthand properties (e.g., margin: 10px 20px)
+
+Use longhand properties only (e.g., margin-top, margin-left, etc.)
+
+For grid-template-columns, use explicit values like 1fr 1fr 1fr
+
+For grid-template-rows, always use 1fr, regardless of number of rows
+
+Use only these responsive breakpoints:
+
+Tablet: @media (max-width: 991px)
+
+Mobile Landscape: @media (max-width: 767px)
+
+Mobile Portrait: @media (max-width: 479px)
+
+Avoid all CSS pseudo-classes except :hover
+
+Do not use ::before, ::after, or other pseudo-elements
+
+Avoid animations using descendant hover selectors like .card:hover .heading — instead, use JavaScript
+
+JavaScript Rules:
+Use data-* attributes to select and interact with DOM elements
+
+Do not select elements by class or ID
+
+For hover-based animations like .card:hover .heading, implement the behavior in JavaScript:
+Example:
+
+js
+Copy
+Edit
+document.querySelectorAll('[data-card]').forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    card.querySelector('[data-heading]').classList.add('active-heading');
+  });
+  card.addEventListener('mouseleave', () => {
+    card.querySelector('[data-heading]').classList.remove('active-heading');
+  });
+});
+Final Notes:
+The output should be clean, readable, framework-free HTML and CSS
+
+All styling must be centralized in the styles.css file
+
+All scripts must go in the script.js file
+
+This output is intended to be used in Webflow or other static HTML/CSS builders
