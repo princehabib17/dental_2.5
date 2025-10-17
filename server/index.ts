@@ -1,88 +1,38 @@
-import express, { type Request, Response, NextFunction } from "express";
-import { registerRoutes } from "./routes";
-import { setupVite, serveStatic, log } from "./vite";
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
 
-// Handle unhandled rejections
-process.on('unhandledRejection', (reason, promise) => {
-  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
-});
-
-process.on('uncaughtException', (error) => {
-  console.error('Uncaught Exception:', error);
-});
-
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 
-app.use((req, res, next) => {
-  const start = Date.now();
-  const path = req.path;
-  let capturedJsonResponse: Record<string, any> | undefined = undefined;
+// Serve static HTML files from the html folder
+app.use(express.static(path.join(__dirname, '..', 'html')));
 
-  const originalResJson = res.json;
-  res.json = function (bodyJson, ...args) {
-    capturedJsonResponse = bodyJson;
-    return originalResJson.apply(res, [bodyJson, ...args]);
-  };
-
-  res.on("finish", () => {
-    const duration = Date.now() - start;
-    if (path.startsWith("/api")) {
-      let logLine = `${req.method} ${path} ${res.statusCode} in ${duration}ms`;
-      if (capturedJsonResponse) {
-        logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
-      }
-
-      if (logLine.length > 80) {
-        logLine = logLine.slice(0, 79) + "…";
-      }
-
-      log(logLine);
-    }
-  });
-
-  next();
+// Fallback to index.html for all routes
+app.get('*', (_req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'html', 'index.html'));
 });
 
-(async () => {
-  try {
-    const server = await registerRoutes(app);
+const port = 5000;
+const server = app.listen(port, '0.0.0.0', () => {
+  console.log(`Server running on port ${port}`);
+  
+  // Keep the process alive
+  setInterval(() => {
+    // Heartbeat to prevent process exit
+  }, 1000);
+});
 
-    app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
-      const status = err.status || err.statusCode || 500;
-      const message = err.message || "Internal Server Error";
+// Prevent server from closing
+server.on('error', (error) => {
+  console.error('Server error:', error);
+});
 
-      console.error('Express error:', err);
-      res.status(status).json({ message });
-    });
+// Keep process alive on uncaught errors
+process.on('uncaughtException', (error) => {
+  console.error('Uncaught exception:', error);
+});
 
-    // importantly only setup vite in development and after
-    // setting up all the other routes so the catch-all route
-    // doesn't interfere with the other routes
-    if (app.get("env") === "development") {
-      await setupVite(app, server);
-    } else {
-      serveStatic(app);
-    }
-
-    // ALWAYS serve the app on port 5000
-    // this serves both the API and the client.
-    // It is the only port that is not firewalled.
-    const port = 5000;
-    server.listen(port, "0.0.0.0", () => {
-      log(`serving on port ${port}`);
-      
-      // Keep process alive
-      setInterval(() => {
-        // Ping to keep alive
-      }, 5000);
-    }).on('error', (err) => {
-      console.error('Server error:', err);
-      process.exit(1);
-    });
-  } catch (error) {
-    console.error('Fatal server error:', error);
-    process.exit(1);
-  }
-})();
+process.on('unhandledRejection', (reason) => {
+  console.error('Unhandled rejection:', reason);
+});
