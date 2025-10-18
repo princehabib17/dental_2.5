@@ -7,7 +7,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
-const port = parseInt(process.env.PORT || '39717');
 
 // Health check endpoint - responds immediately
 app.get('/health', (_req, res) => {
@@ -30,19 +29,12 @@ app.get('*', (_req, res) => {
   res.sendFile(join(__dirname, '..', 'html', 'index.html'));
 });
 
-// Start server
-const server = app.listen(port, '0.0.0.0', () => {
-  console.log(`Listening on http://0.0.0.0:${port}`);
-  
-  // Make HTTP request to self to prove port is open
-  http.get(`http://localhost:${port}/health`, (res) => {
-    console.log(`Port ${port} is accessible - status: ${res.statusCode}`);
-  }).on('error', (err) => {
-    console.error('Port check failed:', err.message);
-  });
+// Start server on port 39717 (Replit proxy port from .replit config)
+const server = app.listen(39717, '0.0.0.0', () => {
+  console.log('Server ready');
+  console.log('Listening on port 39717');
 });
 
-// Error handling
 server.on('error', (err) => {
   console.error('Server error:', err);
   process.exit(1);
