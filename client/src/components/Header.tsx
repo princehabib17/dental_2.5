@@ -45,7 +45,7 @@ const Header: React.FC = () => {
   return (
     <>
       {/* Top bar with contact info */}
-      <div className="bg-gray-50 py-2 hidden md:block">
+      <div className="bg-gradient-to-r from-primary/10 to-secondary/10 py-2 hidden md:block">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-6 rtl:space-x-reverse">
@@ -71,7 +71,7 @@ const Header: React.FC = () => {
       {/* Main header */}
       <header className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
-        scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-white shadow-sm"
+        scrolled ? "bg-gradient-to-r from-blue-600/95 via-teal-600/95 to-purple-600/95 backdrop-blur-md shadow-2xl" : "bg-gradient-to-r from-blue-500 via-teal-500 to-purple-500 shadow-xl"
       )}>
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
@@ -84,7 +84,7 @@ const Header: React.FC = () => {
                 <img 
                   src={ArevoloLogo} 
                   alt="Arevalo Dental Clinic Logo" 
-                  className="h-4 mr-2 rtl:ml-2 rtl:mr-0" 
+                  className="logo-size mr-2 rtl:ml-2 rtl:mr-0" 
                 />
               </motion.div>
             </Link>
@@ -109,7 +109,7 @@ const Header: React.FC = () => {
                   href={link.href}
                   className="relative group"
                 >
-                  <span className={`${isRtl ? 'font-arabic' : 'font-heading-en'} text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors ${location === link.href ? 'text-primary' : 'text-gray-600'}`}>
+                  <span className={`${isRtl ? 'font-arabic' : 'font-heading-en'} text-sm uppercase tracking-wider font-bold hover:text-yellow-300 transition-colors ${location === link.href ? 'text-yellow-300' : 'text-white'}`}>
                     {link.label}
                   </span>
                 </Link>

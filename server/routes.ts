@@ -62,8 +62,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "Invalid appointment ID" });
       }
       
-      const status = updateAppointmentSchema.parse(req.body).status;
-      const appointment = await storage.updateAppointmentStatus(id, status);
+      const parsed = updateAppointmentSchema.parse(req.body);
+      if (!parsed.status) {
+        return res.status(400).json({ message: "Status is required" });
+      }
+      const appointment = await storage.updateAppointmentStatus(id, parsed.status);
       
       if (!appointment) {
         return res.status(404).json({ message: "Appointment not found" });
