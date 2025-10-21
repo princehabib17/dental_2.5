@@ -1,14 +1,16 @@
-import { 
-  users, 
-  type User, 
-  type InsertUser, 
-  appointments, 
-  type Appointment, 
-  type InsertAppointment, 
-  messages, 
-  type Message, 
-  type InsertMessage 
+import {
+  users,
+  type User,
+  type InsertUser,
+  appointments,
+  type Appointment,
+  type InsertAppointment,
+  messages,
+  type Message,
+  type InsertMessage
 } from "@shared/schema";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 
 // Storage interface
 export interface IStorage {
@@ -136,5 +138,85 @@ export class MemStorage implements IStorage {
   }
 }
 
-// Export a single instance to be used application-wide
-export const storage = new MemStorage();
+// Database storage implementation using Drizzle ORM
+export class DatabaseStorage implements IStorage {
+  // User methods
+  async getUser(id: number): Promise<User | undefined> {
+    if (!db) throw new Error("Database not configured");
+    const result = await db.select().from(users).where(eq(users.id, id));
+    return result[0];
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    if (!db) throw new Error("Database not configured");
+    const result = await db.select().from(users).where(eq(users.username, username));
+    return result[0];
+  }
+
+  async createUser(insertUser: InsertUser): Promise<User> {
+    if (!db) throw new Error("Database not configured");
+    const result = await db.insert(users).values(insertUser).returning();
+    return result[0];
+  }
+
+  // Appointment methods
+  async getAppointments(): Promise<Appointment[]> {
+    if (!db) throw new Error("Database not configured");
+    const result = await db
+      .select()
+      .from(appointments)
+      .orderBy(appointments.createdAt);
+    return result.reverse(); // newest first
+  }
+
+  async getAppointmentById(id: number): Promise<Appointment | undefined> {
+    if (!db) throw new Error("Database not configured");
+    const result = await db.select().from(appointments).where(eq(appointments.id, id));
+    return result[0];
+  }
+
+  async createAppointment(insertAppointment: InsertAppointment): Promise<Appointment> {
+    if (!db) throw new Error("Database not configured");
+    const result = await db.insert(appointments).values(insertAppointment).returning();
+    return result[0];
+  }
+
+  async updateAppointmentStatus(id: number, status: string): Promise<Appointment | undefined> {
+    if (!db) throw new Error("Database not configured");
+    const result = await db
+      .update(appointments)
+      .set({ status })
+      .where(eq(appointments.id, id))
+      .returning();
+    return result[0];
+  }
+
+  // Message methods
+  async getMessages(): Promise<Message[]> {
+    if (!db) throw new Error("Database not configured");
+    const result = await db
+      .select()
+      .from(messages)
+      .orderBy(messages.createdAt);
+    return result.reverse(); // newest first
+  }
+
+  async createMessage(insertMessage: InsertMessage): Promise<Message> {
+    if (!db) throw new Error("Database not configured");
+    const result = await db.insert(messages).values(insertMessage).returning();
+    return result[0];
+  }
+
+  async markMessageAsRead(id: number): Promise<Message | undefined> {
+    if (!db) throw new Error("Database not configured");
+    const result = await db
+      .update(messages)
+      .set({ read: true })
+      .where(eq(messages.id, id))
+      .returning();
+    return result[0];
+  }
+}
+
+// Export storage instance - use database if available, fallback to memory
+export const storage = db ? new DatabaseStorage() : new MemStorage();
