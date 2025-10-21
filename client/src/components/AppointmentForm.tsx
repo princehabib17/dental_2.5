@@ -322,7 +322,7 @@ const AppointmentForm: React.FC = () => {
                   
                   <Button 
                     type="submit" 
-                    className={`w-full bg-primary hover:bg-primary/90 py-3 btn-primary ${
+                    className={`w-full bg-primary hover:bg-primary/90 py-3 ${
                       isRtl ? 'font-arabic' : 'font-heading-en'
                     }`}
                     disabled={mutation.isPending}

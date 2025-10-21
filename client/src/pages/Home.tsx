@@ -8,7 +8,7 @@ import DoctorCard from '@/components/DoctorCard';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import AppointmentForm from '@/components/AppointmentForm';
 import FAQ from '@/components/FAQ';
-import LuxuryDentalTourism from '@/components/LuxuryDentalTourism';
+import Interactive3DGlobe from '@/components/Interactive3DGlobe';
 import { Heart, Brain, Bone, Stethoscope, Eye, Baby } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';

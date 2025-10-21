@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-blue-100 via-teal-50 to-white flex items-center">
+    <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-r from-primary/10 via-accent to-white">
       {/* Floating dental particles */}
       <div className="dental-particle text-3xl text-primary/30"><FaTooth /></div>
       <div className="dental-particle text-2xl text-secondary/30"><FaTeeth /></div>
@@ -113,12 +113,12 @@ const Hero: React.FC = () => {
               </span>
             </div>
             
-            <h1 className={`text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight ${isRtl ? 'font-arabic rtl-toggle' : 'font-heading-en'}`}>
+            <h1 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight ${isRtl ? 'font-arabic rtl-toggle' : 'font-heading-en'}`}>
               <motion.span 
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-teal-600 to-purple-600 drop-shadow-lg"
+                className="block bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
               >
                 Transforming Smiles
               </motion.span>
@@ -126,13 +126,13 @@ const Hero: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="block text-gray-900 mt-4 text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-md"
+                className="block text-gray-800 mt-2"
               >
                 In the Heart of Makati, Philippines
               </motion.span>
             </h1>
             
-            <p className={`text-xl text-gray-700 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
+            <p className={`text-lg text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0 ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
               With a diverse clientele from across the Philippines, we've established ourselves as a premier dental clinic in Makati, proudly providing quality general and cosmetic dental care with international standards.
             </p>
             
@@ -141,7 +141,7 @@ const Hero: React.FC = () => {
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                   <Button 
                     size="lg"
-                    className={`bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white px-8 py-6 rounded-2xl shadow-2xl transition-all hover:shadow-xl btn-primary ${isRtl ? 'font-arabic' : 'font-heading-en'}`}
+                    className={`bg-primary hover:bg-primary/90 text-white px-6 py-6 rounded-xl shadow-lg transition-all hover:shadow-xl ${isRtl ? 'font-arabic' : 'font-heading-en'}`}
                   >
                     <CalendarCheck className="mr-2 h-5 w-5 rtl:ml-2 rtl:mr-0" />
                     Make an Appointment

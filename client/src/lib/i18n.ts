@@ -25,7 +25,7 @@ i18n
       escapeValue: false, // not needed for React
     },
     react: {
-      useSuspense: false,
+      useSuspense: true,
     },
   });
 

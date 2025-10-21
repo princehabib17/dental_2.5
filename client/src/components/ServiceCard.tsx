@@ -19,7 +19,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ id, icon }) => {
     <motion.div 
       whileHover={{ y: -5 }}
       id={id} 
-      className="group relative bg-gradient-to-br from-white via-blue-50 to-teal-50 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all overflow-hidden border-2 border-blue-200 card-hover"
+      className="group relative bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all overflow-hidden border border-gray-100"
     >
       {/* Background pattern */}
       <div className="absolute -right-6 -top-6 h-24 w-24 bg-primary/5 rounded-full transition-transform group-hover:scale-150">

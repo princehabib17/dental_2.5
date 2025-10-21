@@ -58,30 +58,6 @@
     "subtitle": "Comprehensive dental care provided by our experienced dental professionals in Makati, Philippines.",
     "viewAll": "View All Services",
     "learnMore": "Learn More",
-    "cardiology": {
-      "title": "Crowns",
-      "description": "We offer restoration and enhancement to misshapen, chipped, and damaged teeth. Select from metal, porcelain-infused metal, porcelain, ceramic, and resin crowns, depending on your needs and preferences."
-    },
-    "neurology": {
-      "title": "Veneers",
-      "description": "In need of a thin new layer to improve or restore the appearance of your tooth? Set an appointment with us and get a consultation, fitting, and installment of veneers for your desired pearly-whites."
-    },
-    "orthopedics": {
-      "title": "Endodontics (Root Canal)",
-      "description": "Arevalo Clinic also specializes in endodontic procedures, from non-surgical root canals to endodontic treatments. See a specialist at our clinic and we'll see what we can do to save your tooth."
-    },
-    "pediatrics": {
-      "title": "Bonds",
-      "description": "Arrange a single-session dental bonding procedure with us and have gaps between teeth filled out, repair a chipped tooth, and generally improve the condition of a tooth in one sitting."
-    },
-    "ophthalmology": {
-      "title": "Bridges",
-      "description": "Replace missing teeth and ease biting difficulty with dental bridges. Call the clinic for a consultation and scheduling for the smile restoring procedure."
-    },
-    "internal": {
-      "title": "Teeth Whitening",
-      "description": "Get back the confidence to flash your biggest smile with our tooth whitening services, from brushing and natural bleaching, to bleaching gel and laser bleaching."
-    },
     "crowns": {
       "title": "Crowns",
       "description": "We offer restoration and enhancement to misshapen, chipped, and damaged teeth. Select from metal, porcelain-infused metal, porcelain, ceramic, and resin crowns, depending on your needs and preferences."
@@ -121,14 +97,6 @@
     "periodontics": {
       "title": "Periodontics",
       "description": "For those with more serious dental conditions such as gum bleeding and gingivitis, our experienced professionals are here to help you. Schedule an appointment with one of our dentists and we'll see the best way we could address your problem."
-    },
-    "oralsurgery": {
-      "title": "Oral Surgery",
-      "description": "Our specialized oral surgeons perform complex dental procedures including wisdom tooth extraction, jaw surgery, and advanced surgical treatments with precision and care."
-    },
-    "dentures": {
-      "title": "Dentures",
-      "description": "Complete and partial dentures custom-fitted for comfort and natural appearance. We provide traditional and implant-supported dentures for optimal function and aesthetics."
     },
     "oralsurgery": {
       "title": "Oral Surgery",
