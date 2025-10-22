@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { VideoTestimonialCard } from './VideoTestimonialCard';
-import { TestimonialCard } from './TestimonialCard';
+import { PhotoTestimonialCard } from './PhotoTestimonialCard';
 import { useTranslation } from 'react-i18next';
 import { Star, Video, Image as ImageIcon } from 'lucide-react';
 import { useState } from 'react';
@@ -229,13 +229,7 @@ export function EnhancedTestimonials({ testimonials = defaultTestimonials }: Enh
               {testimonial.type === 'video' ? (
                 <VideoTestimonialCard {...testimonial} />
               ) : (
-                <TestimonialCard
-                  name={testimonial.name}
-                  location={testimonial.location}
-                  text={testimonial.quote}
-                  rating={testimonial.rating}
-                  image={testimonial.imageUrl}
-                />
+                <PhotoTestimonialCard {...testimonial} />
               )}
             </motion.div>
           ))}
