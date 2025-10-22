@@ -5,10 +5,11 @@ import Hero from '@/components/Hero';
 import TrustIndicators from '@/components/TrustIndicators';
 import ServiceCard from '@/components/ServiceCard';
 import DoctorCard from '@/components/DoctorCard';
-import TestimonialCarousel from '@/components/TestimonialCarousel';
+import { BeforeAfterGallery } from '@/components/BeforeAfterGallery';
+import { EnhancedTestimonials } from '@/components/EnhancedTestimonials';
+import { PopularTouristAreas } from '@/components/PopularTouristAreas';
 import AppointmentForm from '@/components/AppointmentForm';
 import FAQ from '@/components/FAQ';
-import LuxuryDentalTourism from '@/components/LuxuryDentalTourism';
 import { Heart, Brain, Bone, Stethoscope, Eye, Baby } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
@@ -99,14 +100,14 @@ const Home: React.FC = () => {
       <section id="doctors" className="py-16 bg-gradient-to-r from-primary/5 to-secondary/5">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 
+            <h2
               className={`text-3xl md:text-4xl font-bold text-gray-900 mb-4 ${
                 isRtl ? 'font-arabic' : 'font-heading-en'
               }`}
             >
               {t('doctors.title')}
             </h2>
-            <p 
+            <p
               className={`text-gray-600 max-w-2xl mx-auto ${
                 isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'
               }`}
@@ -114,20 +115,20 @@ const Home: React.FC = () => {
               {t('doctors.subtitle')}
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {doctors.map((doctor) => (
-              <DoctorCard 
-                key={doctor.id} 
-                id={doctor.id} 
-                image={doctor.image} 
+              <DoctorCard
+                key={doctor.id}
+                id={doctor.id}
+                image={doctor.image}
               />
             ))}
           </div>
-          
+
           <div className="text-center mt-12">
             <Link href="/doctors">
-              <Button 
+              <Button
                 className={`bg-primary hover:bg-primary/90 text-white ${
                   isRtl ? 'font-arabic' : 'font-heading-en'
                 }`}
@@ -138,154 +139,15 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
-      
-      {/* Global Connection Section - Premium Dental Tourism */}
-      <section className="py-20 relative overflow-hidden bg-gradient-to-b from-slate-900 via-blue-900 to-slate-900">
-        {/* Background effect */}
-        <div className="absolute inset-0 bg-[url('/images/world-map-dots.svg')] opacity-20 bg-no-repeat bg-center bg-cover"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent opacity-20"></div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-12">
-            <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-center bg-gradient-to-r from-blue-300 to-teal-200 bg-clip-text text-transparent ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>
-              Luxury Dental Tourism
-            </h2>
-            <p className={`text-xl md:text-2xl text-center mb-8 max-w-3xl mx-auto text-white/80 ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
-              Experience world-class dental care in the Philippines with personalized service for our esteemed clients from Saudi Arabia and the Gulf region
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left column - Saudi Arabia */}
-            <div className="relative">
-              <div className="bg-gradient-to-br from-blue-900/40 to-blue-700/40 backdrop-blur-sm p-8 rounded-2xl border border-blue-500/20 shadow-xl">
-                <div className="absolute -right-6 -top-6 w-20 h-20 bg-blue-500/20 rounded-full backdrop-blur-sm flex items-center justify-center">
-                  <span className="text-4xl">🇸🇦</span>
-                </div>
-                
-                <h3 className={`text-3xl font-bold mb-6 text-blue-300 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>
-                  For Our Saudi Clients
-                </h3>
-                
-                <ul className="space-y-4">
-                  {[
-                    'VIP airport transfers and hotel arrangements',
-                    'Arabic-speaking staff and cultural sensitivity',
-                    'Premium dental services with no waiting time',
-                    'Exclusive packages for families and groups',
-                    'Long-term care plans with follow-up visits'
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start">
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500/30 flex items-center justify-center mr-3">
-                        <span className="text-blue-300 text-lg">✓</span>
-                      </div>
-                      <p className={`text-white ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>{item}</p>
-                    </li>
-                  ))}
-                </ul>
-                
-                <div className="mt-8 flex justify-center">
-                  <Link href="/contact">
-                    <Button 
-                      className={`bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-8 py-6 rounded-xl shadow-lg text-lg ${isRtl ? 'font-arabic' : 'font-heading-en'}`}
-                    >
-                      Plan Your Dental Trip
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            
-            {/* Right column - Flights */}
-            <div className="relative">
-              <div className="bg-gradient-to-br from-teal-900/40 to-teal-700/40 backdrop-blur-sm p-8 rounded-2xl border border-teal-500/20 shadow-xl">
-                <div className="absolute -left-6 -top-6 w-20 h-20 bg-teal-500/20 rounded-full backdrop-blur-sm flex items-center justify-center">
-                  <span className="text-4xl">✈️</span>
-                </div>
-                
-                <h3 className={`text-3xl font-bold mb-6 text-teal-300 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>
-                  Direct Flights Available
-                </h3>
-                
-                <div className="space-y-6">
-                  <div className="bg-black/30 rounded-xl p-5">
-                    <div className="flex justify-between items-center mb-3">
-                      <div className="flex items-center">
-                        <span className="text-2xl mr-2">🇸🇦</span>
-                        <span className="text-white font-bold">Riyadh</span>
-                      </div>
-                      <div className="h-px bg-gradient-to-r from-transparent via-blue-500 to-teal-500 flex-1 mx-4"></div>
-                      <div className="flex items-center">
-                        <span className="text-white font-bold">Manila</span>
-                        <span className="text-2xl ml-2">🇵🇭</span>
-                      </div>
-                    </div>
-                    <p className="text-teal-200 text-sm mb-2">Saudi Airlines, Philippine Airlines</p>
-                    <p className="text-white/70">Flight duration: Approximately 10 hours</p>
-                  </div>
-                  
-                  <div className="bg-black/30 rounded-xl p-5">
-                    <div className="flex justify-between items-center mb-3">
-                      <div className="flex items-center">
-                        <span className="text-2xl mr-2">🇸🇦</span>
-                        <span className="text-white font-bold">Jeddah</span>
-                      </div>
-                      <div className="h-px bg-gradient-to-r from-transparent via-blue-500 to-teal-500 flex-1 mx-4"></div>
-                      <div className="flex items-center">
-                        <span className="text-white font-bold">Manila</span>
-                        <span className="text-2xl ml-2">🇵🇭</span>
-                      </div>
-                    </div>
-                    <p className="text-teal-200 text-sm mb-2">Saudi Airlines, Cebu Pacific</p>
-                    <p className="text-white/70">Flight duration: Approximately 10.5 hours</p>
-                  </div>
-                  
-                  <div className="mt-6 text-center">
-                    <p className={`text-white/80 mb-4 ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
-                      We can arrange your entire trip, from flight booking to luxury accommodation in Makati
-                    </p>
-                    <Link href="/contact#concierge">
-                      <Button 
-                        variant="outline"
-                        className={`border-teal-500 text-teal-300 hover:bg-teal-950 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}
-                      >
-                        Concierge Service
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Testimonial from Saudi client */}
-          <div className="mt-16 max-w-4xl mx-auto bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-            <div className="flex items-start gap-6">
-              <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-teal-500 flex items-center justify-center text-white text-2xl font-bold">
-                M
-              </div>
-              <div>
-                <div className="flex items-center mb-3">
-                  <div className="mr-2">
-                    <span className="text-yellow-400 text-lg">★★★★★</span>
-                  </div>
-                  <h4 className={`font-bold text-white ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>Mohammed Al-Farsi</h4>
-                  <div className="ml-3 flex items-center">
-                    <span className="text-sm mr-1">🇸🇦</span>
-                    <span className="text-white/70 text-sm">Riyadh, Saudi Arabia</span>
-                  </div>
-                </div>
-                <blockquote className={`text-white/90 italic ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
-                  "My family and I travel to Makati annually for our dental care at Arevalo Clinic. The quality of service, attention to detail, and understanding of our cultural preferences is exceptional. Dr. Daisy and her team make the journey worthwhile - it's beyond dental care, it's a premium health experience."
-                </blockquote>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Testimonials */}
-      <TestimonialCarousel />
+
+      {/* Before & After Gallery */}
+      <BeforeAfterGallery />
+
+      {/* Enhanced Testimonials with Photos & Videos */}
+      <EnhancedTestimonials />
+
+      {/* Popular Tourist Areas */}
+      <PopularTouristAreas />
       
       {/* Appointment Form */}
       <AppointmentForm />
