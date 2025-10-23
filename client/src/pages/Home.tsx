@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/context/LanguageContext';
 import Hero from '@/components/Hero';
+import { AboutDrDaisy } from '@/components/AboutDrDaisy';
 import TrustIndicators from '@/components/TrustIndicators';
 import ServiceCard from '@/components/ServiceCard';
 import DoctorCard from '@/components/DoctorCard';
@@ -48,7 +49,10 @@ const Home: React.FC = () => {
     <>
       {/* Hero Section */}
       <Hero />
-      
+
+      {/* About Dr. Daisy Section */}
+      <AboutDrDaisy />
+
       {/* Trust Indicators */}
       <TrustIndicators />
       
