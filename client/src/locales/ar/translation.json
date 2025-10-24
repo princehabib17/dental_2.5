@@ -383,5 +383,34 @@
     "title": "اتصل بنا",
     "subtitle": "نحن هنا للمساعدة في جميع احتياجاتك الصحية",
     "mapTitle": "موقع مركز الشفاء الطبي"
+  },
+  "beforeAfter": {
+    "before": "قبل",
+    "after": "بعد",
+    "dragToCompare": "اسحب للمقارنة",
+    "viewCaseStudy": "عرض دراسة الحالة الكاملة",
+    "transformations": "تحولات الابتسامة",
+    "transformationsDesc": "شاهد النتائج التي غيرت حياة مرضانا بفضل رعايتنا المتخصصة للأسنان",
+    "readyForTransformation": "هل أنت مستعد لتحويل ابتسامتك؟",
+    "bookConsultation": "احجز استشارتك المجانية"
+  },
+  "enhancedTestimonials": {
+    "patientReviews": "آراء المرضى",
+    "hearFromPatients": "استمع من مرضانا",
+    "testimonialsDesc": "قصص حقيقية من مرضى حقيقيين حولوا ابتساماتهم معنا",
+    "allTestimonials": "الكل",
+    "videoTestimonials": "فيديوهات",
+    "photoTestimonials": "صور",
+    "arabicTestimonial": "عربي",
+    "originallyArabic": "تم التسجيل أصلاً باللغة العربية",
+    "translatedFromArabic": "مترجم من العربية",
+    "satisfactionRate": "معدل رضا المرضى",
+    "happyPatients": "مرضى سعداء",
+    "averageRating": "متوسط التقييم"
+  },
+  "touristAreas": {
+    "title": "وجهات سياحية مشهورة",
+    "subtitle": "استكشف الفلبين الجميلة أثناء تلقي رعاية أسنان عالمية المستوى",
+    "description": "اجمع بين علاج أسنانك وتجربة إجازة لا تُنسى"
   }
 }

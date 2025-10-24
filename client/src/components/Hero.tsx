@@ -5,7 +5,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { CalendarCheck, Phone, ChevronDown, Sparkles } from 'lucide-react';
-import { FaTeeth, FaTooth } from 'react-icons/fa';
+import { FaTeeth, FaTooth, FaWhatsapp } from 'react-icons/fa';
 import { GiMedicines } from 'react-icons/gi';
 
 const Hero: React.FC = () => {
@@ -114,50 +114,71 @@ const Hero: React.FC = () => {
             </div>
             
             <h1 className={`text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight ${isRtl ? 'font-arabic rtl-toggle' : 'font-heading-en'}`}>
-              <motion.span 
+              <motion.span
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
+                className="block text-gray-900 text-2xl md:text-3xl lg:text-4xl font-bold mb-2"
+              >
+                Dr. Daisy Miranda-Arevalo
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
                 className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-teal-600 to-purple-600 drop-shadow-lg"
               >
                 Transforming Smiles
               </motion.span>
-              <motion.span 
+              <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="block text-gray-900 mt-4 text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-md"
+                className="block text-gray-900 mt-4 text-2xl md:text-3xl lg:text-4xl font-bold drop-shadow-md"
               >
-                In the Heart of Makati, Philippines
+                For Over 30 Years
               </motion.span>
             </h1>
-            
+
             <p className={`text-xl text-gray-700 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium ${isRtl ? 'font-arabic rtl-toggle' : 'font-body-en'}`}>
-              With a diverse clientele from across the Philippines, we've established ourselves as a premier dental clinic in Makati, proudly providing quality general and cosmetic dental care with international standards.
+              Premier cosmetic dentist serving clients from Saudi Arabia, Bahrain, and Qatar. Specialized in smile makeovers, dental implants, and aesthetic dentistry with international standards in the heart of Makati, Philippines.
             </p>
             
             <div className={`flex flex-col sm:flex-row gap-4 justify-center lg:justify-start ${isRtl ? 'rtl-toggle' : ''}`}>
-              <Link href="/contact#appointment">
+              <a href="https://wa.me/639123456789?text=Hello%20Dr.%20Daisy,%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                  <Button 
+                  <Button
                     size="lg"
-                    className={`bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white px-8 py-6 rounded-2xl shadow-2xl transition-all hover:shadow-xl btn-primary ${isRtl ? 'font-arabic' : 'font-heading-en'}`}
+                    className={`bg-[#25D366] hover:bg-[#20BA5A] text-white px-8 py-6 rounded-2xl shadow-2xl transition-all hover:shadow-xl ${isRtl ? 'font-arabic' : 'font-heading-en'}`}
                   >
-                    <CalendarCheck className="mr-2 h-5 w-5 rtl:ml-2 rtl:mr-0" />
-                    Make an Appointment
+                    <FaWhatsapp className="mr-2 h-6 w-6 rtl:ml-2 rtl:mr-0" />
+                    WhatsApp Dr. Daisy
                   </Button>
                 </motion.div>
-              </Link>
-              
-              <a href="tel:+639123456789">
+              </a>
+
+              <Link href="/contact#appointment">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                  <Button 
+                  <Button
                     variant="outline"
                     size="lg"
                     className={`border-primary text-primary hover:bg-primary/5 px-6 py-6 rounded-xl transition-all ${isRtl ? 'font-arabic' : 'font-heading-en'}`}
                   >
+                    <CalendarCheck className="mr-2 h-5 w-5 rtl:ml-2 rtl:mr-0" />
+                    Book Appointment
+                  </Button>
+                </motion.div>
+              </Link>
+
+              <a href="tel:+639123456789">
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                  <Button
+                    variant="ghost"
+                    size="lg"
+                    className={`text-gray-700 hover:bg-gray-100 px-6 py-6 rounded-xl transition-all ${isRtl ? 'font-arabic' : 'font-heading-en'}`}
+                  >
                     <Phone className="mr-2 h-5 w-5 rtl:ml-2 rtl:mr-0" />
-                    Contact Us
+                    Call Now
                   </Button>
                 </motion.div>
               </a>
@@ -191,84 +212,95 @@ const Hero: React.FC = () => {
             </div>
           </motion.div>
           
-          {/* Right side (dental clinic image with floating elements) */}
-          <motion.div 
+          {/* Right side (Dr. Daisy's profile image) */}
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:w-1/2 relative"
           >
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-gray-100 bg-white">
-              {/* Main dental image */}
-              <img 
-                src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
-                alt="Modern dental clinic with state-of-the-art equipment" 
-                className="w-full h-auto object-cover rounded-t-2xl"
+            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl ring-4 ring-primary/20 bg-white">
+              {/* Dr. Daisy's professional photo */}
+              <img
+                src="/images/dr-daisy.png"
+                alt="Dr. Daisy Miranda-Arevalo - Leading Cosmetic Dentist"
+                className="w-full h-auto object-cover"
+                onError={(e) => {
+                  // Fallback to placeholder if image doesn't exist
+                  e.currentTarget.src = "/images/dr-daisy-miranda-arevalo.jpg";
+                }}
               />
-              
-              {/* Dental specialists overlay - similar to Arevalo reference */}
-              <div className="bg-white p-4 rounded-b-2xl">
-                <h3 className={`text-lg font-bold text-gray-800 mb-1 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>Our Dental Specialists</h3>
-                <p className={`text-sm text-gray-600 ${isRtl ? 'font-arabic' : 'font-body-en'}`}>Meet our team of highly qualified dentists with expertise in all fields of dentistry</p>
-                
-                {/* Dentist avatars */}
-                <div className="flex items-center mt-3 space-x-2">
-                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs font-bold">DA</div>
-                  <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary text-xs font-bold">CV</div>
-                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs font-bold">ET</div>
-                  <motion.div 
-                    whileHover={{ scale: 1.1 }}
-                    className="ml-2"
-                  >
-                    <Link href="/doctors" className="text-xs text-primary font-medium flex items-center">
-                      View All
-                      <ChevronDown className="h-3 w-3 ml-1 rotate-270" />
-                    </Link>
-                  </motion.div>
+
+              {/* Dr. Daisy's credentials overlay */}
+              <div className="bg-gradient-to-r from-blue-600 to-teal-600 p-6 text-white">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-3">
+                    <FaTeeth className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className={`text-xl font-bold ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>Dr. Daisy Miranda-Arevalo</h3>
+                    <p className={`text-sm text-white/90 ${isRtl ? 'font-arabic' : 'font-body-en'}`}>DMD, Fellow in Cosmetic Dentistry</p>
+                  </div>
                 </div>
+
+                <div className="grid grid-cols-3 gap-3 mt-4">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold">30+</div>
+                    <div className="text-xs text-white/80">Years</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold">5,000+</div>
+                    <div className="text-xs text-white/80">Patients</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold">98%</div>
+                    <div className="text-xs text-white/80">Satisfaction</div>
+                  </div>
+                </div>
+
+                {/* WhatsApp Quick Contact */}
+                <a
+                  href="https://wa.me/639123456789?text=Hello%20Dr.%20Daisy,%20I%20would%20like%20to%20book%20an%20appointment"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 block"
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="bg-[#25D366] hover:bg-[#20BA5A] text-white p-3 rounded-lg flex items-center justify-center gap-2 transition-all"
+                  >
+                    <FaWhatsapp className="h-5 w-5" />
+                    <span className={`font-semibold ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>Message on WhatsApp</span>
+                  </motion.div>
+                </a>
               </div>
               
-              {/* Floating cards with dental services*/}
-              <motion.div 
+              {/* Floating specialty badges */}
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6, duration: 0.5 }}
-                className="absolute -left-3 lg:-left-8 bottom-32 bg-white rounded-lg shadow-xl p-4 max-w-[180px]"
+                className="absolute -left-3 lg:-left-8 top-20 bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-lg shadow-xl p-4 max-w-[200px]"
               >
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="bg-accent rounded-full p-2" style={{ animation: 'dental-glow 3s infinite 1.2s' }}>
-                    <FaTooth className="h-5 w-5 text-primary" />
-                  </div>
-                  <h3 className={`font-medium text-gray-900 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>Dental Implants</h3>
+                <div className="flex items-center gap-2 mb-2">
+                  <Sparkles className="h-5 w-5" />
+                  <h3 className={`font-bold ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>Smile Makeovers</h3>
                 </div>
-                <div className="flex items-center mt-2 text-xs text-gray-500">
-                  <div className="flex-1 h-1 rounded-full bg-gray-100">
-                    <div className="h-1 rounded-full bg-primary w-3/4"></div>
-                  </div>
-                  <span className="ml-2">98% Success</span>
-                </div>
+                <p className="text-xs text-white/90">Transform your smile with expert cosmetic dentistry</p>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
-                className="absolute -right-3 lg:-right-8 top-20 bg-white rounded-lg shadow-xl p-4 max-w-[180px]"
+                className="absolute -right-3 lg:-right-8 bottom-32 bg-gradient-to-br from-blue-500 to-teal-500 text-white rounded-lg shadow-xl p-4 max-w-[200px]"
               >
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="bg-accent rounded-full p-2" style={{ animation: 'dental-glow 3s infinite 1.5s' }}>
-                    <FaTeeth className="h-5 w-5 text-primary" />
-                  </div>
-                  <h3 className={`font-medium text-gray-900 ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>Teeth Whitening</h3>
+                <div className="flex items-center gap-2 mb-2">
+                  <FaTooth className="h-5 w-5" />
+                  <h3 className={`font-bold ${isRtl ? 'font-arabic' : 'font-heading-en'}`}>Dental Implants</h3>
                 </div>
-                <div className="w-full bg-gray-100 h-1 rounded-full mt-2">
-                  <motion.div 
-                    initial={{ width: 0 }}
-                    animate={{ width: '85%' }}
-                    transition={{ delay: 1, duration: 1 }}
-                    className="h-1 rounded-full bg-secondary"
-                  ></motion.div>
-                </div>
+                <p className="text-xs text-white/90">Permanent solution for missing teeth</p>
               </motion.div>
             </div>
             

@@ -386,5 +386,34 @@
     "title": "Contact Us",
     "subtitle": "We're here to help with all your dental care needs",
     "mapTitle": "Arevalo Dental Clinic Location"
+  },
+  "beforeAfter": {
+    "before": "Before",
+    "after": "After",
+    "dragToCompare": "Drag to compare",
+    "viewCaseStudy": "View Full Case Study",
+    "transformations": "Smile Transformations",
+    "transformationsDesc": "See the life-changing results our patients have achieved with our expert dental care",
+    "readyForTransformation": "Ready for your own smile transformation?",
+    "bookConsultation": "Book Your Free Consultation"
+  },
+  "enhancedTestimonials": {
+    "patientReviews": "Patient Reviews",
+    "hearFromPatients": "Hear From Our Patients",
+    "testimonialsDesc": "Real stories from real patients who transformed their smiles with us",
+    "allTestimonials": "All",
+    "videoTestimonials": "Videos",
+    "photoTestimonials": "Photos",
+    "arabicTestimonial": "Arabic",
+    "originallyArabic": "Originally recorded in Arabic",
+    "translatedFromArabic": "Translated from Arabic",
+    "satisfactionRate": "Patient Satisfaction Rate",
+    "happyPatients": "Happy Patients",
+    "averageRating": "Average Rating"
+  },
+  "touristAreas": {
+    "title": "Popular Tourist Destinations",
+    "subtitle": "Explore the beautiful Philippines while receiving world-class dental care",
+    "description": "Combine your dental treatment with an unforgettable vacation experience"
   }
 }
