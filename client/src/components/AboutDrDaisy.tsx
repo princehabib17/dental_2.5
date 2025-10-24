@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Award, Users, Star, Heart, Globe, Sparkles, CheckCircle2, FaWhatsapp } from 'lucide-react';
+import { Award, Users, Star, Heart, Globe, Sparkles, CheckCircle2 } from 'lucide-react';
 import { FaWhatsapp as WhatsAppIcon } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/context/LanguageContext';
