@@ -160,6 +160,9 @@ const Home: React.FC = () => {
       {/* Before & After Gallery */}
       <BeforeAfterGallery />
 
+      {/* Client Stories Carousel */}
+      <ClientStoriesCarousel />
+
       {/* Enhanced Testimonials with Photos & Videos */}
       <EnhancedTestimonials />
 
