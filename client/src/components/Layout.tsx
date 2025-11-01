@@ -19,6 +19,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </main>
       <Footer />
+      <StickyLanguageFAB />
+      <StickyWhatsAppFAB />
     </div>
   );
 };
