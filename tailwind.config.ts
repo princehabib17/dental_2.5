@@ -84,10 +84,28 @@ export default {
             height: "0",
           },
         },
+        "pulse-fab": {
+          "0%, 100%": {
+            boxShadow: "0 0 0 0 rgba(37, 211, 102, 0.7)",
+          },
+          "50%": {
+            boxShadow: "0 0 0 10px rgba(37, 211, 102, 0)",
+          },
+        },
+        "marquee": {
+          "0%": {
+            transform: "translateX(0)",
+          },
+          "100%": {
+            transform: "translateX(-100%)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "pulse-fab": "pulse-fab 3s infinite",
+        "marquee": "marquee 40s linear infinite",
       },
     },
   },
