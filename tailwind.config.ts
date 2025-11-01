@@ -9,8 +9,13 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        "12": "12px",
       },
       colors: {
+        "saudi-green": "#006C35",
+        "muted-blue": "#AECBD6",
+        "off-white": "#F8F8F6",
+        "off-black": "#101010",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
