@@ -145,6 +145,41 @@
     "pediatric": {
       "title": "Pediatric Dentistry",
       "description": "We provide specialized dental care for children in a comfortable, friendly environment. Our pediatric services are perfect for families traveling together for dental treatment."
+    },
+    "braces-aligners": {
+      "title": "Braces & Aligners",
+      "promise": "Straight confidence",
+      "description": "Achieve a perfectly straight smile with our modern orthodontic solutions. We offer traditional braces and invisible aligners to fit your lifestyle and budget."
+    },
+    "oral-surgery": {
+      "title": "Oral Surgery",
+      "promise": "Safe, skilled, gentle",
+      "description": "From tooth extraction to jaw surgery, our specialized oral surgeons provide complex dental procedures with precision and care."
+    },
+    "general-care": {
+      "title": "General Care",
+      "promise": "Clean, stress-free",
+      "description": "Comprehensive preventive and general dentistry services to maintain your healthy smile and catch problems early."
+    },
+    "gum-treatment": {
+      "title": "Gum Treatment",
+      "promise": "Healthy lines, no bleed",
+      "description": "Treat gum disease and periodontal issues with our specialized gum treatment services for long-term oral health."
+    },
+    "pediatric-care": {
+      "title": "Pediatric Care",
+      "promise": "Gentle with kids",
+      "description": "Create a positive dental experience for your child with our kid-friendly environment and specialized pediatric dentists."
+    },
+    "checkups": {
+      "title": "Check-ups",
+      "promise": "Stay ahead of problems",
+      "description": "Regular dental check-ups and cleanings are essential for maintaining optimal oral health and preventing future issues."
+    },
+    "crowns-bridges": {
+      "title": "Crowns & Bridges",
+      "promise": "Restore your bite",
+      "description": "Restore missing or damaged teeth with our high-quality crowns and bridges designed for natural appearance and function."
     }
   },
   "doctors": {
