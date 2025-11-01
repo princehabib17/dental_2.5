@@ -8,6 +8,7 @@ import Home from "@/pages/Home";
 import Services from "@/pages/Services";
 import Doctors from "@/pages/Doctors";
 import Contact from "@/pages/Contact";
+import TestimonialsPage from "@/pages/TestimonialsPage";
 import NotFound from "@/pages/not-found";
 
 function Router() {
