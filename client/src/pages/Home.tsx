@@ -60,6 +60,9 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <Hero />
 
+      {/* Logo Marquee - Trust Indicators */}
+      <LogoMarquee />
+
       {/* About Dr. Daisy Section */}
       <AboutDrDaisy />
 
