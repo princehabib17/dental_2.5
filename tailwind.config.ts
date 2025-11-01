@@ -9,8 +9,13 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        "12": "12px",
       },
       colors: {
+        "saudi-green": "#006C35",
+        "muted-blue": "#AECBD6",
+        "off-white": "#F8F8F6",
+        "off-black": "#101010",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -79,10 +84,28 @@ export default {
             height: "0",
           },
         },
+        "pulse-fab": {
+          "0%, 100%": {
+            boxShadow: "0 0 0 0 rgba(37, 211, 102, 0.7)",
+          },
+          "50%": {
+            boxShadow: "0 0 0 10px rgba(37, 211, 102, 0)",
+          },
+        },
+        "marquee": {
+          "0%": {
+            transform: "translateX(0)",
+          },
+          "100%": {
+            transform: "translateX(-100%)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "pulse-fab": "pulse-fab 3s infinite",
+        "marquee": "marquee 40s linear infinite",
       },
     },
   },
