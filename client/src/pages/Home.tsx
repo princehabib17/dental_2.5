@@ -169,11 +169,17 @@ const Home: React.FC = () => {
       {/* Popular Tourist Areas */}
       <PopularTouristAreas />
       
+      {/* Your Journey Section */}
+      <YourJourney />
+
       {/* Appointment Form */}
       <AppointmentForm />
-      
+
       {/* FAQ Section */}
       <FAQ />
+
+      {/* Final CTA Section */}
+      <FinalCTA />
     </>
   );
 };
