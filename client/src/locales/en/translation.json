@@ -415,5 +415,22 @@
     "title": "Popular Tourist Destinations",
     "subtitle": "Explore the beautiful Philippines while receiving world-class dental care",
     "description": "Combine your dental treatment with an unforgettable vacation experience"
+  },
+  "molar3d": {
+    "title": "Discover Perfect Dental Health",
+    "subtitle": "Scroll to explore our advanced dental care - watch how we transform smiles with precision and care",
+    "scrollGuide": "↓ Scroll to explore ↓",
+    "feature1": {
+      "title": "Precision Care",
+      "desc": "Advanced 3D imaging for accurate diagnosis"
+    },
+    "feature2": {
+      "title": "Expert Treatment",
+      "desc": "State-of-the-art procedures by skilled professionals"
+    },
+    "feature3": {
+      "title": "Lasting Results",
+      "desc": "Beautiful, healthy smiles that last a lifetime"
+    }
   }
 }
