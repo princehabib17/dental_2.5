@@ -11,7 +11,6 @@ import { EnhancedTestimonials } from '@/components/EnhancedTestimonials';
 import { PopularTouristAreas } from '@/components/PopularTouristAreas';
 import AppointmentForm from '@/components/AppointmentForm';
 import FAQ from '@/components/FAQ';
-import Molar3DScroll from '@/components/Molar3DScroll';
 import { Heart, Brain, Bone, Stethoscope, Eye, Baby } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
@@ -100,10 +99,7 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* 3D Molar Scroll Animation */}
-      <Molar3DScroll />
-
+      
       {/* Doctors Section */}
       <section id="doctors" className="py-16 bg-gradient-to-r from-primary/5 to-secondary/5">
         <div className="container mx-auto px-4">
