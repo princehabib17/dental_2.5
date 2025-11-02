@@ -1,148 +1,122 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { PerspectiveCamera } from '@react-three/drei';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/context/LanguageContext';
 import * as THREE from 'three';
 
-// 3D Molar Tooth Component
+// 3D Molar Tooth Component - Simplified
 function MolarTooth() {
   const groupRef = useRef<THREE.Group>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Update scroll progress
-  useEffect(() => {
-    const handleScroll = () => {
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const scrollTop = window.scrollY;
-      const progress = scrollTop / (documentHeight - windowHeight);
-      setScrollProgress(Math.min(progress, 1));
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial call
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Animate based on scroll
+  // Animate based on scroll and time
   useFrame((state) => {
     if (groupRef.current) {
-      // Rotation based on scroll (full rotation every scroll)
-      groupRef.current.rotation.y = scrollProgress * Math.PI * 4;
-      groupRef.current.rotation.x = scrollProgress * Math.PI * 0.5;
+      const scrollY = window.scrollY;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollProgress = Math.min(scrollY / maxScroll, 1);
 
-      // Scale based on scroll (starts at 1, goes up to 2)
+      // Rotation based on scroll
+      groupRef.current.rotation.y = scrollProgress * Math.PI * 4;
+      groupRef.current.rotation.x = Math.sin(scrollProgress * Math.PI) * 0.3;
+
+      // Scale based on scroll (1x to 2.5x)
       const scale = 1 + scrollProgress * 1.5;
       groupRef.current.scale.set(scale, scale, scale);
 
-      // Subtle floating animation
-      groupRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.2;
+      // Floating animation
+      groupRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.2;
     }
   });
 
   return (
-    <group ref={groupRef}>
-      {/* Main crown body */}
-      <mesh position={[0, 0.4, 0]} castShadow receiveShadow>
-        <boxGeometry args={[1, 0.8, 1]} />
-        <meshStandardMaterial color="#f8f8f8" roughness={0.3} metalness={0.1} />
-      </mesh>
-
-      {/* Rounded tops - 4 corners */}
-      <mesh position={[0.25, 0.8, 0.25]} castShadow>
-        <sphereGeometry args={[0.4, 32, 32, 0, Math.PI * 2, 0, Math.PI / 2]} />
-        <meshStandardMaterial color="#f8f8f8" roughness={0.3} metalness={0.1} />
-      </mesh>
-
-      <mesh position={[-0.25, 0.8, 0.25]} castShadow>
-        <sphereGeometry args={[0.4, 32, 32, 0, Math.PI * 2, 0, Math.PI / 2]} />
-        <meshStandardMaterial color="#f8f8f8" roughness={0.3} metalness={0.1} />
-      </mesh>
-
-      <mesh position={[0.25, 0.8, -0.25]} castShadow>
-        <sphereGeometry args={[0.4, 32, 32, 0, Math.PI * 2, 0, Math.PI / 2]} />
-        <meshStandardMaterial color="#f8f8f8" roughness={0.3} metalness={0.1} />
-      </mesh>
-
-      <mesh position={[-0.25, 0.8, -0.25]} castShadow>
-        <sphereGeometry args={[0.4, 32, 32, 0, Math.PI * 2, 0, Math.PI / 2]} />
-        <meshStandardMaterial color="#f8f8f8" roughness={0.3} metalness={0.1} />
-      </mesh>
-
-      {/* Root 1 */}
-      <mesh position={[0.3, -0.6, 0.3]} rotation={[0, 0, 0.1]} castShadow>
-        <cylinderGeometry args={[0.15, 0.1, 1.2, 16]} />
-        <meshStandardMaterial color="#e8e8e8" roughness={0.5} metalness={0.05} />
-      </mesh>
-
-      {/* Root 2 */}
-      <mesh position={[-0.3, -0.6, 0.3]} rotation={[0, 0, -0.1]} castShadow>
-        <cylinderGeometry args={[0.15, 0.1, 1.2, 16]} />
-        <meshStandardMaterial color="#e8e8e8" roughness={0.5} metalness={0.05} />
-      </mesh>
-
-      {/* Root 3 */}
-      <mesh position={[0, -0.75, -0.3]} castShadow>
-        <cylinderGeometry args={[0.15, 0.1, 1.5, 16]} />
-        <meshStandardMaterial color="#e8e8e8" roughness={0.5} metalness={0.05} />
-      </mesh>
-
-      {/* Groove 1 - horizontal */}
-      <mesh position={[0, 0.85, 0]}>
-        <boxGeometry args={[0.8, 0.1, 0.05]} />
-        <meshStandardMaterial color="#d8d8d8" roughness={0.7} />
-      </mesh>
-
-      {/* Groove 2 - vertical */}
-      <mesh position={[0, 0.85, 0]}>
-        <boxGeometry args={[0.05, 0.1, 0.8]} />
-        <meshStandardMaterial color="#d8d8d8" roughness={0.7} />
-      </mesh>
-
-      {/* Lighting */}
-      <pointLight position={[10, 10, 10]} intensity={1} color="#ffffff" />
-      <pointLight position={[-10, -10, -10]} intensity={0.5} color="#4299e1" />
-      <ambientLight intensity={0.6} />
+    <>
+      <ambientLight intensity={0.8} />
+      <pointLight position={[10, 10, 10]} intensity={1.5} />
+      <pointLight position={[-10, -10, -10]} intensity={0.8} color="#60a5fa" />
       <spotLight
-        position={[0, 10, 0]}
-        angle={0.3}
+        position={[0, 15, 5]}
+        angle={0.5}
         penumbra={1}
-        intensity={1}
+        intensity={2}
         castShadow
       />
-    </group>
+
+      <group ref={groupRef}>
+        {/* Main crown - box shape */}
+        <mesh position={[0, 0.4, 0]} castShadow receiveShadow>
+          <boxGeometry args={[1, 0.8, 1]} />
+          <meshStandardMaterial
+            color="#ffffff"
+            roughness={0.2}
+            metalness={0.1}
+          />
+        </mesh>
+
+        {/* Crown top bumps - 4 spheres at corners */}
+        <mesh position={[0.25, 0.8, 0.25]} castShadow>
+          <sphereGeometry args={[0.35, 16, 16]} />
+          <meshStandardMaterial color="#ffffff" roughness={0.2} metalness={0.1} />
+        </mesh>
+
+        <mesh position={[-0.25, 0.8, 0.25]} castShadow>
+          <sphereGeometry args={[0.35, 16, 16]} />
+          <meshStandardMaterial color="#ffffff" roughness={0.2} metalness={0.1} />
+        </mesh>
+
+        <mesh position={[0.25, 0.8, -0.25]} castShadow>
+          <sphereGeometry args={[0.35, 16, 16]} />
+          <meshStandardMaterial color="#ffffff" roughness={0.2} metalness={0.1} />
+        </mesh>
+
+        <mesh position={[-0.25, 0.8, -0.25]} castShadow>
+          <sphereGeometry args={[0.35, 16, 16]} />
+          <meshStandardMaterial color="#ffffff" roughness={0.2} metalness={0.1} />
+        </mesh>
+
+        {/* Root 1 - front left */}
+        <mesh position={[0.3, -0.6, 0.3]} rotation={[0, 0, 0.15]} castShadow>
+          <cylinderGeometry args={[0.12, 0.08, 1.2, 12]} />
+          <meshStandardMaterial color="#f5f5f5" roughness={0.4} />
+        </mesh>
+
+        {/* Root 2 - front right */}
+        <mesh position={[-0.3, -0.6, 0.3]} rotation={[0, 0, -0.15]} castShadow>
+          <cylinderGeometry args={[0.12, 0.08, 1.2, 12]} />
+          <meshStandardMaterial color="#f5f5f5" roughness={0.4} />
+        </mesh>
+
+        {/* Root 3 - back center */}
+        <mesh position={[0, -0.75, -0.3]} castShadow>
+          <cylinderGeometry args={[0.12, 0.08, 1.5, 12]} />
+          <meshStandardMaterial color="#f5f5f5" roughness={0.4} />
+        </mesh>
+
+        {/* Chewing surface grooves */}
+        <mesh position={[0, 0.85, 0]}>
+          <boxGeometry args={[0.7, 0.08, 0.04]} />
+          <meshStandardMaterial color="#e8e8e8" />
+        </mesh>
+
+        <mesh position={[0, 0.85, 0]}>
+          <boxGeometry args={[0.04, 0.08, 0.7]} />
+          <meshStandardMaterial color="#e8e8e8" />
+        </mesh>
+      </group>
+    </>
   );
 }
 
-// Camera controller for following scroll
-function CameraController() {
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const scrollTop = window.scrollY;
-      const progress = scrollTop / (documentHeight - windowHeight);
-      setScrollProgress(Math.min(progress, 1));
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useFrame(({ camera }) => {
-    // Move camera slightly as user scrolls
-    camera.position.z = 5 - scrollProgress * 1;
-    camera.position.y = scrollProgress * 2;
-  });
-
-  return null;
+// Loading fallback
+function LoadingFallback() {
+  return (
+    <div className="flex items-center justify-center h-full">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-500 mx-auto mb-4"></div>
+        <p className="text-gray-600">Loading 3D Model...</p>
+      </div>
+    </div>
+  );
 }
 
 // Main Component
@@ -151,6 +125,20 @@ export default function Molar3DScroll() {
   const { language } = useLanguage();
   const isRtl = language === 'ar';
   const containerRef = useRef<HTMLDivElement>(null);
+  const [hasWebGL, setHasWebGL] = useState(true);
+
+  // Check WebGL support
+  useEffect(() => {
+    try {
+      const canvas = document.createElement('canvas');
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (!gl) {
+        setHasWebGL(false);
+      }
+    } catch (e) {
+      setHasWebGL(false);
+    }
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -205,15 +193,31 @@ export default function Molar3DScroll() {
           style={{ y }}
           className="relative w-full h-[600px] rounded-3xl shadow-2xl overflow-hidden bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100"
         >
-          <Canvas shadows camera={{ position: [0, 0, 5], fov: 50 }}>
-            <CameraController />
-            <MolarTooth />
-            <fog attach="fog" args={['#f0f0f0', 5, 15]} />
-          </Canvas>
+          {hasWebGL ? (
+            <Suspense fallback={<LoadingFallback />}>
+              <Canvas
+                shadows
+                camera={{ position: [0, 0, 5], fov: 50 }}
+                gl={{ antialias: true, alpha: true }}
+              >
+                <MolarTooth />
+              </Canvas>
+            </Suspense>
+          ) : (
+            <div className="flex items-center justify-center h-full">
+              <div className="text-center p-8">
+                <div className="text-6xl mb-4">🦷</div>
+                <h3 className="text-2xl font-bold mb-2">3D Dental Care</h3>
+                <p className="text-gray-600">
+                  Advanced 3D visualization (WebGL not supported on this device)
+                </p>
+              </div>
+            </div>
+          )}
 
           {/* Floating Guide Text */}
           <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
             animate={{
               y: [0, -10, 0],
             }}
