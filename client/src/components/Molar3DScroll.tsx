@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { PerspectiveCamera, Html } from '@react-three/drei';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { PerspectiveCamera } from '@react-three/drei';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/context/LanguageContext';
@@ -8,7 +8,7 @@ import * as THREE from 'three';
 
 // 3D Molar Tooth Component
 function MolarTooth() {
-  const meshRef = useRef<THREE.Group>(null);
+  const groupRef = useRef<THREE.Group>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   // Update scroll progress
@@ -28,113 +28,79 @@ function MolarTooth() {
   }, []);
 
   // Animate based on scroll
-  useFrame(() => {
-    if (meshRef.current) {
+  useFrame((state) => {
+    if (groupRef.current) {
       // Rotation based on scroll (full rotation every scroll)
-      meshRef.current.rotation.y = scrollProgress * Math.PI * 4;
-      meshRef.current.rotation.x = scrollProgress * Math.PI * 0.5;
+      groupRef.current.rotation.y = scrollProgress * Math.PI * 4;
+      groupRef.current.rotation.x = scrollProgress * Math.PI * 0.5;
 
       // Scale based on scroll (starts at 1, goes up to 2)
       const scale = 1 + scrollProgress * 1.5;
-      meshRef.current.scale.set(scale, scale, scale);
+      groupRef.current.scale.set(scale, scale, scale);
 
       // Subtle floating animation
-      meshRef.current.position.y = Math.sin(Date.now() * 0.001) * 0.2;
+      groupRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.2;
     }
   });
 
-  // Create molar tooth geometry
-  const createMolarGeometry = () => {
-    const group = new THREE.Group();
-
-    // Main body of the molar (crown)
-    const crownGeometry = new THREE.BoxGeometry(1, 0.8, 1);
-    const crownMaterial = new THREE.MeshStandardMaterial({
-      color: '#f8f8f8',
-      roughness: 0.3,
-      metalness: 0.1,
-    });
-    const crown = new THREE.Mesh(crownGeometry, crownMaterial);
-    crown.position.y = 0.4;
-
-    // Round the top edges
-    const topRound1 = new THREE.Mesh(
-      new THREE.SphereGeometry(0.4, 32, 32, 0, Math.PI * 2, 0, Math.PI / 2),
-      crownMaterial
-    );
-    topRound1.position.set(0.25, 0.8, 0.25);
-
-    const topRound2 = new THREE.Mesh(
-      new THREE.SphereGeometry(0.4, 32, 32, 0, Math.PI * 2, 0, Math.PI / 2),
-      crownMaterial
-    );
-    topRound2.position.set(-0.25, 0.8, 0.25);
-
-    const topRound3 = new THREE.Mesh(
-      new THREE.SphereGeometry(0.4, 32, 32, 0, Math.PI * 2, 0, Math.PI / 2),
-      crownMaterial
-    );
-    topRound3.position.set(0.25, 0.8, -0.25);
-
-    const topRound4 = new THREE.Mesh(
-      new THREE.SphereGeometry(0.4, 32, 32, 0, Math.PI * 2, 0, Math.PI / 2),
-      crownMaterial
-    );
-    topRound4.position.set(-0.25, 0.8, -0.25);
-
-    // Roots (3 roots for a molar)
-    const rootMaterial = new THREE.MeshStandardMaterial({
-      color: '#e8e8e8',
-      roughness: 0.5,
-      metalness: 0.05,
-    });
-
-    const root1Geometry = new THREE.CylinderGeometry(0.15, 0.1, 1.2, 16);
-    const root1 = new THREE.Mesh(root1Geometry, rootMaterial);
-    root1.position.set(0.3, -0.6, 0.3);
-    root1.rotation.z = 0.1;
-
-    const root2Geometry = new THREE.CylinderGeometry(0.15, 0.1, 1.2, 16);
-    const root2 = new THREE.Mesh(root2Geometry, rootMaterial);
-    root2.position.set(-0.3, -0.6, 0.3);
-    root2.rotation.z = -0.1;
-
-    const root3Geometry = new THREE.CylinderGeometry(0.15, 0.1, 1.5, 16);
-    const root3 = new THREE.Mesh(root3Geometry, rootMaterial);
-    root3.position.set(0, -0.75, -0.3);
-
-    // Add groove details on top
-    const grooveGeometry = new THREE.BoxGeometry(0.8, 0.1, 0.05);
-    const grooveMaterial = new THREE.MeshStandardMaterial({
-      color: '#d8d8d8',
-      roughness: 0.7,
-    });
-    const groove1 = new THREE.Mesh(grooveGeometry, grooveMaterial);
-    groove1.position.set(0, 0.85, 0);
-
-    const groove2 = new THREE.Mesh(
-      new THREE.BoxGeometry(0.05, 0.1, 0.8),
-      grooveMaterial
-    );
-    groove2.position.set(0, 0.85, 0);
-
-    group.add(crown);
-    group.add(topRound1);
-    group.add(topRound2);
-    group.add(topRound3);
-    group.add(topRound4);
-    group.add(root1);
-    group.add(root2);
-    group.add(root3);
-    group.add(groove1);
-    group.add(groove2);
-
-    return group;
-  };
-
   return (
-    <group ref={meshRef}>
-      <primitive object={createMolarGeometry()} />
+    <group ref={groupRef}>
+      {/* Main crown body */}
+      <mesh position={[0, 0.4, 0]} castShadow receiveShadow>
+        <boxGeometry args={[1, 0.8, 1]} />
+        <meshStandardMaterial color="#f8f8f8" roughness={0.3} metalness={0.1} />
+      </mesh>
+
+      {/* Rounded tops - 4 corners */}
+      <mesh position={[0.25, 0.8, 0.25]} castShadow>
+        <sphereGeometry args={[0.4, 32, 32, 0, Math.PI * 2, 0, Math.PI / 2]} />
+        <meshStandardMaterial color="#f8f8f8" roughness={0.3} metalness={0.1} />
+      </mesh>
+
+      <mesh position={[-0.25, 0.8, 0.25]} castShadow>
+        <sphereGeometry args={[0.4, 32, 32, 0, Math.PI * 2, 0, Math.PI / 2]} />
+        <meshStandardMaterial color="#f8f8f8" roughness={0.3} metalness={0.1} />
+      </mesh>
+
+      <mesh position={[0.25, 0.8, -0.25]} castShadow>
+        <sphereGeometry args={[0.4, 32, 32, 0, Math.PI * 2, 0, Math.PI / 2]} />
+        <meshStandardMaterial color="#f8f8f8" roughness={0.3} metalness={0.1} />
+      </mesh>
+
+      <mesh position={[-0.25, 0.8, -0.25]} castShadow>
+        <sphereGeometry args={[0.4, 32, 32, 0, Math.PI * 2, 0, Math.PI / 2]} />
+        <meshStandardMaterial color="#f8f8f8" roughness={0.3} metalness={0.1} />
+      </mesh>
+
+      {/* Root 1 */}
+      <mesh position={[0.3, -0.6, 0.3]} rotation={[0, 0, 0.1]} castShadow>
+        <cylinderGeometry args={[0.15, 0.1, 1.2, 16]} />
+        <meshStandardMaterial color="#e8e8e8" roughness={0.5} metalness={0.05} />
+      </mesh>
+
+      {/* Root 2 */}
+      <mesh position={[-0.3, -0.6, 0.3]} rotation={[0, 0, -0.1]} castShadow>
+        <cylinderGeometry args={[0.15, 0.1, 1.2, 16]} />
+        <meshStandardMaterial color="#e8e8e8" roughness={0.5} metalness={0.05} />
+      </mesh>
+
+      {/* Root 3 */}
+      <mesh position={[0, -0.75, -0.3]} castShadow>
+        <cylinderGeometry args={[0.15, 0.1, 1.5, 16]} />
+        <meshStandardMaterial color="#e8e8e8" roughness={0.5} metalness={0.05} />
+      </mesh>
+
+      {/* Groove 1 - horizontal */}
+      <mesh position={[0, 0.85, 0]}>
+        <boxGeometry args={[0.8, 0.1, 0.05]} />
+        <meshStandardMaterial color="#d8d8d8" roughness={0.7} />
+      </mesh>
+
+      {/* Groove 2 - vertical */}
+      <mesh position={[0, 0.85, 0]}>
+        <boxGeometry args={[0.05, 0.1, 0.8]} />
+        <meshStandardMaterial color="#d8d8d8" roughness={0.7} />
+      </mesh>
 
       {/* Lighting */}
       <pointLight position={[10, 10, 10]} intensity={1} color="#ffffff" />
@@ -153,7 +119,6 @@ function MolarTooth() {
 
 // Camera controller for following scroll
 function CameraController() {
-  const { camera } = useThree();
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
@@ -171,7 +136,7 @@ function CameraController() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useFrame(() => {
+  useFrame(({ camera }) => {
     // Move camera slightly as user scrolls
     camera.position.z = 5 - scrollProgress * 1;
     camera.position.y = scrollProgress * 2;
@@ -238,17 +203,11 @@ export default function Molar3DScroll() {
         {/* 3D Canvas Container */}
         <motion.div
           style={{ y }}
-          className="relative w-full h-[600px] rounded-3xl shadow-2xl overflow-hidden"
+          className="relative w-full h-[600px] rounded-3xl shadow-2xl overflow-hidden bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100"
         >
-          <Canvas
-            shadows
-            className="bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100"
-          >
-            <PerspectiveCamera makeDefault position={[0, 0, 5]} fov={50} />
+          <Canvas shadows camera={{ position: [0, 0, 5], fov: 50 }}>
             <CameraController />
             <MolarTooth />
-
-            {/* Environment */}
             <fog attach="fog" args={['#f0f0f0', 5, 15]} />
           </Canvas>
 
